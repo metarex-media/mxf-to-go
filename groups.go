@@ -52,16 +52,16 @@ type GBadRequestResponseStruct struct {
 
 }
 
-func (G *GBadRequestResponseStruct) Encode() ([]byte, error) {
+func (g *GBadRequestResponseStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTDataValue(G.ASMBadRequestCopy)
+	field, _ = EncodeTDataValue(g.ASMBadRequestCopy)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 3, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ASMResponse)
+	field, _ = EncodeTUInt8(g.ASMResponse)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 4, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -85,10 +85,10 @@ type GTimeRequestStruct struct {
 
 }
 
-func (G *GTimeRequestStruct) Encode() ([]byte, error) {
+func (g *GTimeRequestStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -116,22 +116,22 @@ type GTimeResponseStruct struct {
 
 }
 
-func (G *GTimeResponseStruct) Encode() ([]byte, error) {
+func (g *GTimeResponseStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.ASMCurrentTime)
+	field, _ = EncodeTUInt64(g.ASMCurrentTime)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 7, 2, 1, 1, 1, 8, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ASMResponse)
+	field, _ = EncodeTUInt8(g.ASMResponse)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 4, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -159,22 +159,22 @@ type GEventListRequestStruct struct {
 
 }
 
-func (G *GEventListRequestStruct) Encode() ([]byte, error) {
+func (g *GEventListRequestStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.ASMEventListStartTime)
+	field, _ = EncodeTUInt32(g.ASMEventListStartTime)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 7, 2, 1, 2, 7, 3, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.ASMEventListStopTime)
+	field, _ = EncodeTUInt32(g.ASMEventListStopTime)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 7, 2, 1, 2, 10, 2, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -202,22 +202,22 @@ type GEventListResponseStruct struct {
 
 }
 
-func (G *GEventListResponseStruct) Encode() ([]byte, error) {
+func (g *GEventListResponseStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32Set(G.ASMEventIDBatch)
+	field, _ = EncodeTUInt32Set(g.ASMEventIDBatch)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 6, 1, 1, 3, 15, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ASMResponse)
+	field, _ = EncodeTUInt8(g.ASMResponse)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 4, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -243,16 +243,16 @@ type GEventIDRequestStruct struct {
 
 }
 
-func (G *GEventIDRequestStruct) Encode() ([]byte, error) {
+func (g *GEventIDRequestStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.ASMEventID)
+	field, _ = EncodeTUInt32(g.ASMEventID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 2, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -280,22 +280,22 @@ type GEventIDResponseStruct struct {
 
 }
 
-func (G *GEventIDResponseStruct) Encode() ([]byte, error) {
+func (g *GEventIDResponseStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTDataValue(G.ASMLogRecord)
+	field, _ = EncodeTDataValue(g.ASMLogRecord)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 5, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ASMResponse)
+	field, _ = EncodeTUInt8(g.ASMResponse)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 4, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -319,10 +319,10 @@ type GSecureProcessingBlockQueryRequestStruct struct {
 
 }
 
-func (G *GSecureProcessingBlockQueryRequestStruct) Encode() ([]byte, error) {
+func (g *GSecureProcessingBlockQueryRequestStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -352,28 +352,28 @@ type GSecureProcessingBlockQueryResponseStruct struct {
 
 }
 
-func (G *GSecureProcessingBlockQueryResponseStruct) Encode() ([]byte, error) {
+func (g *GSecureProcessingBlockQueryResponseStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ASMProtocolVersion)
+	field, _ = EncodeTUInt8(g.ASMProtocolVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 6, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ASMPlayoutStatus)
+	field, _ = EncodeTUInt8(g.ASMPlayoutStatus)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 7, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ASMResponse)
+	field, _ = EncodeTUInt8(g.ASMResponse)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 4, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -397,10 +397,10 @@ type GProjectorCertificateRequestStruct struct {
 
 }
 
-func (G *GProjectorCertificateRequestStruct) Encode() ([]byte, error) {
+func (g *GProjectorCertificateRequestStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -428,22 +428,22 @@ type GProjectorCertificateResponseStruct struct {
 
 }
 
-func (G *GProjectorCertificateResponseStruct) Encode() ([]byte, error) {
+func (g *GProjectorCertificateResponseStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTDataValue(G.ASMProjectorCertificateData)
+	field, _ = EncodeTDataValue(g.ASMProjectorCertificateData)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 14, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ASMResponse)
+	field, _ = EncodeTUInt8(g.ASMResponse)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 4, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -469,16 +469,16 @@ type GLinkEncryptionKeyLoadRequestStruct struct {
 
 }
 
-func (G *GLinkEncryptionKeyLoadRequestStruct) Encode() ([]byte, error) {
+func (g *GLinkEncryptionKeyLoadRequestStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTASMLEKeyIDMappingSet(G.ASMLinkEncryptionKeyBatch)
+	field, _ = EncodeTASMLEKeyIDMappingSet(g.ASMLinkEncryptionKeyBatch)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 6, 1, 1, 3, 16, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -506,22 +506,22 @@ type GLinkEncryptionKeyLoadResponseStruct struct {
 
 }
 
-func (G *GLinkEncryptionKeyLoadResponseStruct) Encode() ([]byte, error) {
+func (g *GLinkEncryptionKeyLoadResponseStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ASMBufferOverflowFlag)
+	field, _ = EncodeTUInt8(g.ASMBufferOverflowFlag)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 8, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ASMResponse)
+	field, _ = EncodeTUInt8(g.ASMResponse)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 4, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -547,16 +547,16 @@ type GLinkEncryptionKeyQueryIDRequestStruct struct {
 
 }
 
-func (G *GLinkEncryptionKeyQueryIDRequestStruct) Encode() ([]byte, error) {
+func (g *GLinkEncryptionKeyQueryIDRequestStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.ASMLinkEncryptionKeyID)
+	field, _ = EncodeTUInt32(g.ASMLinkEncryptionKeyID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 3, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -584,22 +584,22 @@ type GLinkEncryptionKeyQueryIDResponseStruct struct {
 
 }
 
-func (G *GLinkEncryptionKeyQueryIDResponseStruct) Encode() ([]byte, error) {
+func (g *GLinkEncryptionKeyQueryIDResponseStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ASMKeyPresentFlag)
+	field, _ = EncodeTUInt8(g.ASMKeyPresentFlag)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 9, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ASMResponse)
+	field, _ = EncodeTUInt8(g.ASMResponse)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 4, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -623,10 +623,10 @@ type GLinkEncryptionKeyQueryAllRequestStruct struct {
 
 }
 
-func (G *GLinkEncryptionKeyQueryAllRequestStruct) Encode() ([]byte, error) {
+func (g *GLinkEncryptionKeyQueryAllRequestStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -654,22 +654,22 @@ type GLinkEncryptionKeyQueryAllResponseStruct struct {
 
 }
 
-func (G *GLinkEncryptionKeyQueryAllResponseStruct) Encode() ([]byte, error) {
+func (g *GLinkEncryptionKeyQueryAllResponseStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32Set(G.ASMLinkEncryptionKeyIDBatch)
+	field, _ = EncodeTUInt32Set(g.ASMLinkEncryptionKeyIDBatch)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 6, 1, 1, 3, 17, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ASMResponse)
+	field, _ = EncodeTUInt8(g.ASMResponse)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 4, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -695,16 +695,16 @@ type GLinkEncryptionPurgeIDRequestStruct struct {
 
 }
 
-func (G *GLinkEncryptionPurgeIDRequestStruct) Encode() ([]byte, error) {
+func (g *GLinkEncryptionPurgeIDRequestStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.ASMLinkEncryptionKeyID)
+	field, _ = EncodeTUInt32(g.ASMLinkEncryptionKeyID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 3, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -732,22 +732,22 @@ type GLinkEncryptionPurgeIDResponseStruct struct {
 
 }
 
-func (G *GLinkEncryptionPurgeIDResponseStruct) Encode() ([]byte, error) {
+func (g *GLinkEncryptionPurgeIDResponseStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ASMKeyNotPresentFlag)
+	field, _ = EncodeTUInt8(g.ASMKeyNotPresentFlag)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 10, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ASMResponse)
+	field, _ = EncodeTUInt8(g.ASMResponse)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 4, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -771,10 +771,10 @@ type GLinkEncryptionPurgeAllRequestStruct struct {
 
 }
 
-func (G *GLinkEncryptionPurgeAllRequestStruct) Encode() ([]byte, error) {
+func (g *GLinkEncryptionPurgeAllRequestStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -800,16 +800,16 @@ type GLinkEncryptionPurgeAllResponseStruct struct {
 
 }
 
-func (G *GLinkEncryptionPurgeAllResponseStruct) Encode() ([]byte, error) {
+func (g *GLinkEncryptionPurgeAllResponseStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ASMRequestID)
+	field, _ = EncodeTUInt32(g.ASMRequestID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 8, 1, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ASMResponse)
+	field, _ = EncodeTUInt8(g.ASMResponse)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 13, 2, 7, 4, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -845,17 +845,17 @@ type GDMCVTGenericSet1Struct struct {
 
 }
 
-func (G *GDMCVTGenericSet1Struct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDMCVTGenericSet1Struct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt8(G.ApplicationIdentifier)
+	field, _ = EncodeTUInt8(g.ApplicationIdentifier)
 	result = append(result, []byte{54, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 1, 0, 0, 0, 0}, []byte{54, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ApplicationVersionNumber)
+	field, _ = EncodeTUInt8(g.ApplicationVersionNumber)
 	result = append(result, []byte{54, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 2, 0, 0, 0, 0}, []byte{54, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -907,38 +907,38 @@ type GDMCVTApp1SetStruct struct {
 
 }
 
-func (G *GDMCVTApp1SetStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDMCVTApp1SetStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt8(G.ApplicationIdentifier)
+	field, _ = EncodeTUInt8(g.ApplicationIdentifier)
 	result = append(result, []byte{54, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 1, 0, 0, 0, 0}, []byte{54, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ApplicationVersionNumber)
+	field, _ = EncodeTUInt8(g.ApplicationVersionNumber)
 	result = append(result, []byte{54, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 2, 0, 0, 0, 0}, []byte{54, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.MinimumPqencodedMaxrgb)
+	field, _ = EncodeTRational(g.MinimumPqencodedMaxrgb)
 	result = append(result, []byte{54, 13}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 13, 0, 0, 0, 0}, []byte{54, 13})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.AveragePqencodedMaxrgb)
+	field, _ = EncodeTRational(g.AveragePqencodedMaxrgb)
 	result = append(result, []byte{54, 14}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 14, 0, 0, 0, 0}, []byte{54, 14})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.MaximumPqencodedMaxrgb)
+	field, _ = EncodeTRational(g.MaximumPqencodedMaxrgb)
 	result = append(result, []byte{54, 15}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 15, 0, 0, 0, 0}, []byte{54, 15})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -997,73 +997,73 @@ type GDMCVTApp2SetStruct struct {
 
 }
 
-func (G *GDMCVTApp2SetStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDMCVTApp2SetStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt8(G.ApplicationIdentifier)
+	field, _ = EncodeTUInt8(g.ApplicationIdentifier)
 	result = append(result, []byte{54, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 1, 0, 0, 0, 0}, []byte{54, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ApplicationVersionNumber)
+	field, _ = EncodeTUInt8(g.ApplicationVersionNumber)
 	result = append(result, []byte{54, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 2, 0, 0, 0, 0}, []byte{54, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRationalArray(G.SaturationGainFunction)
+	field, _ = EncodeTRationalArray(g.SaturationGainFunction)
 	result = append(result, []byte{54, 31}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 31, 0, 0, 0, 0}, []byte{54, 31})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRationalArray(G.ToneMappingInputSignalWeights)
+	field, _ = EncodeTRationalArray(g.ToneMappingInputSignalWeights)
 	result = append(result, []byte{54, 32}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 32, 0, 0, 0, 0}, []byte{54, 32})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.ToneMappingInputSignalBlackLevelOffset)
+	field, _ = EncodeTRational(g.ToneMappingInputSignalBlackLevelOffset)
 	result = append(result, []byte{54, 33}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 33, 0, 0, 0, 0}, []byte{54, 33})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.ToneMappingInputSignalWhiteLevelOffset)
+	field, _ = EncodeTRational(g.ToneMappingInputSignalWhiteLevelOffset)
 	result = append(result, []byte{54, 34}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 34, 0, 0, 0, 0}, []byte{54, 34})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.ShadowGainControl)
+	field, _ = EncodeTRational(g.ShadowGainControl)
 	result = append(result, []byte{54, 35}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 35, 0, 0, 0, 0}, []byte{54, 35})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.HighlightGainControl)
+	field, _ = EncodeTRational(g.HighlightGainControl)
 	result = append(result, []byte{54, 36}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 36, 0, 0, 0, 0}, []byte{54, 36})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.MidToneWidthAdjustmentFactor)
+	field, _ = EncodeTRational(g.MidToneWidthAdjustmentFactor)
 	result = append(result, []byte{54, 37}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 37, 0, 0, 0, 0}, []byte{54, 37})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRationalArray(G.ToneMappingOutputFineTuningFunction)
+	field, _ = EncodeTRationalArray(g.ToneMappingOutputFineTuningFunction)
 	result = append(result, []byte{54, 38}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 38, 0, 0, 0, 0}, []byte{54, 38})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -1109,17 +1109,17 @@ type GDMCVTApp3SetStruct struct {
 
 }
 
-func (G *GDMCVTApp3SetStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDMCVTApp3SetStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt8(G.ApplicationIdentifier)
+	field, _ = EncodeTUInt8(g.ApplicationIdentifier)
 	result = append(result, []byte{54, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 1, 0, 0, 0, 0}, []byte{54, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ApplicationVersionNumber)
+	field, _ = EncodeTUInt8(g.ApplicationVersionNumber)
 	result = append(result, []byte{54, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 2, 0, 0, 0, 0}, []byte{54, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -1179,52 +1179,52 @@ type GDMCVTApp4SetStruct struct {
 
 }
 
-func (G *GDMCVTApp4SetStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDMCVTApp4SetStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt8(G.ApplicationIdentifier)
+	field, _ = EncodeTUInt8(g.ApplicationIdentifier)
 	result = append(result, []byte{54, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 1, 0, 0, 0, 0}, []byte{54, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.ApplicationVersionNumber)
+	field, _ = EncodeTUInt8(g.ApplicationVersionNumber)
 	result = append(result, []byte{54, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 2, 0, 0, 0, 0}, []byte{54, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRationalArray(G.MaxSCL)
+	field, _ = EncodeTRationalArray(g.MaxSCL)
 	result = append(result, []byte{54, 58}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 58, 0, 0, 0, 0}, []byte{54, 58})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.AverageMaxRGB)
+	field, _ = EncodeTRational(g.AverageMaxRGB)
 	result = append(result, []byte{54, 59}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 59, 0, 0, 0, 0}, []byte{54, 59})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8Array(G.DistributionMaxRGBPercentages)
+	field, _ = EncodeTUInt8Array(g.DistributionMaxRGBPercentages)
 	result = append(result, []byte{54, 60}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 60, 0, 0, 0, 0}, []byte{54, 60})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRationalArray(G.DistributionMaxRGBPercentiles)
+	field, _ = EncodeTRationalArray(g.DistributionMaxRGBPercentiles)
 	result = append(result, []byte{54, 61}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 61, 0, 0, 0, 0}, []byte{54, 61})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.FractionBrightPixels)
+	field, _ = EncodeTRational(g.FractionBrightPixels)
 	result = append(result, []byte{54, 62}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 1, 62, 0, 0, 0, 0}, []byte{54, 62})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -1250,7 +1250,7 @@ var GMDColorVolumeMetadata = map[string]Group{
 type GMDColorVolumeMetadataStruct struct {
 }
 
-func (G *GMDColorVolumeMetadataStruct) Encode() ([]byte, error) {
+func (g *GMDColorVolumeMetadataStruct) Encode() ([]byte, error) {
 	var result []byte
 
 	header := []byte{6, 14, 43, 52, 2, 2, 1, 1, 5, 50, 1, 0, 0, 0, 0, 0}
@@ -1270,7 +1270,7 @@ var GMaximumLightLevelMetadata = map[string]Group{
 type GMaximumLightLevelMetadataStruct struct {
 }
 
-func (G *GMaximumLightLevelMetadataStruct) Encode() ([]byte, error) {
+func (g *GMaximumLightLevelMetadataStruct) Encode() ([]byte, error) {
 	var result []byte
 
 	header := []byte{6, 14, 43, 52, 2, 2, 1, 1, 5, 50, 2, 0, 0, 0, 0, 0}
@@ -1348,10 +1348,10 @@ type GLensUnitAcquisitionMetadataStruct struct {
 
 }
 
-func (G *GLensUnitAcquisitionMetadataStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GLensUnitAcquisitionMetadataStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -1402,10 +1402,10 @@ type GCameraUnitAcquisitionMetadataStruct struct {
 
 }
 
-func (G *GCameraUnitAcquisitionMetadataStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GCameraUnitAcquisitionMetadataStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -1431,10 +1431,10 @@ type GUserDefinedAcquisitionMetadataStruct struct {
 
 }
 
-func (G *GUserDefinedAcquisitionMetadataStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GUserDefinedAcquisitionMetadataStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -1461,16 +1461,16 @@ type GAuxDataBlockTransferHeaderStruct struct {
 
 }
 
-func (G *GAuxDataBlockTransferHeaderStruct) Encode() ([]byte, error) {
+func (g *GAuxDataBlockTransferHeaderStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.AuxDataEditUnitRangeStartIndex)
+	field, _ = EncodeTUInt32(g.AuxDataEditUnitRangeStartIndex)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 14, 2, 64, 1, 1, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.AuxEditUnitRangeCount)
+	field, _ = EncodeTUInt32(g.AuxEditUnitRangeCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 14, 2, 64, 1, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -1506,46 +1506,46 @@ type GAuxDataBlockStruct struct {
 
 }
 
-func (G *GAuxDataBlockStruct) Encode() ([]byte, error) {
+func (g *GAuxDataBlockStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.AuxDataBlockEditUnitIndex)
+	field, _ = EncodeTUInt32(g.AuxDataBlockEditUnitIndex)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 14, 2, 64, 1, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.AuxDataBlockEditUnitEditRate)
+	field, _ = EncodeTRational(g.AuxDataBlockEditUnitEditRate)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 14, 2, 64, 1, 4, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.AuxDataBlockSourceDataEssenceCodingUL)
+	field, _ = EncodeTAUID(g.AuxDataBlockSourceDataEssenceCodingUL)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 14, 2, 64, 1, 5, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.AuxDataBlockSourceDataItemLength)
+	field, _ = EncodeTUInt64(g.AuxDataBlockSourceDataItemLength)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 14, 2, 64, 1, 6, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTDataValue(G.AuxDataBlockSourceDataItem)
+	field, _ = EncodeTDataValue(g.AuxDataBlockSourceDataItem)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 14, 2, 64, 1, 7, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.AuxDataBlockSourceCryptographicContextLength)
+	field, _ = EncodeTUInt64(g.AuxDataBlockSourceCryptographicContextLength)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 14, 2, 64, 1, 8, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTDataValue(G.AuxDataBlockSourceCryptographicContext)
+	field, _ = EncodeTDataValue(g.AuxDataBlockSourceCryptographicContext)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 14, 2, 64, 1, 9, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -1567,7 +1567,7 @@ var GAudioMetadataPack = map[string]Group{
 type GAudioMetadataPackStruct struct {
 }
 
-func (G *GAudioMetadataPackStruct) Encode() ([]byte, error) {
+func (g *GAudioMetadataPackStruct) Encode() ([]byte, error) {
 	var result []byte
 
 	header := []byte{6, 14, 43, 52, 2, 2, 1, 1, 12, 4, 1, 0, 0, 0, 0, 0}
@@ -1591,10 +1591,10 @@ type GInterchangeObjectStruct struct {
 
 }
 
-func (G *GInterchangeObjectStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GInterchangeObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -1628,17 +1628,17 @@ type GComponentStruct struct {
 
 }
 
-func (G *GComponentStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GComponentStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -1672,17 +1672,17 @@ type GSegmentStruct struct {
 
 }
 
-func (G *GSegmentStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GSegmentStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -1723,38 +1723,38 @@ type GEdgeCodeStruct struct {
 
 }
 
-func (G *GEdgeCodeStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GEdgeCodeStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPositionType(G.EdgeCodeStart)
+	field, _ = EncodeTPositionType(g.EdgeCodeStart)
 	result = append(result, []byte{4, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 4, 9, 1, 0, 0, 0, 0}, []byte{4, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTFilmType(G.EdgeCodeFilmFormat)
+	field, _ = EncodeTFilmType(g.EdgeCodeFilmFormat)
 	result = append(result, []byte{4, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 16, 1, 3, 1, 9, 0, 0}, []byte{4, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTEdgeType(G.EdgeCodeFormat)
+	field, _ = EncodeTEdgeType(g.EdgeCodeFormat)
 	result = append(result, []byte{4, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 16, 1, 3, 1, 2, 0, 0}, []byte{4, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -1791,24 +1791,24 @@ type GEssenceGroupStruct struct {
 
 }
 
-func (G *GEssenceGroupStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GEssenceGroupStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTSourceReferenceStrongReferenceVector(G.Choices)
+	field, _ = EncodeTSourceReferenceStrongReferenceVector(g.Choices)
 	result = append(result, []byte{5, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 6, 1, 0, 0}, []byte{5, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -1844,17 +1844,17 @@ type GEventStruct struct {
 
 }
 
-func (G *GEventStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GEventStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -1892,24 +1892,24 @@ type GGPITriggerStruct struct {
 
 }
 
-func (G *GGPITriggerStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GGPITriggerStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTBoolean(G.ActiveState)
+	field, _ = EncodeTBoolean(g.ActiveState)
 	result = append(result, []byte{8, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 5, 48, 4, 1, 0, 0, 0, 0}, []byte{8, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -1946,17 +1946,17 @@ type GCommentMarkerStruct struct {
 
 }
 
-func (G *GCommentMarkerStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GCommentMarkerStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -1990,16 +1990,16 @@ type GFillerStruct struct {
 
 }
 
-func (G *GFillerStruct) Encode() ([]byte, error) {
+func (g *GFillerStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -2038,24 +2038,24 @@ type GOperationGroupStruct struct {
 
 }
 
-func (G *GOperationGroupStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GOperationGroupStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.Operation)
+	field, _ = EncodeTWeakReference(g.Operation)
 	result = append(result, []byte{11, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 5, 48, 5, 6, 0, 0, 0, 0}, []byte{11, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -2091,24 +2091,24 @@ type GNestedScopeStruct struct {
 
 }
 
-func (G *GNestedScopeStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GNestedScopeStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTSegmentStrongReferenceVector(G.NestedScopeTracks)
+	field, _ = EncodeTSegmentStrongReferenceVector(g.NestedScopeTracks)
 	result = append(result, []byte{12, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 6, 7, 0, 0}, []byte{12, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -2150,45 +2150,45 @@ type GPulldownStruct struct {
 
 }
 
-func (G *GPulldownStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GPulldownStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReference(G.InputSegment)
+	field, _ = EncodeTStrongReference(g.InputSegment)
 	result = append(result, []byte{13, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 2, 7, 0, 0}, []byte{13, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPulldownKindType(G.PulldownKind)
+	field, _ = EncodeTPulldownKindType(g.PulldownKind)
 	result = append(result, []byte{13, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 5, 64, 16, 1, 2, 0, 0, 0}, []byte{13, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPulldownDirectionType(G.PulldownDirection)
+	field, _ = EncodeTPulldownDirectionType(g.PulldownDirection)
 	result = append(result, []byte{13, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 5, 64, 16, 1, 1, 0, 0, 0}, []byte{13, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPhaseFrameType(G.PhaseFrame)
+	field, _ = EncodeTPhaseFrameType(g.PhaseFrame)
 	result = append(result, []byte{13, 4}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 5, 64, 16, 1, 3, 0, 0, 0}, []byte{13, 4})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -2226,31 +2226,31 @@ type GScopeReferenceStruct struct {
 
 }
 
-func (G *GScopeReferenceStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GScopeReferenceStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.RelativeScope)
+	field, _ = EncodeTUInt32(g.RelativeScope)
 	result = append(result, []byte{14, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 3, 3, 0, 0, 0}, []byte{14, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.RelativeTrack)
+	field, _ = EncodeTUInt32(g.RelativeTrack)
 	result = append(result, []byte{14, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 3, 4, 0, 0, 0}, []byte{14, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -2287,24 +2287,24 @@ type GSelectorStruct struct {
 
 }
 
-func (G *GSelectorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GSelectorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReference(G.SelectedSegment)
+	field, _ = EncodeTStrongReference(g.SelectedSegment)
 	result = append(result, []byte{15, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 2, 9, 0, 0}, []byte{15, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -2340,24 +2340,24 @@ type GSequenceStruct struct {
 
 }
 
-func (G *GSequenceStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GSequenceStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTComponentStrongReferenceVector(G.ComponentObjects)
+	field, _ = EncodeTComponentStrongReferenceVector(g.ComponentObjects)
 	result = append(result, []byte{16, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 6, 9, 0, 0}, []byte{16, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -2397,31 +2397,31 @@ type GSourceReferenceStruct struct {
 
 }
 
-func (G *GSourceReferenceStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GSourceReferenceStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPackageIDType(G.SourcePackageID)
+	field, _ = EncodeTPackageIDType(g.SourcePackageID)
 	result = append(result, []byte{17, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 3, 1, 0, 0, 0}, []byte{17, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.SourceTrackID)
+	field, _ = EncodeTUInt32(g.SourceTrackID)
 	result = append(result, []byte{17, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 3, 2, 0, 0, 0}, []byte{17, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -2467,38 +2467,38 @@ type GSourceClipStruct struct {
 
 }
 
-func (G *GSourceClipStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GSourceClipStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTPackageIDType(G.SourcePackageID)
+	field, _ = EncodeTPackageIDType(g.SourcePackageID)
 	result = append(result, []byte{17, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 3, 1, 0, 0, 0}, []byte{17, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.SourceTrackID)
+	field, _ = EncodeTUInt32(g.SourceTrackID)
 	result = append(result, []byte{17, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 3, 2, 0, 0, 0}, []byte{17, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPositionType(G.StartPosition)
+	field, _ = EncodeTPositionType(g.StartPosition)
 	result = append(result, []byte{18, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 7, 2, 1, 3, 1, 4, 0, 0}, []byte{18, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -2538,31 +2538,31 @@ type GTextClipStruct struct {
 
 }
 
-func (G *GTextClipStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTextClipStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTPackageIDType(G.SourcePackageID)
+	field, _ = EncodeTPackageIDType(g.SourcePackageID)
 	result = append(result, []byte{17, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 3, 1, 0, 0, 0}, []byte{17, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.SourceTrackID)
+	field, _ = EncodeTUInt32(g.SourceTrackID)
 	result = append(result, []byte{17, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 3, 2, 0, 0, 0}, []byte{17, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -2604,31 +2604,31 @@ type GHTMLClipStruct struct {
 
 }
 
-func (G *GHTMLClipStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GHTMLClipStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTPackageIDType(G.SourcePackageID)
+	field, _ = EncodeTPackageIDType(g.SourcePackageID)
 	result = append(result, []byte{17, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 3, 1, 0, 0, 0}, []byte{17, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.SourceTrackID)
+	field, _ = EncodeTUInt32(g.SourceTrackID)
 	result = append(result, []byte{17, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 3, 2, 0, 0, 0}, []byte{17, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -2668,38 +2668,38 @@ type GTimecodeStruct struct {
 
 }
 
-func (G *GTimecodeStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTimecodeStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPositionType(G.StartTimecode)
+	field, _ = EncodeTPositionType(g.StartTimecode)
 	result = append(result, []byte{21, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 7, 2, 1, 3, 1, 5, 0, 0}, []byte{21, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.FramesPerSecond)
+	field, _ = EncodeTUInt16(g.FramesPerSecond)
 	result = append(result, []byte{21, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 4, 1, 1, 2, 6, 0, 0}, []byte{21, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTBoolean(G.DropFrame)
+	field, _ = EncodeTBoolean(g.DropFrame)
 	result = append(result, []byte{21, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 4, 1, 1, 5, 0, 0, 0}, []byte{21, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -2739,38 +2739,38 @@ type GTimecodeStreamStruct struct {
 
 }
 
-func (G *GTimecodeStreamStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTimecodeStreamStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.TimecodeStreamSampleRate)
+	field, _ = EncodeTRational(g.TimecodeStreamSampleRate)
 	result = append(result, []byte{22, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 4, 1, 1, 2, 1, 0, 0}, []byte{22, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTbyte(G.TimecodeStreamData)
+	field, _ = EncodeTbyte(g.TimecodeStreamData)
 	result = append(result, []byte{22, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 3, 0, 0, 0, 0, 0}, []byte{22, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTCSource(G.TimecodeSource)
+	field, _ = EncodeTTCSource(g.TimecodeSource)
 	result = append(result, []byte{22, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 4, 2, 1, 0, 0, 0, 0}, []byte{22, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -2812,45 +2812,45 @@ type GTimecodeStream12MStruct struct {
 
 }
 
-func (G *GTimecodeStream12MStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTimecodeStream12MStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTRational(G.TimecodeStreamSampleRate)
+	field, _ = EncodeTRational(g.TimecodeStreamSampleRate)
 	result = append(result, []byte{22, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 4, 1, 1, 2, 1, 0, 0}, []byte{22, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTbyte(G.TimecodeStreamData)
+	field, _ = EncodeTbyte(g.TimecodeStreamData)
 	result = append(result, []byte{22, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 3, 0, 0, 0, 0, 0}, []byte{22, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTCSource(G.TimecodeSource)
+	field, _ = EncodeTTCSource(g.TimecodeSource)
 	result = append(result, []byte{22, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 4, 2, 1, 0, 0, 0, 0}, []byte{22, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTBoolean(G.IncludeSync)
+	field, _ = EncodeTBoolean(g.IncludeSync)
 	result = append(result, []byte{23, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 4, 1, 1, 4, 0, 0, 0}, []byte{23, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -2888,31 +2888,31 @@ type GTransitionStruct struct {
 
 }
 
-func (G *GTransitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTransitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReference(G.TransitionOperation)
+	field, _ = EncodeTStrongReference(g.TransitionOperation)
 	result = append(result, []byte{24, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 2, 5, 0, 0}, []byte{24, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPositionType(G.CutPoint)
+	field, _ = EncodeTPositionType(g.CutPoint)
 	result = append(result, []byte{24, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 7, 2, 1, 3, 1, 6, 0, 0}, []byte{24, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -2943,17 +2943,17 @@ type GContentStorageStruct struct {
 
 }
 
-func (G *GContentStorageStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GContentStorageStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPackageStrongReferenceSet(G.Packages)
+	field, _ = EncodeTPackageStrongReferenceSet(g.Packages)
 	result = append(result, []byte{25, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 5, 1, 0, 0}, []byte{25, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -2986,24 +2986,24 @@ type GControlPointStruct struct {
 
 }
 
-func (G *GControlPointStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GControlPointStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTany(G.ControlPointValue)
+	field, _ = EncodeTany(g.ControlPointValue)
 	result = append(result, []byte{26, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 5, 48, 5, 13, 0, 0, 0, 0}, []byte{26, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.ControlPointTime)
+	field, _ = EncodeTRational(g.ControlPointTime)
 	result = append(result, []byte{26, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 7, 2, 1, 3, 16, 2, 1, 0}, []byte{26, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -3036,24 +3036,24 @@ type GDefinitionObjectStruct struct {
 
 }
 
-func (G *GDefinitionObjectStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDefinitionObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.DefinitionObjectIdentification)
+	field, _ = EncodeTAUID(g.DefinitionObjectIdentification)
 	result = append(result, []byte{27, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 1, 21, 3, 0, 0, 0, 0}, []byte{27, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.DefinitionObjectName)
+	field, _ = EncodeTUTF16String(g.DefinitionObjectName)
 	result = append(result, []byte{27, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 2, 3, 1, 0, 0}, []byte{27, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -3086,24 +3086,24 @@ type GDataDefinitionStruct struct {
 
 }
 
-func (G *GDataDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDataDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.DefinitionObjectIdentification)
+	field, _ = EncodeTAUID(g.DefinitionObjectIdentification)
 	result = append(result, []byte{27, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 1, 21, 3, 0, 0, 0, 0}, []byte{27, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.DefinitionObjectName)
+	field, _ = EncodeTUTF16String(g.DefinitionObjectName)
 	result = append(result, []byte{27, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 2, 3, 1, 0, 0}, []byte{27, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -3145,38 +3145,38 @@ type GOperationDefinitionStruct struct {
 
 }
 
-func (G *GOperationDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GOperationDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.DefinitionObjectIdentification)
+	field, _ = EncodeTAUID(g.DefinitionObjectIdentification)
 	result = append(result, []byte{27, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 1, 21, 3, 0, 0, 0, 0}, []byte{27, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.DefinitionObjectName)
+	field, _ = EncodeTUTF16String(g.DefinitionObjectName)
 	result = append(result, []byte{27, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 2, 3, 1, 0, 0}, []byte{27, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.OperationDataDefinition)
+	field, _ = EncodeTWeakReference(g.OperationDataDefinition)
 	result = append(result, []byte{30, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 5, 48, 5, 9, 0, 0, 0, 0}, []byte{30, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTInt32(G.OperationInputCount)
+	field, _ = EncodeTInt32(g.OperationInputCount)
 	result = append(result, []byte{30, 7}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 5, 48, 5, 4, 0, 0, 0, 0}, []byte{30, 7})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -3212,31 +3212,31 @@ type GParameterDefinitionStruct struct {
 
 }
 
-func (G *GParameterDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GParameterDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.DefinitionObjectIdentification)
+	field, _ = EncodeTAUID(g.DefinitionObjectIdentification)
 	result = append(result, []byte{27, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 1, 21, 3, 0, 0, 0, 0}, []byte{27, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.DefinitionObjectName)
+	field, _ = EncodeTUTF16String(g.DefinitionObjectName)
 	result = append(result, []byte{27, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 2, 3, 1, 0, 0}, []byte{27, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.ParameterType)
+	field, _ = EncodeTWeakReference(g.ParameterType)
 	result = append(result, []byte{31, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 1, 6, 0, 0}, []byte{31, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -3291,38 +3291,38 @@ type GPluginDefinitionStruct struct {
 
 }
 
-func (G *GPluginDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GPluginDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.DefinitionObjectIdentification)
+	field, _ = EncodeTAUID(g.DefinitionObjectIdentification)
 	result = append(result, []byte{27, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 1, 21, 3, 0, 0, 0, 0}, []byte{27, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.DefinitionObjectName)
+	field, _ = EncodeTUTF16String(g.DefinitionObjectName)
 	result = append(result, []byte{27, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 2, 3, 1, 0, 0}, []byte{27, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPluginCategoryType(G.PluginCategory)
+	field, _ = EncodeTPluginCategoryType(g.PluginCategory)
 	result = append(result, []byte{34, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 5, 32, 9, 1, 0, 0, 0, 0}, []byte{34, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTVersionType(G.PluginVersion)
+	field, _ = EncodeTVersionType(g.PluginVersion)
 	result = append(result, []byte{34, 4}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 3, 3, 1, 3, 0, 0, 0}, []byte{34, 4})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -3359,38 +3359,38 @@ type GCodecDefinitionStruct struct {
 
 }
 
-func (G *GCodecDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GCodecDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.DefinitionObjectIdentification)
+	field, _ = EncodeTAUID(g.DefinitionObjectIdentification)
 	result = append(result, []byte{27, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 1, 21, 3, 0, 0, 0, 0}, []byte{27, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.DefinitionObjectName)
+	field, _ = EncodeTUTF16String(g.DefinitionObjectName)
 	result = append(result, []byte{27, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 2, 3, 1, 0, 0}, []byte{27, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.FileDescriptorClass)
+	field, _ = EncodeTWeakReference(g.FileDescriptorClass)
 	result = append(result, []byte{35, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 1, 7, 0, 0}, []byte{35, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTDataDefinitionWeakReferenceVector(G.CodecDataDefinitions)
+	field, _ = EncodeTDataDefinitionWeakReferenceVector(g.CodecDataDefinitions)
 	result = append(result, []byte{35, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 3, 1, 0, 0}, []byte{35, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -3424,24 +3424,24 @@ type GContainerDefinitionStruct struct {
 
 }
 
-func (G *GContainerDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GContainerDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.DefinitionObjectIdentification)
+	field, _ = EncodeTAUID(g.DefinitionObjectIdentification)
 	result = append(result, []byte{27, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 1, 21, 3, 0, 0, 0, 0}, []byte{27, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.DefinitionObjectName)
+	field, _ = EncodeTUTF16String(g.DefinitionObjectName)
 	result = append(result, []byte{27, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 2, 3, 1, 0, 0}, []byte{27, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -3474,24 +3474,24 @@ type GInterpolationDefinitionStruct struct {
 
 }
 
-func (G *GInterpolationDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GInterpolationDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.DefinitionObjectIdentification)
+	field, _ = EncodeTAUID(g.DefinitionObjectIdentification)
 	result = append(result, []byte{27, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 1, 21, 3, 0, 0, 0, 0}, []byte{27, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.DefinitionObjectName)
+	field, _ = EncodeTUTF16String(g.DefinitionObjectName)
 	result = append(result, []byte{27, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 2, 3, 1, 0, 0}, []byte{27, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -3528,10 +3528,10 @@ type GDictionaryStruct struct {
 
 }
 
-func (G *GDictionaryStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDictionaryStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -3569,17 +3569,17 @@ type GEssenceDataStruct struct {
 
 }
 
-func (G *GEssenceDataStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GEssenceDataStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPackageIDType(G.LinkedPackageID)
+	field, _ = EncodeTPackageIDType(g.LinkedPackageID)
 	result = append(result, []byte{39, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 6, 1, 0, 0, 0}, []byte{39, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -3609,10 +3609,10 @@ type GEssenceDescriptorStruct struct {
 
 }
 
-func (G *GEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -3647,10 +3647,10 @@ type GFileDescriptorStruct struct {
 
 }
 
-func (G *GFileDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GFileDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -3687,17 +3687,17 @@ type GAIFCDescriptorStruct struct {
 
 }
 
-func (G *GAIFCDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAIFCDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTDataValue(G.AIFCSummary)
+	field, _ = EncodeTDataValue(g.AIFCSummary)
 	result = append(result, []byte{49, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 3, 3, 2, 2, 0, 0, 0}, []byte{49, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -3772,45 +3772,45 @@ type GPictureDescriptorStruct struct {
 
 }
 
-func (G *GPictureDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GPictureDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.StoredHeight)
+	field, _ = EncodeTUInt32(g.StoredHeight)
 	result = append(result, []byte{50, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 5, 2, 1, 0, 0, 0}, []byte{50, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.StoredWidth)
+	field, _ = EncodeTUInt32(g.StoredWidth)
 	result = append(result, []byte{50, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 5, 2, 2, 0, 0, 0}, []byte{50, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTLayoutType(G.FrameLayout)
+	field, _ = EncodeTLayoutType(g.FrameLayout)
 	result = append(result, []byte{50, 12}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 3, 1, 4, 0, 0, 0}, []byte{50, 12})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTInt32Array(G.VideoLineMap)
+	field, _ = EncodeTInt32Array(g.VideoLineMap)
 	result = append(result, []byte{50, 13}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 1, 3, 2, 5, 0, 0, 0}, []byte{50, 13})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.ImageAspectRatio)
+	field, _ = EncodeTRational(g.ImageAspectRatio)
 	result = append(result, []byte{50, 14}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 1, 1, 1, 0, 0, 0}, []byte{50, 14})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -3897,59 +3897,59 @@ type GCDCIDescriptorStruct struct {
 
 }
 
-func (G *GCDCIDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GCDCIDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.StoredHeight)
+	field, _ = EncodeTUInt32(g.StoredHeight)
 	result = append(result, []byte{50, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 5, 2, 1, 0, 0, 0}, []byte{50, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.StoredWidth)
+	field, _ = EncodeTUInt32(g.StoredWidth)
 	result = append(result, []byte{50, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 5, 2, 2, 0, 0, 0}, []byte{50, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTLayoutType(G.FrameLayout)
+	field, _ = EncodeTLayoutType(g.FrameLayout)
 	result = append(result, []byte{50, 12}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 3, 1, 4, 0, 0, 0}, []byte{50, 12})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTInt32Array(G.VideoLineMap)
+	field, _ = EncodeTInt32Array(g.VideoLineMap)
 	result = append(result, []byte{50, 13}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 1, 3, 2, 5, 0, 0, 0}, []byte{50, 13})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.ImageAspectRatio)
+	field, _ = EncodeTRational(g.ImageAspectRatio)
 	result = append(result, []byte{50, 14}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 1, 1, 1, 0, 0, 0}, []byte{50, 14})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.ComponentDepth)
+	field, _ = EncodeTUInt32(g.ComponentDepth)
 	result = append(result, []byte{51, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 1, 5, 3, 10, 0, 0, 0}, []byte{51, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.HorizontalSubsampling)
+	field, _ = EncodeTUInt32(g.HorizontalSubsampling)
 	result = append(result, []byte{51, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 5, 1, 5, 0, 0, 0}, []byte{51, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -4033,52 +4033,52 @@ type GRGBADescriptorStruct struct {
 
 }
 
-func (G *GRGBADescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GRGBADescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.StoredHeight)
+	field, _ = EncodeTUInt32(g.StoredHeight)
 	result = append(result, []byte{50, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 5, 2, 1, 0, 0, 0}, []byte{50, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.StoredWidth)
+	field, _ = EncodeTUInt32(g.StoredWidth)
 	result = append(result, []byte{50, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 5, 2, 2, 0, 0, 0}, []byte{50, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTLayoutType(G.FrameLayout)
+	field, _ = EncodeTLayoutType(g.FrameLayout)
 	result = append(result, []byte{50, 12}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 3, 1, 4, 0, 0, 0}, []byte{50, 12})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTInt32Array(G.VideoLineMap)
+	field, _ = EncodeTInt32Array(g.VideoLineMap)
 	result = append(result, []byte{50, 13}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 1, 3, 2, 5, 0, 0, 0}, []byte{50, 13})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.ImageAspectRatio)
+	field, _ = EncodeTRational(g.ImageAspectRatio)
 	result = append(result, []byte{50, 14}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 1, 1, 1, 0, 0, 0}, []byte{50, 14})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRGBALayout(G.PixelLayout)
+	field, _ = EncodeTRGBALayout(g.PixelLayout)
 	result = append(result, []byte{52, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 1, 5, 3, 6, 0, 0, 0}, []byte{52, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -4113,10 +4113,10 @@ type GHTMLDescriptorStruct struct {
 
 }
 
-func (G *GHTMLDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GHTMLDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -4160,31 +4160,31 @@ type GTIFFDescriptorStruct struct {
 
 }
 
-func (G *GTIFFDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTIFFDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTBoolean(G.IsUniform)
+	field, _ = EncodeTBoolean(g.IsUniform)
 	result = append(result, []byte{55, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 5, 2, 1, 3, 1, 1, 0, 0}, []byte{55, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTBoolean(G.IsContiguous)
+	field, _ = EncodeTBoolean(g.IsContiguous)
 	result = append(result, []byte{55, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 6, 8, 2, 1, 0, 0, 0, 0}, []byte{55, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTDataValue(G.TIFFSummary)
+	field, _ = EncodeTDataValue(g.TIFFSummary)
 	result = append(result, []byte{55, 6}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 3, 3, 2, 3, 0, 0, 0}, []byte{55, 6})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -4221,17 +4221,17 @@ type GWAVEDescriptorStruct struct {
 
 }
 
-func (G *GWAVEDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GWAVEDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTDataValue(G.WAVESummary)
+	field, _ = EncodeTDataValue(g.WAVESummary)
 	result = append(result, []byte{56, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 3, 3, 2, 1, 0, 0, 0}, []byte{56, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -4269,10 +4269,10 @@ type GFilmDescriptorStruct struct {
 
 }
 
-func (G *GFilmDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GFilmDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -4310,10 +4310,10 @@ type GTapeDescriptorStruct struct {
 
 }
 
-func (G *GTapeDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTapeDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -4366,59 +4366,59 @@ type GPrefaceStruct struct {
 
 }
 
-func (G *GPrefaceStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GPrefaceStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTimeStamp(G.FileLastModified)
+	field, _ = EncodeTTimeStamp(g.FileLastModified)
 	result = append(result, []byte{59, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 7, 2, 1, 16, 2, 4, 0, 0}, []byte{59, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReference(G.ContentStorageObject)
+	field, _ = EncodeTStrongReference(g.ContentStorageObject)
 	result = append(result, []byte{59, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 2, 1, 0, 0}, []byte{59, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTVersionType(G.FormatVersion)
+	field, _ = EncodeTVersionType(g.FormatVersion)
 	result = append(result, []byte{59, 5}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 1, 2, 1, 5, 0, 0, 0}, []byte{59, 5})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTIdentificationStrongReferenceVector(G.IdentificationList)
+	field, _ = EncodeTIdentificationStrongReferenceVector(g.IdentificationList)
 	result = append(result, []byte{59, 6}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 6, 4, 0, 0}, []byte{59, 6})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.OperationalPattern)
+	field, _ = EncodeTAUID(g.OperationalPattern)
 	result = append(result, []byte{59, 9}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 3, 0, 0, 0, 0}, []byte{59, 9})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.EssenceContainers)
+	field, _ = EncodeTAUIDSet(g.EssenceContainers)
 	result = append(result, []byte{59, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 1, 0, 0}, []byte{59, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.DescriptiveSchemes)
+	field, _ = EncodeTAUIDSet(g.DescriptiveSchemes)
 	result = append(result, []byte{59, 11}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 2, 0, 0}, []byte{59, 11})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -4460,45 +4460,45 @@ type GIdentificationStruct struct {
 
 }
 
-func (G *GIdentificationStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GIdentificationStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.ApplicationSupplierName)
+	field, _ = EncodeTUTF16String(g.ApplicationSupplierName)
 	result = append(result, []byte{60, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 5, 32, 7, 1, 2, 1, 0, 0}, []byte{60, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.ApplicationName)
+	field, _ = EncodeTUTF16String(g.ApplicationName)
 	result = append(result, []byte{60, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 5, 32, 7, 1, 3, 1, 0, 0}, []byte{60, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.ApplicationVersionString)
+	field, _ = EncodeTUTF16String(g.ApplicationVersionString)
 	result = append(result, []byte{60, 4}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 5, 32, 7, 1, 5, 1, 0, 0}, []byte{60, 4})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.ApplicationProductID)
+	field, _ = EncodeTAUID(g.ApplicationProductID)
 	result = append(result, []byte{60, 5}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 5, 32, 7, 1, 7, 0, 0, 0}, []byte{60, 5})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.GenerationID)
+	field, _ = EncodeTAUID(g.GenerationID)
 	result = append(result, []byte{60, 9}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 5, 32, 7, 1, 1, 0, 0, 0}, []byte{60, 9})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -4526,10 +4526,10 @@ type GLocatorStruct struct {
 
 }
 
-func (G *GLocatorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GLocatorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -4559,17 +4559,17 @@ type GNetworkLocatorStruct struct {
 
 }
 
-func (G *GNetworkLocatorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GNetworkLocatorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.URL)
+	field, _ = EncodeTUTF16String(g.URL)
 	result = append(result, []byte{64, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 0, 0}, []byte{64, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -4599,17 +4599,17 @@ type GTextLocatorStruct struct {
 
 }
 
-func (G *GTextLocatorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTextLocatorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.LocationName)
+	field, _ = EncodeTUTF16String(g.LocationName)
 	result = append(result, []byte{65, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 4, 1, 2, 1, 0, 0, 0}, []byte{65, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -4650,38 +4650,38 @@ type GPackageStruct struct {
 
 }
 
-func (G *GPackageStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GPackageStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPackageIDType(G.PackageID)
+	field, _ = EncodeTPackageIDType(g.PackageID)
 	result = append(result, []byte{68, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 16, 0, 0, 0, 0}, []byte{68, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTrackStrongReferenceVector(G.PackageTracks)
+	field, _ = EncodeTTrackStrongReferenceVector(g.PackageTracks)
 	result = append(result, []byte{68, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 6, 5, 0, 0}, []byte{68, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTimeStamp(G.PackageLastModified)
+	field, _ = EncodeTTimeStamp(g.PackageLastModified)
 	result = append(result, []byte{68, 4}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 7, 2, 1, 16, 2, 5, 0, 0}, []byte{68, 4})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTimeStamp(G.CreationTime)
+	field, _ = EncodeTTimeStamp(g.CreationTime)
 	result = append(result, []byte{68, 5}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 7, 2, 1, 16, 1, 3, 0, 0}, []byte{68, 5})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -4726,38 +4726,38 @@ type GCompositionPackageStruct struct {
 
 }
 
-func (G *GCompositionPackageStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GCompositionPackageStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTPackageIDType(G.PackageID)
+	field, _ = EncodeTPackageIDType(g.PackageID)
 	result = append(result, []byte{68, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 16, 0, 0, 0, 0}, []byte{68, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTrackStrongReferenceVector(G.PackageTracks)
+	field, _ = EncodeTTrackStrongReferenceVector(g.PackageTracks)
 	result = append(result, []byte{68, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 6, 5, 0, 0}, []byte{68, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTimeStamp(G.PackageLastModified)
+	field, _ = EncodeTTimeStamp(g.PackageLastModified)
 	result = append(result, []byte{68, 4}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 7, 2, 1, 16, 2, 5, 0, 0}, []byte{68, 4})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTimeStamp(G.CreationTime)
+	field, _ = EncodeTTimeStamp(g.CreationTime)
 	result = append(result, []byte{68, 5}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 7, 2, 1, 16, 1, 3, 0, 0}, []byte{68, 5})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -4798,38 +4798,38 @@ type GMaterialPackageStruct struct {
 
 }
 
-func (G *GMaterialPackageStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GMaterialPackageStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTPackageIDType(G.PackageID)
+	field, _ = EncodeTPackageIDType(g.PackageID)
 	result = append(result, []byte{68, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 16, 0, 0, 0, 0}, []byte{68, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTrackStrongReferenceVector(G.PackageTracks)
+	field, _ = EncodeTTrackStrongReferenceVector(g.PackageTracks)
 	result = append(result, []byte{68, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 6, 5, 0, 0}, []byte{68, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTimeStamp(G.PackageLastModified)
+	field, _ = EncodeTTimeStamp(g.PackageLastModified)
 	result = append(result, []byte{68, 4}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 7, 2, 1, 16, 2, 5, 0, 0}, []byte{68, 4})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTimeStamp(G.CreationTime)
+	field, _ = EncodeTTimeStamp(g.CreationTime)
 	result = append(result, []byte{68, 5}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 7, 2, 1, 16, 1, 3, 0, 0}, []byte{68, 5})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -4872,45 +4872,45 @@ type GSourcePackageStruct struct {
 
 }
 
-func (G *GSourcePackageStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GSourcePackageStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTPackageIDType(G.PackageID)
+	field, _ = EncodeTPackageIDType(g.PackageID)
 	result = append(result, []byte{68, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 16, 0, 0, 0, 0}, []byte{68, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTrackStrongReferenceVector(G.PackageTracks)
+	field, _ = EncodeTTrackStrongReferenceVector(g.PackageTracks)
 	result = append(result, []byte{68, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 6, 5, 0, 0}, []byte{68, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTimeStamp(G.PackageLastModified)
+	field, _ = EncodeTTimeStamp(g.PackageLastModified)
 	result = append(result, []byte{68, 4}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 7, 2, 1, 16, 2, 5, 0, 0}, []byte{68, 4})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTimeStamp(G.CreationTime)
+	field, _ = EncodeTTimeStamp(g.CreationTime)
 	result = append(result, []byte{68, 5}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 7, 2, 1, 16, 1, 3, 0, 0}, []byte{68, 5})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReference(G.EssenceDescription)
+	field, _ = EncodeTStrongReference(g.EssenceDescription)
 	result = append(result, []byte{71, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 2, 3, 0, 0}, []byte{71, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -4945,31 +4945,31 @@ type GTrackStruct struct {
 
 }
 
-func (G *GTrackStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTrackStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.TrackID)
+	field, _ = EncodeTUInt32(g.TrackID)
 	result = append(result, []byte{72, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 1, 0, 0, 0, 0}, []byte{72, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReference(G.TrackSegment)
+	field, _ = EncodeTStrongReference(g.TrackSegment)
 	result = append(result, []byte{72, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 2, 4, 0, 0}, []byte{72, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceTrackNumber)
+	field, _ = EncodeTUInt32(g.EssenceTrackNumber)
 	result = append(result, []byte{72, 4}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 4, 1, 3, 0, 0, 0, 0}, []byte{72, 4})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -5007,38 +5007,38 @@ type GEventTrackStruct struct {
 
 }
 
-func (G *GEventTrackStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GEventTrackStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.TrackID)
+	field, _ = EncodeTUInt32(g.TrackID)
 	result = append(result, []byte{72, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 1, 0, 0, 0, 0}, []byte{72, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReference(G.TrackSegment)
+	field, _ = EncodeTStrongReference(g.TrackSegment)
 	result = append(result, []byte{72, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 2, 4, 0, 0}, []byte{72, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceTrackNumber)
+	field, _ = EncodeTUInt32(g.EssenceTrackNumber)
 	result = append(result, []byte{72, 4}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 4, 1, 3, 0, 0, 0, 0}, []byte{72, 4})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.EventTrackEditRate)
+	field, _ = EncodeTRational(g.EventTrackEditRate)
 	result = append(result, []byte{73, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 5, 48, 4, 2, 0, 0, 0, 0}, []byte{73, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -5073,31 +5073,31 @@ type GStaticTrackStruct struct {
 
 }
 
-func (G *GStaticTrackStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GStaticTrackStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.TrackID)
+	field, _ = EncodeTUInt32(g.TrackID)
 	result = append(result, []byte{72, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 1, 0, 0, 0, 0}, []byte{72, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReference(G.TrackSegment)
+	field, _ = EncodeTStrongReference(g.TrackSegment)
 	result = append(result, []byte{72, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 2, 4, 0, 0}, []byte{72, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceTrackNumber)
+	field, _ = EncodeTUInt32(g.EssenceTrackNumber)
 	result = append(result, []byte{72, 4}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 4, 1, 3, 0, 0, 0, 0}, []byte{72, 4})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -5141,45 +5141,45 @@ type GTimelineTrackStruct struct {
 
 }
 
-func (G *GTimelineTrackStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTimelineTrackStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.TrackID)
+	field, _ = EncodeTUInt32(g.TrackID)
 	result = append(result, []byte{72, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 1, 0, 0, 0, 0}, []byte{72, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReference(G.TrackSegment)
+	field, _ = EncodeTStrongReference(g.TrackSegment)
 	result = append(result, []byte{72, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 2, 4, 0, 0}, []byte{72, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceTrackNumber)
+	field, _ = EncodeTUInt32(g.EssenceTrackNumber)
 	result = append(result, []byte{72, 4}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 4, 1, 3, 0, 0, 0, 0}, []byte{72, 4})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.EditRate)
+	field, _ = EncodeTRational(g.EditRate)
 	result = append(result, []byte{75, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 5, 48, 4, 5, 0, 0, 0, 0}, []byte{75, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPositionType(G.Origin)
+	field, _ = EncodeTPositionType(g.Origin)
 	result = append(result, []byte{75, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 7, 2, 1, 3, 1, 3, 0, 0}, []byte{75, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -5209,17 +5209,17 @@ type GParameterStruct struct {
 
 }
 
-func (G *GParameterStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GParameterStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.ParameterDefinitionReference)
+	field, _ = EncodeTAUID(g.ParameterDefinitionReference)
 	result = append(result, []byte{76, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 1, 4, 0, 0}, []byte{76, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -5251,24 +5251,24 @@ type GConstantValueStruct struct {
 
 }
 
-func (G *GConstantValueStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GConstantValueStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.ParameterDefinitionReference)
+	field, _ = EncodeTAUID(g.ParameterDefinitionReference)
 	result = append(result, []byte{76, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 1, 4, 0, 0}, []byte{76, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTany(G.Value)
+	field, _ = EncodeTany(g.Value)
 	result = append(result, []byte{77, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 5, 48, 5, 7, 0, 0, 0, 0}, []byte{77, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -5302,31 +5302,31 @@ type GVaryingValueStruct struct {
 
 }
 
-func (G *GVaryingValueStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GVaryingValueStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.ParameterDefinitionReference)
+	field, _ = EncodeTAUID(g.ParameterDefinitionReference)
 	result = append(result, []byte{76, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 1, 4, 0, 0}, []byte{76, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.Interpolation)
+	field, _ = EncodeTWeakReference(g.Interpolation)
 	result = append(result, []byte{78, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 1, 5, 0, 0}, []byte{78, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTControlPointStrongReferenceVector(G.PointList)
+	field, _ = EncodeTControlPointStrongReferenceVector(g.PointList)
 	result = append(result, []byte{78, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 6, 6, 0, 0}, []byte{78, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -5358,24 +5358,24 @@ type GTaggedValueStruct struct {
 
 }
 
-func (G *GTaggedValueStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTaggedValueStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.Tag)
+	field, _ = EncodeTUTF16String(g.Tag)
 	result = append(result, []byte{80, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 1, 2, 9, 1, 0, 0}, []byte{80, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTany(G.IndirectValue)
+	field, _ = EncodeTany(g.IndirectValue)
 	result = append(result, []byte{80, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 1, 2, 10, 1, 0, 0}, []byte{80, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -5405,17 +5405,17 @@ type GKLVDataStruct struct {
 
 }
 
-func (G *GKLVDataStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GKLVDataStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTany(G.KLVDataValue)
+	field, _ = EncodeTany(g.KLVDataValue)
 	result = append(result, []byte{81, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 1, 2, 16, 2, 0, 0, 0}, []byte{81, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -5458,24 +5458,24 @@ type GDescriptiveMarkerStruct struct {
 
 }
 
-func (G *GDescriptiveMarkerStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDescriptiveMarkerStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReference(G.DescriptiveFrameworkObject)
+	field, _ = EncodeTStrongReference(g.DescriptiveFrameworkObject)
 	result = append(result, []byte{97, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 6, 1, 1, 4, 2, 12, 0, 0}, []byte{97, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -5523,31 +5523,31 @@ type GSoundDescriptorStruct struct {
 
 }
 
-func (G *GSoundDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GSoundDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.AudioSampleRate)
+	field, _ = EncodeTRational(g.AudioSampleRate)
 	result = append(result, []byte{61, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 2, 3, 1, 1, 1, 0, 0}, []byte{61, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.ChannelCount)
+	field, _ = EncodeTUInt32(g.ChannelCount)
 	result = append(result, []byte{61, 7}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 2, 1, 1, 4, 0, 0, 0}, []byte{61, 7})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.QuantizationBits)
+	field, _ = EncodeTUInt32(g.QuantizationBits)
 	result = append(result, []byte{61, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 2, 3, 3, 4, 0, 0, 0}, []byte{61, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -5583,10 +5583,10 @@ type GDataEssenceDescriptorStruct struct {
 
 }
 
-func (G *GDataEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDataEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -5623,17 +5623,17 @@ type GMultipleDescriptorStruct struct {
 
 }
 
-func (G *GMultipleDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GMultipleDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTFileDescriptorStrongReferenceVector(G.FileDescriptors)
+	field, _ = EncodeTFileDescriptorStrongReferenceVector(g.FileDescriptors)
 	result = append(result, []byte{63, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 1, 1, 4, 6, 11, 0, 0}, []byte{63, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -5680,38 +5680,38 @@ type GDescriptiveClipStruct struct {
 
 }
 
-func (G *GDescriptiveClipStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDescriptiveClipStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTPositionType(G.StartPosition)
+	field, _ = EncodeTPositionType(g.StartPosition)
 	result = append(result, []byte{18, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 7, 2, 1, 3, 1, 4, 0, 0}, []byte{18, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPackageIDType(G.SourcePackageID)
+	field, _ = EncodeTPackageIDType(g.SourcePackageID)
 	result = append(result, []byte{17, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 3, 1, 0, 0, 0}, []byte{17, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.SourceTrackID)
+	field, _ = EncodeTUInt32(g.SourceTrackID)
 	result = append(result, []byte{17, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 3, 2, 0, 0, 0}, []byte{17, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -5751,17 +5751,17 @@ type GDateTimeDescriptorStruct struct {
 
 }
 
-func (G *GDateTimeDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDateTimeDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.DateTimeKind)
+	field, _ = EncodeTAUID(g.DateTimeKind)
 	result = append(result, []byte{53, 4}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 4, 1, 2, 4, 0, 0, 0}, []byte{53, 4})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -5831,45 +5831,45 @@ type GAES3PCMDescriptorStruct struct {
 
 }
 
-func (G *GAES3PCMDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAES3PCMDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt16(G.BlockAlign)
+	field, _ = EncodeTUInt16(g.BlockAlign)
 	result = append(result, []byte{61, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 2, 3, 2, 1, 0, 0, 0}, []byte{61, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.AverageBytesPerSecond)
+	field, _ = EncodeTUInt32(g.AverageBytesPerSecond)
 	result = append(result, []byte{61, 9}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 2, 3, 3, 5, 0, 0, 0}, []byte{61, 9})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.AudioSampleRate)
+	field, _ = EncodeTRational(g.AudioSampleRate)
 	result = append(result, []byte{61, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 2, 3, 1, 1, 1, 0, 0}, []byte{61, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.ChannelCount)
+	field, _ = EncodeTUInt32(g.ChannelCount)
 	result = append(result, []byte{61, 7}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 2, 1, 1, 4, 0, 0, 0}, []byte{61, 7})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.QuantizationBits)
+	field, _ = EncodeTUInt32(g.QuantizationBits)
 	result = append(result, []byte{61, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 2, 3, 3, 4, 0, 0, 0}, []byte{61, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -5932,45 +5932,45 @@ type GWAVEPCMDescriptorStruct struct {
 
 }
 
-func (G *GWAVEPCMDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GWAVEPCMDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTRational(G.AudioSampleRate)
+	field, _ = EncodeTRational(g.AudioSampleRate)
 	result = append(result, []byte{61, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 2, 3, 1, 1, 1, 0, 0}, []byte{61, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.ChannelCount)
+	field, _ = EncodeTUInt32(g.ChannelCount)
 	result = append(result, []byte{61, 7}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 2, 1, 1, 4, 0, 0, 0}, []byte{61, 7})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.QuantizationBits)
+	field, _ = EncodeTUInt32(g.QuantizationBits)
 	result = append(result, []byte{61, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 2, 3, 3, 4, 0, 0, 0}, []byte{61, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.BlockAlign)
+	field, _ = EncodeTUInt16(g.BlockAlign)
 	result = append(result, []byte{61, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 2, 3, 2, 1, 0, 0, 0}, []byte{61, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.AverageBytesPerSecond)
+	field, _ = EncodeTUInt32(g.AverageBytesPerSecond)
 	result = append(result, []byte{61, 9}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 2, 3, 3, 5, 0, 0, 0}, []byte{61, 9})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6000,10 +6000,10 @@ type GPhysicalDescriptorStruct struct {
 
 }
 
-func (G *GPhysicalDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GPhysicalDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6033,10 +6033,10 @@ type GImportDescriptorStruct struct {
 
 }
 
-func (G *GImportDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GImportDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6066,10 +6066,10 @@ type GRecordingDescriptorStruct struct {
 
 }
 
-func (G *GRecordingDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GRecordingDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6104,31 +6104,31 @@ type GTaggedValueDefinitionStruct struct {
 
 }
 
-func (G *GTaggedValueDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTaggedValueDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.DefinitionObjectIdentification)
+	field, _ = EncodeTAUID(g.DefinitionObjectIdentification)
 	result = append(result, []byte{27, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 1, 21, 3, 0, 0, 0, 0}, []byte{27, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.DefinitionObjectName)
+	field, _ = EncodeTUTF16String(g.DefinitionObjectName)
 	result = append(result, []byte{27, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 2, 3, 1, 0, 0}, []byte{27, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPropertyDefinitionWeakReferenceSet(G.TaggedValueParentProperties)
+	field, _ = EncodeTPropertyDefinitionWeakReferenceSet(g.TaggedValueParentProperties)
 	result = append(result, []byte{76, 17}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 7, 6, 1, 1, 4, 3, 5, 0, 0}, []byte{76, 17})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6164,31 +6164,31 @@ type GKLVDataDefinitionStruct struct {
 
 }
 
-func (G *GKLVDataDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GKLVDataDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.DefinitionObjectIdentification)
+	field, _ = EncodeTAUID(g.DefinitionObjectIdentification)
 	result = append(result, []byte{27, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 1, 21, 3, 0, 0, 0, 0}, []byte{27, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.DefinitionObjectName)
+	field, _ = EncodeTUTF16String(g.DefinitionObjectName)
 	result = append(result, []byte{27, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 2, 3, 1, 0, 0}, []byte{27, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPropertyDefinitionWeakReferenceSet(G.KLVDataParentProperties)
+	field, _ = EncodeTPropertyDefinitionWeakReferenceSet(g.KLVDataParentProperties)
 	result = append(result, []byte{77, 17}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 7, 6, 1, 1, 4, 3, 4, 0, 0}, []byte{77, 17})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6221,17 +6221,17 @@ type GAuxiliaryDescriptorStruct struct {
 
 }
 
-func (G *GAuxiliaryDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAuxiliaryDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MIMEType)
+	field, _ = EncodeTUTF16String(g.MIMEType)
 	result = append(result, []byte{78, 17}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 7, 4, 9, 2, 1, 0, 0, 0, 0}, []byte{78, 17})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6265,31 +6265,31 @@ type GRIFFChunkStruct struct {
 
 }
 
-func (G *GRIFFChunkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GRIFFChunkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.ChunkID)
+	field, _ = EncodeTUInt32(g.ChunkID)
 	result = append(result, []byte{79, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 8, 4, 6, 8, 2, 0, 0, 0, 0}, []byte{79, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.ChunkLength)
+	field, _ = EncodeTUInt32(g.ChunkLength)
 	result = append(result, []byte{79, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 8, 4, 6, 9, 3, 0, 0, 0, 0}, []byte{79, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTbyte(G.ChunkData)
+	field, _ = EncodeTbyte(g.ChunkData)
 	result = append(result, []byte{79, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 8, 4, 7, 4, 0, 0, 0, 0, 0}, []byte{79, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6330,10 +6330,10 @@ type GBWFImportDescriptorStruct struct {
 
 }
 
-func (G *GBWFImportDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GBWFImportDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6430,59 +6430,59 @@ type GMPEGVideoDescriptorStruct struct {
 
 }
 
-func (G *GMPEGVideoDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GMPEGVideoDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ComponentDepth)
+	field, _ = EncodeTUInt32(g.ComponentDepth)
 	result = append(result, []byte{51, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 1, 5, 3, 10, 0, 0, 0}, []byte{51, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.HorizontalSubsampling)
+	field, _ = EncodeTUInt32(g.HorizontalSubsampling)
 	result = append(result, []byte{51, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 5, 1, 5, 0, 0, 0}, []byte{51, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.StoredHeight)
+	field, _ = EncodeTUInt32(g.StoredHeight)
 	result = append(result, []byte{50, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 5, 2, 1, 0, 0, 0}, []byte{50, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.StoredWidth)
+	field, _ = EncodeTUInt32(g.StoredWidth)
 	result = append(result, []byte{50, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 5, 2, 2, 0, 0, 0}, []byte{50, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTLayoutType(G.FrameLayout)
+	field, _ = EncodeTLayoutType(g.FrameLayout)
 	result = append(result, []byte{50, 12}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 3, 1, 4, 0, 0, 0}, []byte{50, 12})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTInt32Array(G.VideoLineMap)
+	field, _ = EncodeTInt32Array(g.VideoLineMap)
 	result = append(result, []byte{50, 13}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 1, 3, 2, 5, 0, 0, 0}, []byte{50, 13})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.ImageAspectRatio)
+	field, _ = EncodeTRational(g.ImageAspectRatio)
 	result = append(result, []byte{50, 14}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 1, 1, 1, 0, 0, 0}, []byte{50, 14})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6519,10 +6519,10 @@ type GParsedTextDescriptorStruct struct {
 
 }
 
-func (G *GParsedTextDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GParsedTextDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6559,10 +6559,10 @@ type GSGMLDescriptorStruct struct {
 
 }
 
-func (G *GSGMLDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GSGMLDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6603,17 +6603,17 @@ type GXMLDescriptorStruct struct {
 
 }
 
-func (G *GXMLDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GXMLDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.DefaultNamespaceURI)
+	field, _ = EncodeTUTF16String(g.DefaultNamespaceURI)
 	result = append(result, []byte{84, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 8, 1, 2, 1, 4, 1, 0, 0, 0}, []byte{84, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6652,17 +6652,17 @@ type GHTMLParsedTextDescriptorStruct struct {
 
 }
 
-func (G *GHTMLParsedTextDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GHTMLParsedTextDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.HTMLDOCTYPE)
+	field, _ = EncodeTUTF16String(g.HTMLDOCTYPE)
 	result = append(result, []byte{85, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 8, 1, 3, 6, 4, 1, 0, 0, 0}, []byte{85, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6702,24 +6702,24 @@ type GRP217DescriptorStruct struct {
 
 }
 
-func (G *GRP217DescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GRP217DescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.RP217DataStreamPID)
+	field, _ = EncodeTUInt16(g.RP217DataStreamPID)
 	result = append(result, []byte{86, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 9, 1, 3, 4, 6, 0, 0, 0, 0}, []byte{86, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.RP217VideoStreamPID)
+	field, _ = EncodeTUInt16(g.RP217VideoStreamPID)
 	result = append(result, []byte{86, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 9, 1, 3, 4, 7, 0, 0, 0, 0}, []byte{86, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6765,24 +6765,24 @@ type GDynamicMarkerStruct struct {
 
 }
 
-func (G *GDynamicMarkerStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDynamicMarkerStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTStrongReference(G.DescriptiveFrameworkObject)
+	field, _ = EncodeTStrongReference(g.DescriptiveFrameworkObject)
 	result = append(result, []byte{97, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 6, 1, 1, 4, 2, 12, 0, 0}, []byte{97, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6833,31 +6833,31 @@ type GDynamicClipStruct struct {
 
 }
 
-func (G *GDynamicClipStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDynamicClipStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTStrongReference(G.DescriptiveFrameworkObject)
+	field, _ = EncodeTStrongReference(g.DescriptiveFrameworkObject)
 	result = append(result, []byte{97, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 6, 1, 1, 4, 2, 12, 0, 0}, []byte{97, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.ComponentDataDefinition)
+	field, _ = EncodeTWeakReference(g.ComponentDataDefinition)
 	result = append(result, []byte{2, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 7, 1, 0, 0, 0, 0, 0}, []byte{2, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPackageIDType(G.DynamicSourcePackageID)
+	field, _ = EncodeTPackageIDType(g.DynamicSourcePackageID)
 	result = append(result, []byte{88, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 9, 6, 1, 1, 3, 9, 0, 0, 0}, []byte{88, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6885,10 +6885,10 @@ type GSubDescriptorStruct struct {
 
 }
 
-func (G *GSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -6944,87 +6944,87 @@ type GJPEG2000SubDescriptorStruct struct {
 
 }
 
-func (G *GJPEG2000SubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GJPEG2000SubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.Rsiz)
+	field, _ = EncodeTUInt16(g.Rsiz)
 	code060e2b340101010a0401060301000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 10, 4, 1, 6, 3, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010a0401060301000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.Xsiz)
+	field, _ = EncodeTUInt32(g.Xsiz)
 	code060e2b340101010a0401060302000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 10, 4, 1, 6, 3, 2, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010a0401060302000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.Ysiz)
+	field, _ = EncodeTUInt32(g.Ysiz)
 	code060e2b340101010a0401060303000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 10, 4, 1, 6, 3, 3, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010a0401060303000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.XOsiz)
+	field, _ = EncodeTUInt32(g.XOsiz)
 	code060e2b340101010a0401060304000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 10, 4, 1, 6, 3, 4, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010a0401060304000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.YOsiz)
+	field, _ = EncodeTUInt32(g.YOsiz)
 	code060e2b340101010a0401060305000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 10, 4, 1, 6, 3, 5, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010a0401060305000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.XTsiz)
+	field, _ = EncodeTUInt32(g.XTsiz)
 	code060e2b340101010a0401060306000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 10, 4, 1, 6, 3, 6, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010a0401060306000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.YTsiz)
+	field, _ = EncodeTUInt32(g.YTsiz)
 	code060e2b340101010a0401060307000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 10, 4, 1, 6, 3, 7, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010a0401060307000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.XTOsiz)
+	field, _ = EncodeTUInt32(g.XTOsiz)
 	code060e2b340101010a0401060308000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 10, 4, 1, 6, 3, 8, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010a0401060308000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.YTOsiz)
+	field, _ = EncodeTUInt32(g.YTOsiz)
 	code060e2b340101010a0401060309000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 10, 4, 1, 6, 3, 9, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010a0401060309000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.Csiz)
+	field, _ = EncodeTUInt16(g.Csiz)
 	code060e2b340101010a040106030a000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 10, 4, 1, 6, 3, 10, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010a040106030a000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTJ2KComponentSizingArray(G.PictureComponentSizing)
+	field, _ = EncodeTJ2KComponentSizingArray(g.PictureComponentSizing)
 	code060e2b340101010a040106030b000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 10, 4, 1, 6, 3, 11, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010a040106030b000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -7060,10 +7060,10 @@ type GVBIDataDescriptorStruct struct {
 
 }
 
-func (G *GVBIDataDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GVBIDataDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -7099,10 +7099,10 @@ type GANCDataDescriptorStruct struct {
 
 }
 
-func (G *GANCDataDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GANCDataDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -7150,31 +7150,31 @@ type GDCPCMSoundDescriptorStruct struct {
 
 }
 
-func (G *GDCPCMSoundDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDCPCMSoundDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTRational(G.AudioSampleRate)
+	field, _ = EncodeTRational(g.AudioSampleRate)
 	result = append(result, []byte{61, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 2, 3, 1, 1, 1, 0, 0}, []byte{61, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.ChannelCount)
+	field, _ = EncodeTUInt32(g.ChannelCount)
 	result = append(result, []byte{61, 7}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 2, 1, 1, 4, 0, 0, 0}, []byte{61, 7})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.QuantizationBits)
+	field, _ = EncodeTUInt32(g.QuantizationBits)
 	result = append(result, []byte{61, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 2, 3, 3, 4, 0, 0, 0}, []byte{61, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -7224,31 +7224,31 @@ type GMPEGAudioDescriptorStruct struct {
 
 }
 
-func (G *GMPEGAudioDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GMPEGAudioDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTRational(G.AudioSampleRate)
+	field, _ = EncodeTRational(g.AudioSampleRate)
 	result = append(result, []byte{61, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 2, 3, 1, 1, 1, 0, 0}, []byte{61, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.ChannelCount)
+	field, _ = EncodeTUInt32(g.ChannelCount)
 	result = append(result, []byte{61, 7}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 2, 1, 1, 4, 0, 0, 0}, []byte{61, 7})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.QuantizationBits)
+	field, _ = EncodeTUInt32(g.QuantizationBits)
 	result = append(result, []byte{61, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 2, 3, 3, 4, 0, 0, 0}, []byte{61, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -7345,59 +7345,59 @@ type GVC1VideoDescriptorStruct struct {
 
 }
 
-func (G *GVC1VideoDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GVC1VideoDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.ComponentDepth)
+	field, _ = EncodeTUInt32(g.ComponentDepth)
 	result = append(result, []byte{51, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 1, 5, 3, 10, 0, 0, 0}, []byte{51, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.HorizontalSubsampling)
+	field, _ = EncodeTUInt32(g.HorizontalSubsampling)
 	result = append(result, []byte{51, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 5, 1, 5, 0, 0, 0}, []byte{51, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.StoredHeight)
+	field, _ = EncodeTUInt32(g.StoredHeight)
 	result = append(result, []byte{50, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 5, 2, 1, 0, 0, 0}, []byte{50, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.StoredWidth)
+	field, _ = EncodeTUInt32(g.StoredWidth)
 	result = append(result, []byte{50, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 5, 2, 2, 0, 0, 0}, []byte{50, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTLayoutType(G.FrameLayout)
+	field, _ = EncodeTLayoutType(g.FrameLayout)
 	result = append(result, []byte{50, 12}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 3, 1, 4, 0, 0, 0}, []byte{50, 12})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTInt32Array(G.VideoLineMap)
+	field, _ = EncodeTInt32Array(g.VideoLineMap)
 	result = append(result, []byte{50, 13}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 1, 3, 2, 5, 0, 0, 0}, []byte{50, 13})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.ImageAspectRatio)
+	field, _ = EncodeTRational(g.ImageAspectRatio)
 	result = append(result, []byte{50, 14}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 1, 1, 1, 0, 0, 0}, []byte{50, 14})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -7425,10 +7425,10 @@ type GPackageMarkerStruct struct {
 
 }
 
-func (G *GPackageMarkerStruct) Encode() ([]byte, error) {
+func (g *GPackageMarkerStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -7461,22 +7461,22 @@ type GApplicationPlugInObjectStruct struct {
 
 }
 
-func (G *GApplicationPlugInObjectStruct) Encode() ([]byte, error) {
+func (g *GApplicationPlugInObjectStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.ApplicationPluginInstanceID)
+	field, _ = EncodeTUUID(g.ApplicationPluginInstanceID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 12, 5, 32, 7, 1, 13, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.ApplicationScheme)
+	field, _ = EncodeTAUID(g.ApplicationScheme)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 12, 4, 6, 8, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -7506,16 +7506,16 @@ type GApplicationReferencedObjectStruct struct {
 
 }
 
-func (G *GApplicationReferencedObjectStruct) Encode() ([]byte, error) {
+func (g *GApplicationReferencedObjectStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.LinkedApplicationPluginInstanceID)
+	field, _ = EncodeTWeakReference(g.LinkedApplicationPluginInstanceID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 12, 5, 32, 7, 1, 11, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -7542,10 +7542,10 @@ type GStereoscopicPictureSubDescriptorStruct struct {
 
 }
 
-func (G *GStereoscopicPictureSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GStereoscopicPictureSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -7591,31 +7591,31 @@ type GDCTimedTextDescriptorStruct struct {
 
 }
 
-func (G *GDCTimedTextDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDCTimedTextDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.ResourceID)
+	field, _ = EncodeTUUID(g.ResourceID)
 	code060e2b340101010c0101151200000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 12, 1, 1, 21, 18, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010c0101151200000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.UCSEncoding)
+	field, _ = EncodeTUTF16String(g.UCSEncoding)
 	code060e2b340101010c0409050000000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 12, 4, 9, 5, 0, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010c0409050000000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.NamespaceURI)
+	field, _ = EncodeTUTF16String(g.NamespaceURI)
 	code060e2b34010101080102010501000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 8, 1, 2, 1, 5, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101080102010501000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -7649,31 +7649,31 @@ type GDCTimedTextResourceSubDescriptorStruct struct {
 
 }
 
-func (G *GDCTimedTextResourceSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDCTimedTextResourceSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.AncillaryResourceID)
+	field, _ = EncodeTUUID(g.AncillaryResourceID)
 	code060e2b340101010c0101151300000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 12, 1, 1, 21, 19, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010c0101151300000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MIMEType)
+	field, _ = EncodeTUTF16String(g.MIMEType)
 	code060e2b34010101070409020100000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 7, 4, 9, 2, 1, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101070409020100000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	code060e2b34010101040103040400000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101040103040400000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -7702,10 +7702,10 @@ type GApplicationObjectStruct struct {
 
 }
 
-func (G *GApplicationObjectStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GApplicationObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -7733,10 +7733,10 @@ type GContainerConstraintsSubDescriptorStruct struct {
 
 }
 
-func (G *GContainerConstraintsSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GContainerConstraintsSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -7764,10 +7764,10 @@ type GMPEG4VisualSubDescriptorStruct struct {
 
 }
 
-func (G *GMPEG4VisualSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GMPEG4VisualSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -7842,45 +7842,45 @@ type GTIFFPictureEssenceDescriptorStruct struct {
 
 }
 
-func (G *GTIFFPictureEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTIFFPictureEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.StoredHeight)
+	field, _ = EncodeTUInt32(g.StoredHeight)
 	result = append(result, []byte{50, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 5, 2, 1, 0, 0, 0}, []byte{50, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.StoredWidth)
+	field, _ = EncodeTUInt32(g.StoredWidth)
 	result = append(result, []byte{50, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 5, 2, 2, 0, 0, 0}, []byte{50, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTLayoutType(G.FrameLayout)
+	field, _ = EncodeTLayoutType(g.FrameLayout)
 	result = append(result, []byte{50, 12}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 3, 1, 4, 0, 0, 0}, []byte{50, 12})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTInt32Array(G.VideoLineMap)
+	field, _ = EncodeTInt32Array(g.VideoLineMap)
 	result = append(result, []byte{50, 13}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 4, 1, 3, 2, 5, 0, 0, 0}, []byte{50, 13})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.ImageAspectRatio)
+	field, _ = EncodeTRational(g.ImageAspectRatio)
 	result = append(result, []byte{50, 14}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 1, 1, 1, 1, 0, 0, 0}, []byte{50, 14})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -7925,31 +7925,31 @@ type GMCALabelSubDescriptorStruct struct {
 
 }
 
-func (G *GMCALabelSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GMCALabelSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MCALabelDictionaryID)
+	field, _ = EncodeTAUID(g.MCALabelDictionaryID)
 	code060e2b340101010e0103070101000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 3, 7, 1, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0103070101000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.MCALinkID)
+	field, _ = EncodeTUUID(g.MCALinkID)
 	code060e2b340101010e0103070105000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 3, 7, 1, 5, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0103070105000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MCATagSymbol)
+	field, _ = EncodeTUTF16String(g.MCATagSymbol)
 	code060e2b340101010e0103070102000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 3, 7, 1, 2, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0103070102000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -7995,31 +7995,31 @@ type GAudioChannelLabelSubDescriptorStruct struct {
 
 }
 
-func (G *GAudioChannelLabelSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAudioChannelLabelSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.MCALabelDictionaryID)
+	field, _ = EncodeTAUID(g.MCALabelDictionaryID)
 	code060e2b340101010e0103070101000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 3, 7, 1, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0103070101000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.MCALinkID)
+	field, _ = EncodeTUUID(g.MCALinkID)
 	code060e2b340101010e0103070105000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 3, 7, 1, 5, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0103070105000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MCATagSymbol)
+	field, _ = EncodeTUTF16String(g.MCATagSymbol)
 	code060e2b340101010e0103070102000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 3, 7, 1, 2, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0103070102000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8065,31 +8065,31 @@ type GSoundfieldGroupLabelSubDescriptorStruct struct {
 
 }
 
-func (G *GSoundfieldGroupLabelSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GSoundfieldGroupLabelSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.MCALabelDictionaryID)
+	field, _ = EncodeTAUID(g.MCALabelDictionaryID)
 	code060e2b340101010e0103070101000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 3, 7, 1, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0103070101000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.MCALinkID)
+	field, _ = EncodeTUUID(g.MCALinkID)
 	code060e2b340101010e0103070105000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 3, 7, 1, 5, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0103070105000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MCATagSymbol)
+	field, _ = EncodeTUTF16String(g.MCATagSymbol)
 	code060e2b340101010e0103070102000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 3, 7, 1, 2, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0103070102000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8134,31 +8134,31 @@ type GGroupOfSoundfieldGroupsLabelSubDescriptorStruct struct {
 
 }
 
-func (G *GGroupOfSoundfieldGroupsLabelSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GGroupOfSoundfieldGroupsLabelSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.MCALabelDictionaryID)
+	field, _ = EncodeTAUID(g.MCALabelDictionaryID)
 	code060e2b340101010e0103070101000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 3, 7, 1, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0103070101000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.MCALinkID)
+	field, _ = EncodeTUUID(g.MCALinkID)
 	code060e2b340101010e0103070105000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 3, 7, 1, 5, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0103070105000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MCATagSymbol)
+	field, _ = EncodeTUTF16String(g.MCATagSymbol)
 	code060e2b340101010e0103070102000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 3, 7, 1, 2, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0103070102000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8202,17 +8202,17 @@ type GAVCSubDescriptorStruct struct {
 
 }
 
-func (G *GAVCSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAVCSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.AVCDecodingDelay)
+	field, _ = EncodeTUInt8(g.AVCDecodingDelay)
 	code060e2b340101010e04010606010e0000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 4, 1, 6, 6, 1, 14, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e04010606010e0000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8252,24 +8252,24 @@ type GEventTextDescriptorStruct struct {
 
 }
 
-func (G *GEventTextDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GEventTextDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.EventTextKind)
+	field, _ = EncodeTAUID(g.EventTextKind)
 	code060e2b340101010e0302010801000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 3, 2, 1, 8, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0302010801000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.EventTextLanguageCode)
+	field, _ = EncodeTUTF16String(g.EventTextLanguageCode)
 	code060e2b340101010d0301010202150000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 3, 1, 1, 2, 2, 21, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0301010202150000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8311,31 +8311,31 @@ type GSTLDescriptorStruct struct {
 
 }
 
-func (G *GSTLDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GSTLDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.EventTextKind)
+	field, _ = EncodeTAUID(g.EventTextKind)
 	code060e2b340101010e0302010801000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 3, 2, 1, 8, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0302010801000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.EventTextLanguageCode)
+	field, _ = EncodeTUTF16String(g.EventTextLanguageCode)
 	code060e2b340101010d0301010202150000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 3, 1, 1, 2, 2, 21, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0301010202150000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPositionType(G.STLReferencePointTimecode)
+	field, _ = EncodeTPositionType(g.STLReferencePointTimecode)
 	code060e2b340101010e0702010202020000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 7, 2, 1, 2, 2, 2, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0702010202020000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8367,24 +8367,24 @@ type GSTLSubDescriptorStruct struct {
 
 }
 
-func (G *GSTLSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GSTLSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.STLLineNumber)
+	field, _ = EncodeTUInt8(g.STLLineNumber)
 	code060e2b340101010e0302010802000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 3, 2, 1, 8, 2, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0302010802000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.EventTextLanguageCode)
+	field, _ = EncodeTUTF16String(g.EventTextLanguageCode)
 	code060e2b340101010d0301010202150000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 3, 1, 1, 2, 2, 21, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0301010202150000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8415,17 +8415,17 @@ type GOperationsStereoscopicSubDescriptorStruct struct {
 
 }
 
-func (G *GOperationsStereoscopicSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GOperationsStereoscopicSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.StereoscopicEyeID)
+	field, _ = EncodeTAUID(g.StereoscopicEyeID)
 	code060e2b340101010e0103070301000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 3, 7, 3, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0103070301000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8461,10 +8461,10 @@ type GAuxDataEssenceDescriptorStruct struct {
 
 }
 
-func (G *GAuxDataEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAuxDataEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8503,38 +8503,38 @@ type GVC2SubDescriptorStruct struct {
 
 }
 
-func (G *GVC2SubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GVC2SubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.VC2MajorVersion)
+	field, _ = EncodeTUInt8(g.VC2MajorVersion)
 	code060e2b340101010e0401060701000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 4, 1, 6, 7, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0401060701000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.VC2MinorVersion)
+	field, _ = EncodeTUInt8(g.VC2MinorVersion)
 	code060e2b340101010e0401060702000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 4, 1, 6, 7, 2, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0401060702000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.VC2Profile)
+	field, _ = EncodeTUInt8(g.VC2Profile)
 	code060e2b340101010e0401060703000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 4, 1, 6, 7, 3, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0401060703000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.VC2Level)
+	field, _ = EncodeTUInt8(g.VC2Level)
 	code060e2b340101010e0401060704000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 4, 1, 6, 7, 4, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0401060704000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8574,24 +8574,24 @@ type GDMCVTTargetSubDescriptorStruct struct {
 
 }
 
-func (G *GDMCVTTargetSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDMCVTTargetSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.DMCVTApplicationIdentifier)
+	field, _ = EncodeTUInt8(g.DMCVTApplicationIdentifier)
 	code060e2b340101010e0531020100000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 2, 1, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0531020100000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.DMCVTApplicationVersionNumber)
+	field, _ = EncodeTUInt8(g.DMCVTApplicationVersionNumber)
 	code060e2b340101010e0531020200000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 5, 49, 2, 2, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0531020200000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8623,17 +8623,17 @@ type GVC5BayerPictureEssenceSubDescriptorStruct struct {
 
 }
 
-func (G *GVC5BayerPictureEssenceSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GVC5BayerPictureEssenceSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRGBALayout(G.VC5BayerComponentPattern)
+	field, _ = EncodeTRGBALayout(g.VC5BayerComponentPattern)
 	code060e2b340101010e0401060802000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 4, 1, 6, 8, 2, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0401060802000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8663,17 +8663,17 @@ type GVC5CDCIPictureEssenceSubDescriptorStruct struct {
 
 }
 
-func (G *GVC5CDCIPictureEssenceSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GVC5CDCIPictureEssenceSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.VC5AlphaSampling)
+	field, _ = EncodeTUInt16(g.VC5AlphaSampling)
 	code060e2b340101010e0401060801000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 4, 1, 6, 8, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0401060801000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8703,10 +8703,10 @@ type GAACSubDescriptorStruct struct {
 
 }
 
-func (G *GAACSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAACSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8739,10 +8739,10 @@ type GACESPictureSubDescriptorStruct struct {
 
 }
 
-func (G *GACESPictureSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GACESPictureSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8788,66 +8788,66 @@ type GTargetFrameSubDescriptorStruct struct {
 
 }
 
-func (G *GTargetFrameSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTargetFrameSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.TargetFrameAncillaryResourceID)
+	field, _ = EncodeTUUID(g.TargetFrameAncillaryResourceID)
 	code060e2b340101010e0401060901000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 4, 1, 6, 9, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0401060901000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MediaType)
+	field, _ = EncodeTUTF16String(g.MediaType)
 	code060e2b340101010e0401060902000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 4, 1, 6, 9, 2, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0401060902000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.TargetFrameIndex)
+	field, _ = EncodeTUInt64(g.TargetFrameIndex)
 	code060e2b340101010e0401060903000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 4, 1, 6, 9, 3, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0401060903000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTransferCharacteristicType(G.TargetFrameTransferCharacteristic)
+	field, _ = EncodeTTransferCharacteristicType(g.TargetFrameTransferCharacteristic)
 	code060e2b340101010e0401060904000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 4, 1, 6, 9, 4, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0401060904000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTColorPrimariesType(G.TargetFrameColorPrimaries)
+	field, _ = EncodeTColorPrimariesType(g.TargetFrameColorPrimaries)
 	code060e2b340101010e0401060905000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 4, 1, 6, 9, 5, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0401060905000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.TargetFrameComponentMaxRef)
+	field, _ = EncodeTUInt32(g.TargetFrameComponentMaxRef)
 	code060e2b340101010e0401060906000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 4, 1, 6, 9, 6, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0401060906000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.TargetFrameComponentMinRef)
+	field, _ = EncodeTUInt32(g.TargetFrameComponentMinRef)
 	code060e2b340101010e0401060907000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 4, 1, 6, 9, 7, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0401060907000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.TargetFrameEssenceStreamID)
+	field, _ = EncodeTUInt32(g.TargetFrameEssenceStreamID)
 	code060e2b340101010e0401060908000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 4, 1, 6, 9, 8, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0401060908000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8895,31 +8895,31 @@ type GIABEssenceDescriptorStruct struct {
 
 }
 
-func (G *GIABEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GIABEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTRational(G.AudioSampleRate)
+	field, _ = EncodeTRational(g.AudioSampleRate)
 	result = append(result, []byte{61, 3}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 2, 3, 1, 1, 1, 0, 0}, []byte{61, 3})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.ChannelCount)
+	field, _ = EncodeTUInt32(g.ChannelCount)
 	result = append(result, []byte{61, 7}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 4, 2, 1, 1, 4, 0, 0, 0}, []byte{61, 7})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.QuantizationBits)
+	field, _ = EncodeTUInt32(g.QuantizationBits)
 	result = append(result, []byte{61, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 2, 3, 3, 4, 0, 0, 0}, []byte{61, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -8964,31 +8964,31 @@ type GIABSoundfieldLabelSubDescriptorStruct struct {
 
 }
 
-func (G *GIABSoundfieldLabelSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GIABSoundfieldLabelSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.MCALabelDictionaryID)
+	field, _ = EncodeTAUID(g.MCALabelDictionaryID)
 	code060e2b340101010e0103070101000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 3, 7, 1, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0103070101000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.MCALinkID)
+	field, _ = EncodeTUUID(g.MCALinkID)
 	code060e2b340101010e0103070105000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 3, 7, 1, 5, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0103070105000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MCATagSymbol)
+	field, _ = EncodeTUTF16String(g.MCATagSymbol)
 	code060e2b340101010e0103070102000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 3, 7, 1, 2, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0103070102000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9021,24 +9021,24 @@ type GOPDefinitionStruct struct {
 
 }
 
-func (G *GOPDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GOPDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.DefinitionObjectIdentification)
+	field, _ = EncodeTAUID(g.DefinitionObjectIdentification)
 	result = append(result, []byte{27, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 1, 21, 3, 0, 0, 0, 0}, []byte{27, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.DefinitionObjectName)
+	field, _ = EncodeTUTF16String(g.DefinitionObjectName)
 	result = append(result, []byte{27, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 2, 3, 1, 0, 0}, []byte{27, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9071,24 +9071,24 @@ type GCompressionDefinitionStruct struct {
 
 }
 
-func (G *GCompressionDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GCompressionDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.DefinitionObjectIdentification)
+	field, _ = EncodeTAUID(g.DefinitionObjectIdentification)
 	result = append(result, []byte{27, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 1, 21, 3, 0, 0, 0, 0}, []byte{27, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.DefinitionObjectName)
+	field, _ = EncodeTUTF16String(g.DefinitionObjectName)
 	result = append(result, []byte{27, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 2, 3, 1, 0, 0}, []byte{27, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9113,10 +9113,10 @@ type GAbstractObjectStruct struct {
 
 }
 
-func (G *GAbstractObjectStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAbstractObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9169,17 +9169,17 @@ type GHEVCSubDescriptorStruct struct {
 
 }
 
-func (G *GHEVCSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GHEVCSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.HEVCDecodingDelay)
+	field, _ = EncodeTUInt8(g.HEVCDecodingDelay)
 	code060e2b340101010e04010606020e0000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 4, 1, 6, 6, 2, 14, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e04010606020e0000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9214,38 +9214,38 @@ type GClassDefinitionStruct struct {
 
 }
 
-func (G *GClassDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GClassDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.ParentClass)
+	field, _ = EncodeTWeakReference(g.ParentClass)
 	code060e2b34010101020601010701000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010701000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTBoolean(G.IsConcrete)
+	field, _ = EncodeTBoolean(g.IsConcrete)
 	code060e2b34010101020601010703000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 3, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010703000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9282,38 +9282,38 @@ type GPropertyDefinitionStruct struct {
 
 }
 
-func (G *GPropertyDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GPropertyDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.PropertyType)
+	field, _ = EncodeTAUID(g.PropertyType)
 	code060e2b34010101020601010704000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 4, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010704000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTBoolean(G.IsOptional)
+	field, _ = EncodeTBoolean(g.IsOptional)
 	code060e2b34010101020301020201000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 1, 2, 2, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020301020201000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9343,24 +9343,24 @@ type GTypeDefinitionStruct struct {
 
 }
 
-func (G *GTypeDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTypeDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9394,38 +9394,38 @@ type GTypeDefinitionIntegerStruct struct {
 
 }
 
-func (G *GTypeDefinitionIntegerStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTypeDefinitionIntegerStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt8(G.Size)
+	field, _ = EncodeTUInt8(g.Size)
 	code060e2b34010101020301020301000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 1, 2, 3, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020301020301000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTBoolean(G.IsSigned)
+	field, _ = EncodeTBoolean(g.IsSigned)
 	code060e2b34010101020301020302000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 1, 2, 3, 2, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020301020302000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9457,31 +9457,31 @@ type GTypeDefinitionStrongObjectReferenceStruct struct {
 
 }
 
-func (G *GTypeDefinitionStrongObjectReferenceStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTypeDefinitionStrongObjectReferenceStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.ReferencedType)
+	field, _ = EncodeTWeakReference(g.ReferencedType)
 	code060e2b34010101020601010709000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 9, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010709000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9515,38 +9515,38 @@ type GTypeDefinitionWeakObjectReferenceStruct struct {
 
 }
 
-func (G *GTypeDefinitionWeakObjectReferenceStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTypeDefinitionWeakObjectReferenceStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.WeakReferencedType)
+	field, _ = EncodeTWeakReference(g.WeakReferencedType)
 	code060e2b3401010102060101070a000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 10, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b3401010102060101070a000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDArray(G.TargetSet)
+	field, _ = EncodeTAUIDArray(g.TargetSet)
 	code060e2b3401010102030102030b000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 1, 2, 3, 11, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b3401010102030102030b000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9582,45 +9582,45 @@ type GTypeDefinitionEnumerationStruct struct {
 
 }
 
-func (G *GTypeDefinitionEnumerationStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTypeDefinitionEnumerationStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.ElementType)
+	field, _ = EncodeTWeakReference(g.ElementType)
 	code060e2b3401010102060101070b000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 11, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b3401010102060101070b000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16StringArray(G.ElementNames)
+	field, _ = EncodeTUTF16StringArray(g.ElementNames)
 	code060e2b34010101020301020304000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 1, 2, 3, 4, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020301020304000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTInt64Array(G.ElementValues)
+	field, _ = EncodeTInt64Array(g.ElementValues)
 	code060e2b34010101020301020305000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 1, 2, 3, 5, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020301020305000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9654,38 +9654,38 @@ type GTypeDefinitionFixedArrayStruct struct {
 
 }
 
-func (G *GTypeDefinitionFixedArrayStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTypeDefinitionFixedArrayStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.FixedArrayElementType)
+	field, _ = EncodeTWeakReference(g.FixedArrayElementType)
 	code060e2b3401010102060101070c000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 12, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b3401010102060101070c000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.ElementCount)
+	field, _ = EncodeTUInt32(g.ElementCount)
 	code060e2b34010101020301020303000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 1, 2, 3, 3, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020301020303000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9717,31 +9717,31 @@ type GTypeDefinitionVariableArrayStruct struct {
 
 }
 
-func (G *GTypeDefinitionVariableArrayStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTypeDefinitionVariableArrayStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.VariableArrayElementType)
+	field, _ = EncodeTWeakReference(g.VariableArrayElementType)
 	code060e2b3401010102060101070d000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 13, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b3401010102060101070d000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9773,31 +9773,31 @@ type GTypeDefinitionSetStruct struct {
 
 }
 
-func (G *GTypeDefinitionSetStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTypeDefinitionSetStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.SetElementType)
+	field, _ = EncodeTWeakReference(g.SetElementType)
 	code060e2b3401010102060101070e000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 14, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b3401010102060101070e000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9829,31 +9829,31 @@ type GTypeDefinitionStringStruct struct {
 
 }
 
-func (G *GTypeDefinitionStringStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTypeDefinitionStringStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.StringElementType)
+	field, _ = EncodeTWeakReference(g.StringElementType)
 	code060e2b3401010102060101070f000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 15, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b3401010102060101070f000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9883,24 +9883,24 @@ type GTypeDefinitionStreamStruct struct {
 
 }
 
-func (G *GTypeDefinitionStreamStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTypeDefinitionStreamStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9934,38 +9934,38 @@ type GTypeDefinitionRecordStruct struct {
 
 }
 
-func (G *GTypeDefinitionRecordStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTypeDefinitionRecordStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTypeDefinitionWeakReferenceVector(G.MemberTypes)
+	field, _ = EncodeTTypeDefinitionWeakReferenceVector(g.MemberTypes)
 	code060e2b34010101020601010711000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 17, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010711000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16StringArray(G.MemberNames)
+	field, _ = EncodeTUTF16StringArray(g.MemberNames)
 	code060e2b34010101020301020306000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 1, 2, 3, 6, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020301020306000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -9997,31 +9997,31 @@ type GTypeDefinitionRenameStruct struct {
 
 }
 
-func (G *GTypeDefinitionRenameStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTypeDefinitionRenameStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.RenamedType)
+	field, _ = EncodeTWeakReference(g.RenamedType)
 	code060e2b34010101020601010712000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 18, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010712000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -10053,24 +10053,24 @@ type GTypeDefinitionExtendibleEnumerationStruct struct {
 
 }
 
-func (G *GTypeDefinitionExtendibleEnumerationStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTypeDefinitionExtendibleEnumerationStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -10100,24 +10100,24 @@ type GTypeDefinitionIndirectStruct struct {
 
 }
 
-func (G *GTypeDefinitionIndirectStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTypeDefinitionIndirectStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -10147,24 +10147,24 @@ type GTypeDefinitionOpaqueStruct struct {
 
 }
 
-func (G *GTypeDefinitionOpaqueStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTypeDefinitionOpaqueStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -10194,24 +10194,24 @@ type GTypeDefinitionCharacterStruct struct {
 
 }
 
-func (G *GTypeDefinitionCharacterStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTypeDefinitionCharacterStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -10241,24 +10241,24 @@ type GMetaDefinitionStruct struct {
 
 }
 
-func (G *GMetaDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GMetaDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -10282,7 +10282,7 @@ var GMetaDictionary = map[string]Group{
 type GMetaDictionaryStruct struct {
 }
 
-func (G *GMetaDictionaryStruct) Encode() ([]byte, error) {
+func (g *GMetaDictionaryStruct) Encode() ([]byte, error) {
 	var result []byte
 
 	header := []byte{6, 14, 43, 52, 2, 83, 1, 1, 13, 1, 1, 1, 2, 37, 0, 0}
@@ -10310,24 +10310,24 @@ type GExtensionSchemeStruct struct {
 
 }
 
-func (G *GExtensionSchemeStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GExtensionSchemeStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.ExtensionSchemeID)
+	field, _ = EncodeTAUID(g.ExtensionSchemeID)
 	code060e2b340101010d060101071b000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 6, 1, 1, 7, 27, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d060101071b000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.SymbolSpaceURI)
+	field, _ = EncodeTUTF16String(g.SymbolSpaceURI)
 	code060e2b340101010d060101071c000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 6, 1, 1, 7, 28, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d060101071c000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -10366,45 +10366,45 @@ type GPropertyAliasDefinitionStruct struct {
 
 }
 
-func (G *GPropertyAliasDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GPropertyAliasDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.PropertyType)
+	field, _ = EncodeTAUID(g.PropertyType)
 	code060e2b34010101020601010704000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 4, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010704000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTBoolean(G.IsOptional)
+	field, _ = EncodeTBoolean(g.IsOptional)
 	code060e2b34010101020301020201000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 1, 2, 2, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020301020201000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MetaDefinitionIdentification)
+	field, _ = EncodeTAUID(g.MetaDefinitionIdentification)
 	code060e2b34010101020601010713000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 7, 19, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020601010713000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.MetaDefinitionName)
+	field, _ = EncodeTUTF16String(g.MetaDefinitionName)
 	code060e2b34010101020302040102010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 3, 2, 4, 1, 2, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101020302040102010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.OriginalProperty)
+	field, _ = EncodeTWeakReference(g.OriginalProperty)
 	code060e2b340101010d0601010720000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 6, 1, 1, 7, 32, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0601010720000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -10438,24 +10438,24 @@ type GExtendibleEnumerationElementStruct struct {
 
 }
 
-func (G *GExtendibleEnumerationElementStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GExtendibleEnumerationElementStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.DefinitionObjectIdentification)
+	field, _ = EncodeTAUID(g.DefinitionObjectIdentification)
 	result = append(result, []byte{27, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 1, 21, 3, 0, 0, 0, 0}, []byte{27, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.DefinitionObjectName)
+	field, _ = EncodeTUTF16String(g.DefinitionObjectName)
 	result = append(result, []byte{27, 2}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 1, 7, 1, 2, 3, 1, 0, 0}, []byte{27, 2})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -10486,17 +10486,17 @@ type GRootStruct struct {
 
 }
 
-func (G *GRootStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GRootStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReference(G.RootPreface)
+	field, _ = EncodeTStrongReference(g.RootPreface)
 	code060e2b340101010a0601010717000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 10, 6, 1, 1, 7, 23, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010a0601010717000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -10545,82 +10545,82 @@ type GPartitionPackStruct struct {
 
 }
 
-func (G *GPartitionPackStruct) Encode() ([]byte, error) {
+func (g *GPartitionPackStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt16(G.MajorVersion)
+	field, _ = EncodeTUInt16(g.MajorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 6, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.MinorVersion)
+	field, _ = EncodeTUInt16(g.MinorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 7, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.KAGSize)
+	field, _ = EncodeTUInt32(g.KAGSize)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 3, 1, 2, 1, 9, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.ThisPartition)
+	field, _ = EncodeTUInt64(g.ThisPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 3, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.PreviousPartition)
+	field, _ = EncodeTUInt64(g.PreviousPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 2, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.FooterPartition)
+	field, _ = EncodeTUInt64(g.FooterPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 5, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.HeaderByteCount)
+	field, _ = EncodeTUInt64(g.HeaderByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 1, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.IndexByteCount)
+	field, _ = EncodeTUInt64(g.IndexByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.IndexStreamID)
+	field, _ = EncodeTUInt32(g.IndexStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 5, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.BodyOffset)
+	field, _ = EncodeTUInt64(g.BodyOffset)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 8, 1, 2, 1, 3, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.OperationalPattern)
+	field, _ = EncodeTAUID(g.OperationalPattern)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.EssenceContainers)
+	field, _ = EncodeTAUIDSet(g.EssenceContainers)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 1, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -10668,82 +10668,82 @@ type GHeaderPartitionPackStruct struct {
 
 }
 
-func (G *GHeaderPartitionPackStruct) Encode() ([]byte, error) {
+func (g *GHeaderPartitionPackStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt16(G.MajorVersion)
+	field, _ = EncodeTUInt16(g.MajorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 6, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.MinorVersion)
+	field, _ = EncodeTUInt16(g.MinorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 7, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.KAGSize)
+	field, _ = EncodeTUInt32(g.KAGSize)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 3, 1, 2, 1, 9, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.ThisPartition)
+	field, _ = EncodeTUInt64(g.ThisPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 3, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.PreviousPartition)
+	field, _ = EncodeTUInt64(g.PreviousPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 2, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.FooterPartition)
+	field, _ = EncodeTUInt64(g.FooterPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 5, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.HeaderByteCount)
+	field, _ = EncodeTUInt64(g.HeaderByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 1, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.IndexByteCount)
+	field, _ = EncodeTUInt64(g.IndexByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.IndexStreamID)
+	field, _ = EncodeTUInt32(g.IndexStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 5, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.BodyOffset)
+	field, _ = EncodeTUInt64(g.BodyOffset)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 8, 1, 2, 1, 3, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.OperationalPattern)
+	field, _ = EncodeTAUID(g.OperationalPattern)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.EssenceContainers)
+	field, _ = EncodeTAUIDSet(g.EssenceContainers)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 1, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -10791,82 +10791,82 @@ type GHeaderPartitionOpenIncompleteStruct struct {
 
 }
 
-func (G *GHeaderPartitionOpenIncompleteStruct) Encode() ([]byte, error) {
+func (g *GHeaderPartitionOpenIncompleteStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt16(G.MajorVersion)
+	field, _ = EncodeTUInt16(g.MajorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 6, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.MinorVersion)
+	field, _ = EncodeTUInt16(g.MinorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 7, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.KAGSize)
+	field, _ = EncodeTUInt32(g.KAGSize)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 3, 1, 2, 1, 9, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.ThisPartition)
+	field, _ = EncodeTUInt64(g.ThisPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 3, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.PreviousPartition)
+	field, _ = EncodeTUInt64(g.PreviousPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 2, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.FooterPartition)
+	field, _ = EncodeTUInt64(g.FooterPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 5, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.HeaderByteCount)
+	field, _ = EncodeTUInt64(g.HeaderByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 1, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.IndexByteCount)
+	field, _ = EncodeTUInt64(g.IndexByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.IndexStreamID)
+	field, _ = EncodeTUInt32(g.IndexStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 5, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.BodyOffset)
+	field, _ = EncodeTUInt64(g.BodyOffset)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 8, 1, 2, 1, 3, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.OperationalPattern)
+	field, _ = EncodeTAUID(g.OperationalPattern)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.EssenceContainers)
+	field, _ = EncodeTAUIDSet(g.EssenceContainers)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 1, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -10914,82 +10914,82 @@ type GHeaderPartitionClosedIncompleteStruct struct {
 
 }
 
-func (G *GHeaderPartitionClosedIncompleteStruct) Encode() ([]byte, error) {
+func (g *GHeaderPartitionClosedIncompleteStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt16(G.MajorVersion)
+	field, _ = EncodeTUInt16(g.MajorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 6, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.MinorVersion)
+	field, _ = EncodeTUInt16(g.MinorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 7, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.KAGSize)
+	field, _ = EncodeTUInt32(g.KAGSize)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 3, 1, 2, 1, 9, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.ThisPartition)
+	field, _ = EncodeTUInt64(g.ThisPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 3, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.PreviousPartition)
+	field, _ = EncodeTUInt64(g.PreviousPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 2, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.FooterPartition)
+	field, _ = EncodeTUInt64(g.FooterPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 5, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.HeaderByteCount)
+	field, _ = EncodeTUInt64(g.HeaderByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 1, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.IndexByteCount)
+	field, _ = EncodeTUInt64(g.IndexByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.IndexStreamID)
+	field, _ = EncodeTUInt32(g.IndexStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 5, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.BodyOffset)
+	field, _ = EncodeTUInt64(g.BodyOffset)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 8, 1, 2, 1, 3, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.OperationalPattern)
+	field, _ = EncodeTAUID(g.OperationalPattern)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.EssenceContainers)
+	field, _ = EncodeTAUIDSet(g.EssenceContainers)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 1, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -11037,82 +11037,82 @@ type GHeaderPartitionOpenCompleteStruct struct {
 
 }
 
-func (G *GHeaderPartitionOpenCompleteStruct) Encode() ([]byte, error) {
+func (g *GHeaderPartitionOpenCompleteStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt16(G.MajorVersion)
+	field, _ = EncodeTUInt16(g.MajorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 6, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.MinorVersion)
+	field, _ = EncodeTUInt16(g.MinorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 7, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.KAGSize)
+	field, _ = EncodeTUInt32(g.KAGSize)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 3, 1, 2, 1, 9, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.ThisPartition)
+	field, _ = EncodeTUInt64(g.ThisPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 3, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.PreviousPartition)
+	field, _ = EncodeTUInt64(g.PreviousPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 2, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.FooterPartition)
+	field, _ = EncodeTUInt64(g.FooterPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 5, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.HeaderByteCount)
+	field, _ = EncodeTUInt64(g.HeaderByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 1, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.IndexByteCount)
+	field, _ = EncodeTUInt64(g.IndexByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.IndexStreamID)
+	field, _ = EncodeTUInt32(g.IndexStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 5, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.BodyOffset)
+	field, _ = EncodeTUInt64(g.BodyOffset)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 8, 1, 2, 1, 3, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.OperationalPattern)
+	field, _ = EncodeTAUID(g.OperationalPattern)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.EssenceContainers)
+	field, _ = EncodeTAUIDSet(g.EssenceContainers)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 1, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -11160,82 +11160,82 @@ type GHeaderPartitionClosedCompleteStruct struct {
 
 }
 
-func (G *GHeaderPartitionClosedCompleteStruct) Encode() ([]byte, error) {
+func (g *GHeaderPartitionClosedCompleteStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt16(G.MajorVersion)
+	field, _ = EncodeTUInt16(g.MajorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 6, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.MinorVersion)
+	field, _ = EncodeTUInt16(g.MinorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 7, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.KAGSize)
+	field, _ = EncodeTUInt32(g.KAGSize)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 3, 1, 2, 1, 9, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.ThisPartition)
+	field, _ = EncodeTUInt64(g.ThisPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 3, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.PreviousPartition)
+	field, _ = EncodeTUInt64(g.PreviousPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 2, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.FooterPartition)
+	field, _ = EncodeTUInt64(g.FooterPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 5, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.HeaderByteCount)
+	field, _ = EncodeTUInt64(g.HeaderByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 1, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.IndexByteCount)
+	field, _ = EncodeTUInt64(g.IndexByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.IndexStreamID)
+	field, _ = EncodeTUInt32(g.IndexStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 5, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.BodyOffset)
+	field, _ = EncodeTUInt64(g.BodyOffset)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 8, 1, 2, 1, 3, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.OperationalPattern)
+	field, _ = EncodeTAUID(g.OperationalPattern)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.EssenceContainers)
+	field, _ = EncodeTAUIDSet(g.EssenceContainers)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 1, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -11283,82 +11283,82 @@ type GBodyPartitionPackStruct struct {
 
 }
 
-func (G *GBodyPartitionPackStruct) Encode() ([]byte, error) {
+func (g *GBodyPartitionPackStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt16(G.MajorVersion)
+	field, _ = EncodeTUInt16(g.MajorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 6, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.MinorVersion)
+	field, _ = EncodeTUInt16(g.MinorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 7, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.KAGSize)
+	field, _ = EncodeTUInt32(g.KAGSize)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 3, 1, 2, 1, 9, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.ThisPartition)
+	field, _ = EncodeTUInt64(g.ThisPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 3, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.PreviousPartition)
+	field, _ = EncodeTUInt64(g.PreviousPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 2, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.FooterPartition)
+	field, _ = EncodeTUInt64(g.FooterPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 5, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.HeaderByteCount)
+	field, _ = EncodeTUInt64(g.HeaderByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 1, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.IndexByteCount)
+	field, _ = EncodeTUInt64(g.IndexByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.IndexStreamID)
+	field, _ = EncodeTUInt32(g.IndexStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 5, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.BodyOffset)
+	field, _ = EncodeTUInt64(g.BodyOffset)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 8, 1, 2, 1, 3, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.OperationalPattern)
+	field, _ = EncodeTAUID(g.OperationalPattern)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.EssenceContainers)
+	field, _ = EncodeTAUIDSet(g.EssenceContainers)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 1, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -11406,82 +11406,82 @@ type GBodyPartitionOpenIncompleteStruct struct {
 
 }
 
-func (G *GBodyPartitionOpenIncompleteStruct) Encode() ([]byte, error) {
+func (g *GBodyPartitionOpenIncompleteStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt16(G.MajorVersion)
+	field, _ = EncodeTUInt16(g.MajorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 6, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.MinorVersion)
+	field, _ = EncodeTUInt16(g.MinorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 7, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.KAGSize)
+	field, _ = EncodeTUInt32(g.KAGSize)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 3, 1, 2, 1, 9, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.ThisPartition)
+	field, _ = EncodeTUInt64(g.ThisPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 3, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.PreviousPartition)
+	field, _ = EncodeTUInt64(g.PreviousPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 2, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.FooterPartition)
+	field, _ = EncodeTUInt64(g.FooterPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 5, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.HeaderByteCount)
+	field, _ = EncodeTUInt64(g.HeaderByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 1, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.IndexByteCount)
+	field, _ = EncodeTUInt64(g.IndexByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.IndexStreamID)
+	field, _ = EncodeTUInt32(g.IndexStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 5, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.BodyOffset)
+	field, _ = EncodeTUInt64(g.BodyOffset)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 8, 1, 2, 1, 3, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.OperationalPattern)
+	field, _ = EncodeTAUID(g.OperationalPattern)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.EssenceContainers)
+	field, _ = EncodeTAUIDSet(g.EssenceContainers)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 1, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -11529,82 +11529,82 @@ type GBodyPartitionClosedIncompleteStruct struct {
 
 }
 
-func (G *GBodyPartitionClosedIncompleteStruct) Encode() ([]byte, error) {
+func (g *GBodyPartitionClosedIncompleteStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt16(G.MajorVersion)
+	field, _ = EncodeTUInt16(g.MajorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 6, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.MinorVersion)
+	field, _ = EncodeTUInt16(g.MinorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 7, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.KAGSize)
+	field, _ = EncodeTUInt32(g.KAGSize)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 3, 1, 2, 1, 9, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.ThisPartition)
+	field, _ = EncodeTUInt64(g.ThisPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 3, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.PreviousPartition)
+	field, _ = EncodeTUInt64(g.PreviousPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 2, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.FooterPartition)
+	field, _ = EncodeTUInt64(g.FooterPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 5, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.HeaderByteCount)
+	field, _ = EncodeTUInt64(g.HeaderByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 1, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.IndexByteCount)
+	field, _ = EncodeTUInt64(g.IndexByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.IndexStreamID)
+	field, _ = EncodeTUInt32(g.IndexStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 5, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.BodyOffset)
+	field, _ = EncodeTUInt64(g.BodyOffset)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 8, 1, 2, 1, 3, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.OperationalPattern)
+	field, _ = EncodeTAUID(g.OperationalPattern)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.EssenceContainers)
+	field, _ = EncodeTAUIDSet(g.EssenceContainers)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 1, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -11652,82 +11652,82 @@ type GBodyPartitionOpenCompleteStruct struct {
 
 }
 
-func (G *GBodyPartitionOpenCompleteStruct) Encode() ([]byte, error) {
+func (g *GBodyPartitionOpenCompleteStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt16(G.MajorVersion)
+	field, _ = EncodeTUInt16(g.MajorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 6, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.MinorVersion)
+	field, _ = EncodeTUInt16(g.MinorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 7, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.KAGSize)
+	field, _ = EncodeTUInt32(g.KAGSize)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 3, 1, 2, 1, 9, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.ThisPartition)
+	field, _ = EncodeTUInt64(g.ThisPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 3, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.PreviousPartition)
+	field, _ = EncodeTUInt64(g.PreviousPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 2, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.FooterPartition)
+	field, _ = EncodeTUInt64(g.FooterPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 5, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.HeaderByteCount)
+	field, _ = EncodeTUInt64(g.HeaderByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 1, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.IndexByteCount)
+	field, _ = EncodeTUInt64(g.IndexByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.IndexStreamID)
+	field, _ = EncodeTUInt32(g.IndexStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 5, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.BodyOffset)
+	field, _ = EncodeTUInt64(g.BodyOffset)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 8, 1, 2, 1, 3, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.OperationalPattern)
+	field, _ = EncodeTAUID(g.OperationalPattern)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.EssenceContainers)
+	field, _ = EncodeTAUIDSet(g.EssenceContainers)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 1, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -11775,82 +11775,82 @@ type GBodyPartitionClosedCompleteStruct struct {
 
 }
 
-func (G *GBodyPartitionClosedCompleteStruct) Encode() ([]byte, error) {
+func (g *GBodyPartitionClosedCompleteStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt16(G.MajorVersion)
+	field, _ = EncodeTUInt16(g.MajorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 6, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.MinorVersion)
+	field, _ = EncodeTUInt16(g.MinorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 7, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.KAGSize)
+	field, _ = EncodeTUInt32(g.KAGSize)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 3, 1, 2, 1, 9, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.ThisPartition)
+	field, _ = EncodeTUInt64(g.ThisPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 3, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.PreviousPartition)
+	field, _ = EncodeTUInt64(g.PreviousPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 2, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.FooterPartition)
+	field, _ = EncodeTUInt64(g.FooterPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 5, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.HeaderByteCount)
+	field, _ = EncodeTUInt64(g.HeaderByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 1, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.IndexByteCount)
+	field, _ = EncodeTUInt64(g.IndexByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.IndexStreamID)
+	field, _ = EncodeTUInt32(g.IndexStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 5, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.BodyOffset)
+	field, _ = EncodeTUInt64(g.BodyOffset)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 8, 1, 2, 1, 3, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.OperationalPattern)
+	field, _ = EncodeTAUID(g.OperationalPattern)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.EssenceContainers)
+	field, _ = EncodeTAUIDSet(g.EssenceContainers)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 1, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -11898,82 +11898,82 @@ type GGenericStreamPartitionStruct struct {
 
 }
 
-func (G *GGenericStreamPartitionStruct) Encode() ([]byte, error) {
+func (g *GGenericStreamPartitionStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt16(G.MajorVersion)
+	field, _ = EncodeTUInt16(g.MajorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 6, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.MinorVersion)
+	field, _ = EncodeTUInt16(g.MinorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 7, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.KAGSize)
+	field, _ = EncodeTUInt32(g.KAGSize)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 3, 1, 2, 1, 9, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.ThisPartition)
+	field, _ = EncodeTUInt64(g.ThisPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 3, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.PreviousPartition)
+	field, _ = EncodeTUInt64(g.PreviousPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 2, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.FooterPartition)
+	field, _ = EncodeTUInt64(g.FooterPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 5, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.HeaderByteCount)
+	field, _ = EncodeTUInt64(g.HeaderByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 1, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.IndexByteCount)
+	field, _ = EncodeTUInt64(g.IndexByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.IndexStreamID)
+	field, _ = EncodeTUInt32(g.IndexStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 5, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.BodyOffset)
+	field, _ = EncodeTUInt64(g.BodyOffset)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 8, 1, 2, 1, 3, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.OperationalPattern)
+	field, _ = EncodeTAUID(g.OperationalPattern)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.EssenceContainers)
+	field, _ = EncodeTAUIDSet(g.EssenceContainers)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 1, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -12021,82 +12021,82 @@ type GFooterPartitionPackStruct struct {
 
 }
 
-func (G *GFooterPartitionPackStruct) Encode() ([]byte, error) {
+func (g *GFooterPartitionPackStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt16(G.MajorVersion)
+	field, _ = EncodeTUInt16(g.MajorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 6, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.MinorVersion)
+	field, _ = EncodeTUInt16(g.MinorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 7, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.KAGSize)
+	field, _ = EncodeTUInt32(g.KAGSize)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 3, 1, 2, 1, 9, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.ThisPartition)
+	field, _ = EncodeTUInt64(g.ThisPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 3, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.PreviousPartition)
+	field, _ = EncodeTUInt64(g.PreviousPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 2, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.FooterPartition)
+	field, _ = EncodeTUInt64(g.FooterPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 5, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.HeaderByteCount)
+	field, _ = EncodeTUInt64(g.HeaderByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 1, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.IndexByteCount)
+	field, _ = EncodeTUInt64(g.IndexByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.IndexStreamID)
+	field, _ = EncodeTUInt32(g.IndexStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 5, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.BodyOffset)
+	field, _ = EncodeTUInt64(g.BodyOffset)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 8, 1, 2, 1, 3, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.OperationalPattern)
+	field, _ = EncodeTAUID(g.OperationalPattern)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.EssenceContainers)
+	field, _ = EncodeTAUIDSet(g.EssenceContainers)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 1, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -12144,82 +12144,82 @@ type GFooterPartitionClosedIncompleteStruct struct {
 
 }
 
-func (G *GFooterPartitionClosedIncompleteStruct) Encode() ([]byte, error) {
+func (g *GFooterPartitionClosedIncompleteStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt16(G.MajorVersion)
+	field, _ = EncodeTUInt16(g.MajorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 6, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.MinorVersion)
+	field, _ = EncodeTUInt16(g.MinorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 7, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.KAGSize)
+	field, _ = EncodeTUInt32(g.KAGSize)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 3, 1, 2, 1, 9, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.ThisPartition)
+	field, _ = EncodeTUInt64(g.ThisPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 3, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.PreviousPartition)
+	field, _ = EncodeTUInt64(g.PreviousPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 2, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.FooterPartition)
+	field, _ = EncodeTUInt64(g.FooterPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 5, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.HeaderByteCount)
+	field, _ = EncodeTUInt64(g.HeaderByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 1, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.IndexByteCount)
+	field, _ = EncodeTUInt64(g.IndexByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.IndexStreamID)
+	field, _ = EncodeTUInt32(g.IndexStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 5, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.BodyOffset)
+	field, _ = EncodeTUInt64(g.BodyOffset)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 8, 1, 2, 1, 3, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.OperationalPattern)
+	field, _ = EncodeTAUID(g.OperationalPattern)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.EssenceContainers)
+	field, _ = EncodeTAUIDSet(g.EssenceContainers)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 1, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -12267,82 +12267,82 @@ type GFooterPartitionClosedCompleteStruct struct {
 
 }
 
-func (G *GFooterPartitionClosedCompleteStruct) Encode() ([]byte, error) {
+func (g *GFooterPartitionClosedCompleteStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt16(G.MajorVersion)
+	field, _ = EncodeTUInt16(g.MajorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 6, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.MinorVersion)
+	field, _ = EncodeTUInt16(g.MinorVersion)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 3, 1, 2, 1, 7, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.KAGSize)
+	field, _ = EncodeTUInt32(g.KAGSize)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 3, 1, 2, 1, 9, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.ThisPartition)
+	field, _ = EncodeTUInt64(g.ThisPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 3, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.PreviousPartition)
+	field, _ = EncodeTUInt64(g.PreviousPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 2, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.FooterPartition)
+	field, _ = EncodeTUInt64(g.FooterPartition)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 16, 16, 5, 1, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.HeaderByteCount)
+	field, _ = EncodeTUInt64(g.HeaderByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 1, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.IndexByteCount)
+	field, _ = EncodeTUInt64(g.IndexByteCount)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 4, 6, 9, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.IndexStreamID)
+	field, _ = EncodeTUInt32(g.IndexStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 5, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.BodyOffset)
+	field, _ = EncodeTUInt64(g.BodyOffset)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 6, 8, 1, 2, 1, 3, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.OperationalPattern)
+	field, _ = EncodeTAUID(g.OperationalPattern)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 3, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUIDSet(G.EssenceContainers)
+	field, _ = EncodeTAUIDSet(g.EssenceContainers)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 1, 2, 2, 16, 2, 1, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -12366,10 +12366,10 @@ type GPrimerPackStruct struct {
 
 }
 
-func (G *GPrimerPackStruct) Encode() ([]byte, error) {
+func (g *GPrimerPackStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTLocalTagEntryBatch(G.LocalTagEntries)
+	field, _ = EncodeTLocalTagEntryBatch(g.LocalTagEntries)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 5, 6, 1, 1, 7, 21, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -12412,38 +12412,38 @@ type GIndexTableSegmentStruct struct {
 
 }
 
-func (G *GIndexTableSegmentStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GIndexTableSegmentStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.IndexEditRate)
+	field, _ = EncodeTRational(g.IndexEditRate)
 	result = append(result, []byte{63, 11}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 5, 48, 4, 6, 0, 0, 0, 0}, []byte{63, 11})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPositionType(G.IndexStartPosition)
+	field, _ = EncodeTPositionType(g.IndexStartPosition)
 	result = append(result, []byte{63, 12}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 7, 2, 1, 3, 1, 10, 0, 0}, []byte{63, 12})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTLengthType(G.IndexDuration)
+	field, _ = EncodeTLengthType(g.IndexDuration)
 	result = append(result, []byte{63, 13}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 7, 2, 2, 1, 1, 2, 0, 0}, []byte{63, 13})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.EssenceStreamID)
+	field, _ = EncodeTUInt32(g.EssenceStreamID)
 	result = append(result, []byte{63, 7}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 4, 1, 3, 4, 4, 0, 0, 0, 0}, []byte{63, 7})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -12484,34 +12484,34 @@ type GEncryptedTripletStruct struct {
 
 }
 
-func (G *GEncryptedTripletStruct) Encode() ([]byte, error) {
+func (g *GEncryptedTripletStruct) Encode() ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.CryptographicContextLink)
+	field, _ = EncodeTUUID(g.CryptographicContextLink)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 9, 6, 1, 1, 6, 3, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.PlaintextOffset)
+	field, _ = EncodeTUInt64(g.PlaintextOffset)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 9, 6, 9, 2, 1, 3, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.SourceKey)
+	field, _ = EncodeTAUID(g.SourceKey)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 9, 6, 1, 1, 2, 3, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt64(G.SourceLength)
+	field, _ = EncodeTUInt64(g.SourceLength)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 9, 4, 6, 16, 2, 0, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTDataValue(G.EncryptedSourceValue)
+	field, _ = EncodeTDataValue(g.EncryptedSourceValue)
 	result = append(result, []byte{6, 14, 43, 52, 1, 1, 1, 9, 2, 9, 3, 1, 3, 0, 0, 0}...)
 	BERField = BEREncode(len(field))
 	result = append(result, BERField...)
@@ -12539,10 +12539,10 @@ type GDescriptiveObjectStruct struct {
 
 }
 
-func (G *GDescriptiveObjectStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDescriptiveObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -12571,10 +12571,10 @@ type GDescriptiveFrameworkStruct struct {
 
 }
 
-func (G *GDescriptiveFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDescriptiveFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -12626,10 +12626,10 @@ type GProductionFrameworkStruct struct {
 
 }
 
-func (G *GProductionFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GProductionFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -12684,10 +12684,10 @@ type GClipFrameworkStruct struct {
 
 }
 
-func (G *GClipFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GClipFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -12731,10 +12731,10 @@ type GSceneFrameworkStruct struct {
 
 }
 
-func (G *GSceneFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GSceneFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -12768,10 +12768,10 @@ type GTitlesStruct struct {
 
 }
 
-func (G *GTitlesStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTitlesStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -12805,10 +12805,10 @@ type GDMS1IdentificationStruct struct {
 
 }
 
-func (G *GDMS1IdentificationStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDMS1IdentificationStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -12845,10 +12845,10 @@ type GGroupRelationshipStruct struct {
 
 }
 
-func (G *GGroupRelationshipStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GGroupRelationshipStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -12879,10 +12879,10 @@ type GBrandingStruct struct {
 
 }
 
-func (G *GBrandingStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GBrandingStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -12917,10 +12917,10 @@ type GDMS1EventStruct struct {
 
 }
 
-func (G *GDMS1EventStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDMS1EventStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -12953,10 +12953,10 @@ type GPublicationStruct struct {
 
 }
 
-func (G *GPublicationStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GPublicationStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -12992,10 +12992,10 @@ type GAwardStruct struct {
 
 }
 
-func (G *GAwardStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAwardStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13027,10 +13027,10 @@ type GCaptionsDescriptionStruct struct {
 
 }
 
-func (G *GCaptionsDescriptionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GCaptionsDescriptionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13068,10 +13068,10 @@ type GDMS1AnnotationStruct struct {
 
 }
 
-func (G *GDMS1AnnotationStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDMS1AnnotationStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13104,10 +13104,10 @@ type GSettingPeriodStruct struct {
 
 }
 
-func (G *GSettingPeriodStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GSettingPeriodStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13140,10 +13140,10 @@ type GScriptingStruct struct {
 
 }
 
-func (G *GScriptingStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GScriptingStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13175,10 +13175,10 @@ type GClassificationStruct struct {
 
 }
 
-func (G *GClassificationStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GClassificationStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13215,10 +13215,10 @@ type GShotStruct struct {
 
 }
 
-func (G *GShotStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GShotStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13251,10 +13251,10 @@ type GKeypointStruct struct {
 
 }
 
-func (G *GKeypointStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GKeypointStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13285,10 +13285,10 @@ type GCueWordsStruct struct {
 
 }
 
-func (G *GCueWordsStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GCueWordsStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13326,17 +13326,17 @@ type GParticipantStruct struct {
 
 }
 
-func (G *GParticipantStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GParticipantStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.ParticipantID)
+	field, _ = EncodeTUUID(g.ParticipantID)
 	code060e2b34010101080101154001010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 8, 1, 1, 21, 64, 1, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101080101154001010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13368,10 +13368,10 @@ type GContactsListStruct struct {
 
 }
 
-func (G *GContactsListStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GContactsListStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13418,17 +13418,17 @@ type GPersonStruct struct {
 
 }
 
-func (G *GPersonStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GPersonStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.ContactID)
+	field, _ = EncodeTUUID(g.ContactID)
 	code060e2b34010101080101154001020000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 8, 1, 1, 21, 64, 1, 2, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101080101154001020000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13466,17 +13466,17 @@ type GOrganizationStruct struct {
 
 }
 
-func (G *GOrganizationStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GOrganizationStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.ContactID)
+	field, _ = EncodeTUUID(g.ContactID)
 	code060e2b34010101080101154001020000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 8, 1, 1, 21, 64, 1, 2, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101080101154001020000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13512,17 +13512,17 @@ type GLocationStruct struct {
 
 }
 
-func (G *GLocationStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GLocationStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.ContactID)
+	field, _ = EncodeTUUID(g.ContactID)
 	code060e2b34010101080101154001020000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 8, 1, 1, 21, 64, 1, 2, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101080101154001020000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13566,10 +13566,10 @@ type GAddressStruct struct {
 
 }
 
-func (G *GAddressStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAddressStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13604,10 +13604,10 @@ type GCommunicationsStruct struct {
 
 }
 
-func (G *GCommunicationsStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GCommunicationsStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13640,10 +13640,10 @@ type GContractStruct struct {
 
 }
 
-func (G *GContractStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GContractStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13684,10 +13684,10 @@ type GRightsStruct struct {
 
 }
 
-func (G *GRightsStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GRightsStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13719,10 +13719,10 @@ type GPictureFormatStruct struct {
 
 }
 
-func (G *GPictureFormatStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GPictureFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13761,10 +13761,10 @@ type GDeviceParametersStruct struct {
 
 }
 
-func (G *GDeviceParametersStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDeviceParametersStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13796,10 +13796,10 @@ type GNameValueStruct struct {
 
 }
 
-func (G *GNameValueStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GNameValueStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13835,10 +13835,10 @@ type GProcessingStruct struct {
 
 }
 
-func (G *GProcessingStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GProcessingStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13869,10 +13869,10 @@ type GProjectStruct struct {
 
 }
 
-func (G *GProjectStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GProjectStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13913,10 +13913,10 @@ type GDMS1FrameworkStruct struct {
 
 }
 
-func (G *GDMS1FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDMS1FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13961,10 +13961,10 @@ type GProductionClipFrameworkStruct struct {
 
 }
 
-func (G *GProductionClipFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GProductionClipFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -13993,10 +13993,10 @@ type GDMS1ObjectStruct struct {
 
 }
 
-func (G *GDMS1ObjectStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDMS1ObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14025,10 +14025,10 @@ type GTextLanguageStruct struct {
 
 }
 
-func (G *GTextLanguageStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTextLanguageStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14058,10 +14058,10 @@ type GThesaurusStruct struct {
 
 }
 
-func (G *GThesaurusStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GThesaurusStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14095,17 +14095,17 @@ type GContactStruct struct {
 
 }
 
-func (G *GContactStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GContactStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.ContactID)
+	field, _ = EncodeTUUID(g.ContactID)
 	code060e2b34010101080101154001020000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 8, 1, 1, 21, 64, 1, 2, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101080101154001020000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14136,17 +14136,17 @@ type GCryptographicFrameworkStruct struct {
 
 }
 
-func (G *GCryptographicFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GCryptographicFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReference(G.CryptographicContextObject)
+	field, _ = EncodeTStrongReference(g.CryptographicContextObject)
 	code060e2b340101010906010104020d0000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 9, 6, 1, 1, 4, 2, 13, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010906010104020d0000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14186,45 +14186,45 @@ type GCryptographicContextStruct struct {
 
 }
 
-func (G *GCryptographicContextStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GCryptographicContextStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.CryptographicContextID)
+	field, _ = EncodeTUUID(g.CryptographicContextID)
 	code060e2b34010101090101151100000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 9, 1, 1, 21, 17, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101090101151100000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.SourceContainerFormat)
+	field, _ = EncodeTAUID(g.SourceContainerFormat)
 	code060e2b34010101090601010202000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 9, 6, 1, 1, 2, 2, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101090601010202000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.CipherAlgorithm)
+	field, _ = EncodeTAUID(g.CipherAlgorithm)
 	code060e2b34010101090209030101000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 9, 2, 9, 3, 1, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101090209030101000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.CryptographicKeyID)
+	field, _ = EncodeTUUID(g.CryptographicKeyID)
 	code060e2b34010101090209030102000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 9, 2, 9, 3, 1, 2, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101090209030102000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.MICAlgorithm)
+	field, _ = EncodeTAUID(g.MICAlgorithm)
 	code060e2b34010101090209030201000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 9, 2, 9, 3, 2, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101090209030201000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14267,45 +14267,45 @@ type GDMS_AS_03_FrameworkStruct struct {
 
 }
 
-func (G *GDMS_AS_03_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDMS_AS_03_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_03_Identifier)
+	field, _ = EncodeTUTF16String(g.AS_03_Identifier)
 	code060e2b34010101010d01040103010200 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 4, 1, 3, 1, 2, 0}, []byte{})
 	result = append(result, code060e2b34010101010d01040103010200...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_03_IdentifierKind)
+	field, _ = EncodeTUTF16String(g.AS_03_IdentifierKind)
 	code060e2b34010101010d01040103010100 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 4, 1, 3, 1, 1, 0}, []byte{})
 	result = append(result, code060e2b34010101010d01040103010100...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_03_ShimName)
+	field, _ = EncodeTUTF16String(g.AS_03_ShimName)
 	code060e2b34010101010d01040103010300 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 4, 1, 3, 1, 3, 0}, []byte{})
 	result = append(result, code060e2b34010101010d01040103010300...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_03_SignalStandard)
+	field, _ = EncodeTUTF16String(g.AS_03_SignalStandard)
 	code060e2b34010101010d01040103010400 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 4, 1, 3, 1, 4, 0}, []byte{})
 	result = append(result, code060e2b34010101010d01040103010400...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_03_IntendedAFD)
+	field, _ = EncodeTUTF16String(g.AS_03_IntendedAFD)
 	code060e2b34010101010d01040103010500 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 4, 1, 3, 1, 5, 0}, []byte{})
 	result = append(result, code060e2b34010101010d01040103010500...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14336,17 +14336,17 @@ type GTextBasedFrameworkStruct struct {
 
 }
 
-func (G *GTextBasedFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTextBasedFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReference(G.TextBasedObject)
+	field, _ = EncodeTStrongReference(g.TextBasedObject)
 	code060e2b340101010d0601010405410100 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 6, 1, 1, 4, 5, 65, 1, 0}, []byte{})
 	result = append(result, code060e2b340101010d0601010405410100...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14384,38 +14384,38 @@ type GGenericStreamTextBasedSetStruct struct {
 
 }
 
-func (G *GGenericStreamTextBasedSetStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GGenericStreamTextBasedSetStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.TextBasedMetadataPayloadSchemeID)
+	field, _ = EncodeTAUID(g.TextBasedMetadataPayloadSchemeID)
 	code060e2b340101010d0406080600000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 4, 6, 8, 6, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0406080600000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.TextMIMEMediaType)
+	field, _ = EncodeTUTF16String(g.TextMIMEMediaType)
 	code060e2b340101010d0409020200000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 4, 9, 2, 2, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0409020200000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.RFC5646TextLanguageCode)
+	field, _ = EncodeTUTF16String(g.RFC5646TextLanguageCode)
 	code060e2b340101010d0301010202140000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 3, 1, 1, 2, 2, 20, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0301010202140000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt32(G.GenericStreamID)
+	field, _ = EncodeTUInt32(g.GenericStreamID)
 	code060e2b340101010d0103040800000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 4, 8, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0103040800000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14453,38 +14453,38 @@ type GUTF8TextBasedSetStruct struct {
 
 }
 
-func (G *GUTF8TextBasedSetStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GUTF8TextBasedSetStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.TextBasedMetadataPayloadSchemeID)
+	field, _ = EncodeTAUID(g.TextBasedMetadataPayloadSchemeID)
 	code060e2b340101010d0406080600000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 4, 6, 8, 6, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0406080600000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.TextMIMEMediaType)
+	field, _ = EncodeTUTF16String(g.TextMIMEMediaType)
 	code060e2b340101010d0409020200000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 4, 9, 2, 2, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0409020200000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.RFC5646TextLanguageCode)
+	field, _ = EncodeTUTF16String(g.RFC5646TextLanguageCode)
 	code060e2b340101010d0301010202140000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 3, 1, 1, 2, 2, 20, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0301010202140000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF8String(G.UTF8TextData)
+	field, _ = EncodeTUTF8String(g.UTF8TextData)
 	code060e2b340101010d0301022003010000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 3, 1, 2, 32, 3, 1, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0301022003010000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14522,38 +14522,38 @@ type GUTF16TextBasedSetStruct struct {
 
 }
 
-func (G *GUTF16TextBasedSetStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GUTF16TextBasedSetStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.TextBasedMetadataPayloadSchemeID)
+	field, _ = EncodeTAUID(g.TextBasedMetadataPayloadSchemeID)
 	code060e2b340101010d0406080600000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 4, 6, 8, 6, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0406080600000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.TextMIMEMediaType)
+	field, _ = EncodeTUTF16String(g.TextMIMEMediaType)
 	code060e2b340101010d0409020200000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 4, 9, 2, 2, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0409020200000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.RFC5646TextLanguageCode)
+	field, _ = EncodeTUTF16String(g.RFC5646TextLanguageCode)
 	code060e2b340101010d0301010202140000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 3, 1, 1, 2, 2, 20, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0301010202140000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.UTF16TextData)
+	field, _ = EncodeTUTF16String(g.UTF16TextData)
 	code060e2b340101010d0301022003020000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 3, 1, 2, 32, 3, 2, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0301022003020000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14589,31 +14589,31 @@ type GTextBasedObjectStruct struct {
 
 }
 
-func (G *GTextBasedObjectStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GTextBasedObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.TextBasedMetadataPayloadSchemeID)
+	field, _ = EncodeTAUID(g.TextBasedMetadataPayloadSchemeID)
 	code060e2b340101010d0406080600000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 4, 6, 8, 6, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0406080600000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.TextMIMEMediaType)
+	field, _ = EncodeTUTF16String(g.TextMIMEMediaType)
 	code060e2b340101010d0409020200000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 4, 9, 2, 2, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0409020200000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.RFC5646TextLanguageCode)
+	field, _ = EncodeTUTF16String(g.RFC5646TextLanguageCode)
 	code060e2b340101010d0301010202140000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 3, 1, 1, 2, 2, 20, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0301010202140000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14644,17 +14644,17 @@ type GEIDRFrameworkStruct struct {
 
 }
 
-func (G *GEIDRFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GEIDRFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTCanonicalEIDRIdentifierType(G.EIDRDMSEssenceID)
+	field, _ = EncodeTCanonicalEIDRIdentifierType(g.EIDRDMSEssenceID)
 	code060e2b340101010e0101151400000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 14, 1, 1, 21, 20, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010e0101151400000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14683,10 +14683,10 @@ type GDM_Segmentation_FrameworkStruct struct {
 
 }
 
-func (G *GDM_Segmentation_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDM_Segmentation_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14727,17 +14727,17 @@ type GDMS_AS_10_Core_FrameworkStruct struct {
 
 }
 
-func (G *GDMS_AS_10_Core_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDMS_AS_10_Core_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_10_Shim_Name)
+	field, _ = EncodeTUTF16String(g.AS_10_Shim_Name)
 	code060e2b34010101010d0107010a010101 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 7, 1, 10, 1, 1, 1}, []byte{})
 	result = append(result, code060e2b34010101010d0107010a010101...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14784,66 +14784,66 @@ type GDM_AS_11_Core_FrameworkStruct struct {
 
 }
 
-func (G *GDM_AS_11_Core_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDM_AS_11_Core_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_11_Series_Title)
+	field, _ = EncodeTUTF16String(g.AS_11_Series_Title)
 	code060e2b34010101010d0107010b010101 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 7, 1, 11, 1, 1, 1}, []byte{})
 	result = append(result, code060e2b34010101010d0107010b010101...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_11_Programme_Title)
+	field, _ = EncodeTUTF16String(g.AS_11_Programme_Title)
 	code060e2b34010101010d0107010b010102 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 7, 1, 11, 1, 1, 2}, []byte{})
 	result = append(result, code060e2b34010101010d0107010b010102...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_11_Episode_Title_Number)
+	field, _ = EncodeTUTF16String(g.AS_11_Episode_Title_Number)
 	code060e2b34010101010d0107010b010103 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 7, 1, 11, 1, 1, 3}, []byte{})
 	result = append(result, code060e2b34010101010d0107010b010103...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_11_Shim_Name)
+	field, _ = EncodeTUTF16String(g.AS_11_Shim_Name)
 	code060e2b34010101010d0107010b010104 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 7, 1, 11, 1, 1, 4}, []byte{})
 	result = append(result, code060e2b34010101010d0107010b010104...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTVersionType(G.AS_11_Shim_Version)
+	field, _ = EncodeTVersionType(g.AS_11_Shim_Version)
 	code060e2b34010101010d0107010b01010a := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 7, 1, 11, 1, 1, 10}, []byte{})
 	result = append(result, code060e2b34010101010d0107010b01010a...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAS_11_Audio_Track_Layout_Enum(G.AS_11_Audio_Track_Layout)
+	field, _ = EncodeTAS_11_Audio_Track_Layout_Enum(g.AS_11_Audio_Track_Layout)
 	code060e2b34010101010d0107010b010105 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 7, 1, 11, 1, 1, 5}, []byte{})
 	result = append(result, code060e2b34010101010d0107010b010105...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTISO_639_2_Language_Code(G.AS_11_Primary_Audio_Language)
+	field, _ = EncodeTISO_639_2_Language_Code(g.AS_11_Primary_Audio_Language)
 	code060e2b34010101010d0107010b010106 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 7, 1, 11, 1, 1, 6}, []byte{})
 	result = append(result, code060e2b34010101010d0107010b010106...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTBoolean(G.AS_11_Closed_Captions_Present)
+	field, _ = EncodeTBoolean(g.AS_11_Closed_Captions_Present)
 	code060e2b34010101010d0107010b010107 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 7, 1, 11, 1, 1, 7}, []byte{})
 	result = append(result, code060e2b34010101010d0107010b010107...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14876,24 +14876,24 @@ type GDM_AS_11_Segmentation_FrameworkStruct struct {
 
 }
 
-func (G *GDM_AS_11_Segmentation_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDM_AS_11_Segmentation_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.AS_11_Part_Number)
+	field, _ = EncodeTUInt16(g.AS_11_Part_Number)
 	code060e2b34010101010d0107010b020101 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 7, 1, 11, 2, 1, 1}, []byte{})
 	result = append(result, code060e2b34010101010d0107010b020101...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.AS_11_Part_Total)
+	field, _ = EncodeTUInt16(g.AS_11_Part_Total)
 	code060e2b34010101010d0107010b020102 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 7, 1, 11, 2, 1, 2}, []byte{})
 	result = append(result, code060e2b34010101010d0107010b020102...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14926,24 +14926,24 @@ type GDMS_AS_12_FrameworkStruct struct {
 
 }
 
-func (G *GDMS_AS_12_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDMS_AS_12_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_12_ShimName)
+	field, _ = EncodeTUTF16String(g.AS_12_ShimName)
 	code060e2b34010101010d0107010c010101 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 7, 1, 12, 1, 1, 1}, []byte{})
 	result = append(result, code060e2b34010101010d0107010c010101...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReference(G.AS_12_Slate)
+	field, _ = EncodeTStrongReference(g.AS_12_Slate)
 	code060e2b34010101010d0107010c010102 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 1, 7, 1, 12, 1, 1, 2}, []byte{})
 	result = append(result, code060e2b34010101010d0107010c010102...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -14972,10 +14972,10 @@ type GAS_12_DescriptiveObjectStruct struct {
 
 }
 
-func (G *GAS_12_DescriptiveObjectStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAS_12_DescriptiveObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15009,17 +15009,17 @@ type GEBUCoreMainFrameworkStruct struct {
 
 }
 
-func (G *GEBUCoreMainFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GEBUCoreMainFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReference(G.coreMetadataObject)
+	field, _ = EncodeTStrongReference(g.coreMetadataObject)
 	code060e2b34010101010d02010103000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 2, 1, 1, 3, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101010d02010103000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15071,10 +15071,10 @@ type GcoreMetadataStruct struct {
 
 }
 
-func (G *GcoreMetadataStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GcoreMetadataStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15111,10 +15111,10 @@ type GmetadataSchemaInformationStruct struct {
 
 }
 
-func (G *GmetadataSchemaInformationStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GmetadataSchemaInformationStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15148,10 +15148,10 @@ type GidentifierStruct struct {
 
 }
 
-func (G *GidentifierStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GidentifierStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15187,10 +15187,10 @@ type GtitleStruct struct {
 
 }
 
-func (G *GtitleStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtitleStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15227,10 +15227,10 @@ type GalternativeTitleStruct struct {
 
 }
 
-func (G *GalternativeTitleStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GalternativeTitleStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15265,10 +15265,10 @@ type GsubjectStruct struct {
 
 }
 
-func (G *GsubjectStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GsubjectStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15306,10 +15306,10 @@ type GdescriptionStruct struct {
 
 }
 
-func (G *GdescriptionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GdescriptionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15353,10 +15353,10 @@ type GdateStruct struct {
 
 }
 
-func (G *GdateStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GdateStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15389,10 +15389,10 @@ type GdateTypeStruct struct {
 
 }
 
-func (G *GdateTypeStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GdateTypeStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15428,10 +15428,10 @@ type GtypeStruct struct {
 
 }
 
-func (G *GtypeStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtypeStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15461,10 +15461,10 @@ type GobjectTypeStruct struct {
 
 }
 
-func (G *GobjectTypeStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GobjectTypeStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15495,10 +15495,10 @@ type GgenreStruct struct {
 
 }
 
-func (G *GgenreStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GgenreStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15535,10 +15535,10 @@ type GtargetAudienceStruct struct {
 
 }
 
-func (G *GtargetAudienceStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtargetAudienceStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15571,10 +15571,10 @@ type GlanguageStruct struct {
 
 }
 
-func (G *GlanguageStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GlanguageStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15607,10 +15607,10 @@ type GcoverageStruct struct {
 
 }
 
-func (G *GcoverageStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GcoverageStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15640,10 +15640,10 @@ type GspatialStruct struct {
 
 }
 
-func (G *GspatialStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GspatialStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15679,10 +15679,10 @@ type GlocationStruct struct {
 
 }
 
-func (G *GlocationStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GlocationStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15714,10 +15714,10 @@ type GcoordinatesStruct struct {
 
 }
 
-func (G *GcoordinatesStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GcoordinatesStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15749,10 +15749,10 @@ type GtemporalStruct struct {
 
 }
 
-func (G *GtemporalStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtemporalStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15789,10 +15789,10 @@ type GperiodOfTimeStruct struct {
 
 }
 
-func (G *GperiodOfTimeStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GperiodOfTimeStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15836,10 +15836,10 @@ type GrightsStruct struct {
 
 }
 
-func (G *GrightsStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GrightsStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15870,10 +15870,10 @@ type GversionStruct struct {
 
 }
 
-func (G *GversionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GversionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15917,10 +15917,10 @@ type GratingStruct struct {
 
 }
 
-func (G *GratingStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GratingStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -15966,10 +15966,10 @@ type GpublicationEventStruct struct {
 
 }
 
-func (G *GpublicationEventStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GpublicationEventStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16000,10 +16000,10 @@ type GpublicationHistoryStruct struct {
 
 }
 
-func (G *GpublicationHistoryStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GpublicationHistoryStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16036,10 +16036,10 @@ type GpublicationChannelStruct struct {
 
 }
 
-func (G *GpublicationChannelStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GpublicationChannelStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16071,10 +16071,10 @@ type GpublicationMediumStruct struct {
 
 }
 
-func (G *GpublicationMediumStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GpublicationMediumStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16108,10 +16108,10 @@ type GpublicationServiceStruct struct {
 
 }
 
-func (G *GpublicationServiceStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GpublicationServiceStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16146,10 +16146,10 @@ type GentityStruct struct {
 
 }
 
-func (G *GentityStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GentityStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16203,10 +16203,10 @@ type GcontactStruct struct {
 
 }
 
-func (G *GcontactStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GcontactStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16247,10 +16247,10 @@ type GorganizationStruct struct {
 
 }
 
-func (G *GorganizationStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GorganizationStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16281,10 +16281,10 @@ type GdepartmentStruct struct {
 
 }
 
-func (G *GdepartmentStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GdepartmentStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16319,10 +16319,10 @@ type GdetailsStruct struct {
 
 }
 
-func (G *GdetailsStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GdetailsStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16356,10 +16356,10 @@ type GaddressStruct struct {
 
 }
 
-func (G *GaddressStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaddressStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16390,10 +16390,10 @@ type GregionStruct struct {
 
 }
 
-func (G *GregionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GregionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16425,10 +16425,10 @@ type GcompoundNameStruct struct {
 
 }
 
-func (G *GcompoundNameStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GcompoundNameStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16459,10 +16459,10 @@ type GroleStruct struct {
 
 }
 
-func (G *GroleStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GroleStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16492,10 +16492,10 @@ type GcountryTypeStruct struct {
 
 }
 
-func (G *GcountryTypeStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GcountryTypeStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16532,10 +16532,10 @@ type GcustomRelationStruct struct {
 
 }
 
-func (G *GcustomRelationStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GcustomRelationStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16588,10 +16588,10 @@ type GbasicRelationStruct struct {
 
 }
 
-func (G *GbasicRelationStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GbasicRelationStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16622,10 +16622,10 @@ type GplanningStruct struct {
 
 }
 
-func (G *GplanningStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GplanningStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16662,10 +16662,10 @@ type GtypeGroupStruct struct {
 
 }
 
-func (G *GtypeGroupStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtypeGroupStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16702,10 +16702,10 @@ type GformatGroupStruct struct {
 
 }
 
-func (G *GformatGroupStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GformatGroupStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16742,10 +16742,10 @@ type GstatusGroupStruct struct {
 
 }
 
-func (G *GstatusGroupStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GstatusGroupStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16776,10 +16776,10 @@ type GtextualAnnotationStruct struct {
 
 }
 
-func (G *GtextualAnnotationStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtextualAnnotationStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16809,10 +16809,10 @@ type GbasicLinkStruct struct {
 
 }
 
-func (G *GbasicLinkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GbasicLinkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16879,10 +16879,10 @@ type GformatStruct struct {
 
 }
 
-func (G *GformatStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GformatStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -16951,10 +16951,10 @@ type GvideoFormatStruct struct {
 
 }
 
-func (G *GvideoFormatStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GvideoFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17012,10 +17012,10 @@ type GimageFormatStruct struct {
 
 }
 
-func (G *GimageFormatStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GimageFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17078,10 +17078,10 @@ type GaudioFormatStruct struct {
 
 }
 
-func (G *GaudioFormatStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17114,10 +17114,10 @@ type GtrackStruct struct {
 
 }
 
-func (G *GtrackStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtrackStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17174,10 +17174,10 @@ type GdataFormatStruct struct {
 
 }
 
-func (G *GdataFormatStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GdataFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17217,10 +17217,10 @@ type GcaptioningStruct struct {
 
 }
 
-func (G *GcaptioningStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GcaptioningStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17260,10 +17260,10 @@ type GsubtitlingStruct struct {
 
 }
 
-func (G *GsubtitlingStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GsubtitlingStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17299,10 +17299,10 @@ type GancillaryDataStruct struct {
 
 }
 
-func (G *GancillaryDataStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GancillaryDataStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17341,10 +17341,10 @@ type GsigningFormatStruct struct {
 
 }
 
-func (G *GsigningFormatStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GsigningFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17376,10 +17376,10 @@ type GtechnicalAttributeStringStruct struct {
 
 }
 
-func (G *GtechnicalAttributeStringStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtechnicalAttributeStringStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17411,10 +17411,10 @@ type GtechnicalAttributeInt8Struct struct {
 
 }
 
-func (G *GtechnicalAttributeInt8Struct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtechnicalAttributeInt8Struct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17446,10 +17446,10 @@ type GtechnicalAttributeInt16Struct struct {
 
 }
 
-func (G *GtechnicalAttributeInt16Struct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtechnicalAttributeInt16Struct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17481,10 +17481,10 @@ type GtechnicalAttributeInt32Struct struct {
 
 }
 
-func (G *GtechnicalAttributeInt32Struct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtechnicalAttributeInt32Struct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17516,10 +17516,10 @@ type GtechnicalAttributeInt64Struct struct {
 
 }
 
-func (G *GtechnicalAttributeInt64Struct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtechnicalAttributeInt64Struct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17551,10 +17551,10 @@ type GtechnicalAttributeUInt8Struct struct {
 
 }
 
-func (G *GtechnicalAttributeUInt8Struct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtechnicalAttributeUInt8Struct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17586,10 +17586,10 @@ type GtechnicalAttributeUInt16Struct struct {
 
 }
 
-func (G *GtechnicalAttributeUInt16Struct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtechnicalAttributeUInt16Struct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17621,10 +17621,10 @@ type GtechnicalAttributeUInt32Struct struct {
 
 }
 
-func (G *GtechnicalAttributeUInt32Struct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtechnicalAttributeUInt32Struct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17656,10 +17656,10 @@ type GtechnicalAttributeUInt64Struct struct {
 
 }
 
-func (G *GtechnicalAttributeUInt64Struct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtechnicalAttributeUInt64Struct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17691,10 +17691,10 @@ type GtechnicalAttributeFloatStruct struct {
 
 }
 
-func (G *GtechnicalAttributeFloatStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtechnicalAttributeFloatStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17725,10 +17725,10 @@ type GtechnicalAttributeRationalStruct struct {
 
 }
 
-func (G *GtechnicalAttributeRationalStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtechnicalAttributeRationalStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17759,10 +17759,10 @@ type GtechnicalAttributeAnyURIStruct struct {
 
 }
 
-func (G *GtechnicalAttributeAnyURIStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtechnicalAttributeAnyURIStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17793,10 +17793,10 @@ type GtechnicalAttributeBooleanStruct struct {
 
 }
 
-func (G *GtechnicalAttributeBooleanStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtechnicalAttributeBooleanStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17827,10 +17827,10 @@ type GdimensionStruct struct {
 
 }
 
-func (G *GdimensionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GdimensionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17865,10 +17865,10 @@ type GpackageInfoStruct struct {
 
 }
 
-func (G *GpackageInfoStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GpackageInfoStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17899,10 +17899,10 @@ type GmediumStruct struct {
 
 }
 
-func (G *GmediumStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GmediumStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17938,10 +17938,10 @@ type GcodecStruct struct {
 
 }
 
-func (G *GcodecStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GcodecStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -17973,10 +17973,10 @@ type GrationalStruct struct {
 
 }
 
-func (G *GrationalStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GrationalStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18008,10 +18008,10 @@ type GaspectRatioStruct struct {
 
 }
 
-func (G *GaspectRatioStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaspectRatioStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18042,10 +18042,10 @@ type GheightStruct struct {
 
 }
 
-func (G *GheightStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GheightStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18076,10 +18076,10 @@ type GwidthStruct struct {
 
 }
 
-func (G *GwidthStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GwidthStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18109,10 +18109,10 @@ type GpartStruct struct {
 
 }
 
-func (G *GpartStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GpartStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18150,10 +18150,10 @@ type GpartMetadataStruct struct {
 
 }
 
-func (G *GpartMetadataStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GpartMetadataStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18184,10 +18184,10 @@ type GhashStruct struct {
 
 }
 
-func (G *GhashStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GhashStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18218,10 +18218,10 @@ type GlocatorStruct struct {
 
 }
 
-func (G *GlocatorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GlocatorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18271,10 +18271,10 @@ type GcontainerFormatStruct struct {
 
 }
 
-func (G *GcontainerFormatStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GcontainerFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18317,10 +18317,10 @@ type GaudioFormatExtendedStruct struct {
 
 }
 
-func (G *GaudioFormatExtendedStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioFormatExtendedStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18360,10 +18360,10 @@ type GaudioProgrammeStruct struct {
 
 }
 
-func (G *GaudioProgrammeStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioProgrammeStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18393,10 +18393,10 @@ type GIDRefStruct struct {
 
 }
 
-func (G *GIDRefStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GIDRefStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18434,10 +18434,10 @@ type GloudnessMetadataStruct struct {
 
 }
 
-func (G *GloudnessMetadataStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GloudnessMetadataStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18473,10 +18473,10 @@ type GaudioContentStruct struct {
 
 }
 
-func (G *GaudioContentStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioContentStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18518,10 +18518,10 @@ type GaudioObjectStruct struct {
 
 }
 
-func (G *GaudioObjectStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18557,10 +18557,10 @@ type GaudioPackFormatStruct struct {
 
 }
 
-func (G *GaudioPackFormatStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioPackFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18594,10 +18594,10 @@ type GaudioChannelFormatStruct struct {
 
 }
 
-func (G *GaudioChannelFormatStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioChannelFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18647,10 +18647,10 @@ type GaudioBlockFormatStruct struct {
 
 }
 
-func (G *GaudioBlockFormatStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioBlockFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18685,10 +18685,10 @@ type GaudioBlockMatrixCoefficientStruct struct {
 
 }
 
-func (G *GaudioBlockMatrixCoefficientStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioBlockMatrixCoefficientStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18723,10 +18723,10 @@ type GaudioStreamFormatStruct struct {
 
 }
 
-func (G *GaudioStreamFormatStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioStreamFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18759,10 +18759,10 @@ type GaudioTrackFormatStruct struct {
 
 }
 
-func (G *GaudioTrackFormatStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioTrackFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18797,10 +18797,10 @@ type GaudioTrackUIDStruct struct {
 
 }
 
-func (G *GaudioTrackUIDStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioTrackUIDStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18832,10 +18832,10 @@ type GaudioMXFLookupStruct struct {
 
 }
 
-func (G *GaudioMXFLookupStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioMXFLookupStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18865,10 +18865,10 @@ type GaudioBlockMatrixStruct struct {
 
 }
 
-func (G *GaudioBlockMatrixStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioBlockMatrixStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18902,10 +18902,10 @@ type GtimeStruct struct {
 
 }
 
-func (G *GtimeStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtimeStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -18952,10 +18952,10 @@ type GmetadataFormatStruct struct {
 
 }
 
-func (G *GmetadataFormatStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GmetadataFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19003,10 +19003,10 @@ type GtimecodeFormatStruct struct {
 
 }
 
-func (G *GtimecodeFormatStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GtimecodeFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19037,10 +19037,10 @@ type GvideoNoiseFilterStruct struct {
 
 }
 
-func (G *GvideoNoiseFilterStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GvideoNoiseFilterStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19069,10 +19069,10 @@ type GEBUCoreObjectStruct struct {
 
 }
 
-func (G *GEBUCoreObjectStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GEBUCoreObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19109,10 +19109,10 @@ type GaudienceStruct struct {
 
 }
 
-func (G *GaudienceStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudienceStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19146,10 +19146,10 @@ type GfilterStruct struct {
 
 }
 
-func (G *GfilterStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GfilterStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19193,10 +19193,10 @@ type GfilterSettingStruct struct {
 
 }
 
-func (G *GfilterSettingStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GfilterSettingStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19228,10 +19228,10 @@ type GreferenceScreenStruct struct {
 
 }
 
-func (G *GreferenceScreenStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GreferenceScreenStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19267,10 +19267,10 @@ type GreferenceScreenCentrePositionStruct struct {
 
 }
 
-func (G *GreferenceScreenCentrePositionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GreferenceScreenCentrePositionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19302,10 +19302,10 @@ type GreferenceScreenWidthStruct struct {
 
 }
 
-func (G *GreferenceScreenWidthStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GreferenceScreenWidthStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19338,10 +19338,10 @@ type GaudioContentDialogueStruct struct {
 
 }
 
-func (G *GaudioContentDialogueStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioContentDialogueStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19375,10 +19375,10 @@ type GaudioObjectInteractionStruct struct {
 
 }
 
-func (G *GaudioObjectInteractionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioObjectInteractionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19409,10 +19409,10 @@ type GgainInteractionRangeStruct struct {
 
 }
 
-func (G *GgainInteractionRangeStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GgainInteractionRangeStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19444,10 +19444,10 @@ type GpositionInteractionRangeStruct struct {
 
 }
 
-func (G *GpositionInteractionRangeStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GpositionInteractionRangeStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19480,10 +19480,10 @@ type GaudioBlockPositionStruct struct {
 
 }
 
-func (G *GaudioBlockPositionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioBlockPositionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19514,10 +19514,10 @@ type GaudioBlockDivergenceStruct struct {
 
 }
 
-func (G *GaudioBlockDivergenceStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioBlockDivergenceStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19547,10 +19547,10 @@ type GaudioBlockZoneExclusionStruct struct {
 
 }
 
-func (G *GaudioBlockZoneExclusionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioBlockZoneExclusionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19586,10 +19586,10 @@ type GaudioBlockZoneStruct struct {
 
 }
 
-func (G *GaudioBlockZoneStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioBlockZoneStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19620,10 +19620,10 @@ type GaudioBlockJumpPositionStruct struct {
 
 }
 
-func (G *GaudioBlockJumpPositionStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaudioBlockJumpPositionStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19660,10 +19660,10 @@ type GeventStruct struct {
 
 }
 
-func (G *GeventStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GeventStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19699,10 +19699,10 @@ type GawardStruct struct {
 
 }
 
-func (G *GawardStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GawardStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19733,10 +19733,10 @@ type GaffiliationStruct struct {
 
 }
 
-func (G *GaffiliationStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GaffiliationStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19781,10 +19781,10 @@ type GAPP_InfaxFrameworkStruct struct {
 
 }
 
-func (G *GAPP_InfaxFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAPP_InfaxFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19817,10 +19817,10 @@ type GAPP_PSEAnalysisFrameworkStruct struct {
 
 }
 
-func (G *GAPP_PSEAnalysisFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAPP_PSEAnalysisFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19850,10 +19850,10 @@ type GAPP_VTRReplayErrorFrameworkStruct struct {
 
 }
 
-func (G *GAPP_VTRReplayErrorFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAPP_VTRReplayErrorFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19883,10 +19883,10 @@ type GAPP_DigiBetaDropoutFrameworkStruct struct {
 
 }
 
-func (G *GAPP_DigiBetaDropoutFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAPP_DigiBetaDropoutFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -19916,10 +19916,10 @@ type GAPP_TimecodeBreakFrameworkStruct struct {
 
 }
 
-func (G *GAPP_TimecodeBreakFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAPP_TimecodeBreakFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -20004,143 +20004,143 @@ type GDM_AS_11_UKDPP_FrameworkStruct struct {
 
 }
 
-func (G *GDM_AS_11_UKDPP_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDM_AS_11_UKDPP_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.UKDPP_Production_Number)
+	field, _ = EncodeTUTF16String(g.UKDPP_Production_Number)
 	code060e2b34010101010d0c010101010100 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 1, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101010100...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.UKDPP_Synopsis)
+	field, _ = EncodeTUTF16String(g.UKDPP_Synopsis)
 	code060e2b34010101010d0c010101010200 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 2, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101010200...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.UKDPP_Originator)
+	field, _ = EncodeTUTF16String(g.UKDPP_Originator)
 	code060e2b34010101010d0c010101010300 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 3, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101010300...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.UKDPP_Copyright_Year)
+	field, _ = EncodeTUInt16(g.UKDPP_Copyright_Year)
 	code060e2b34010101010d0c010101010400 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 4, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101010400...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTBoolean(G.UKDPP_3D)
+	field, _ = EncodeTBoolean(g.UKDPP_3D)
 	code060e2b34010101010d0c010101010a00 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 10, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101010a00...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUKDPP_PSE_Pass_Enum(G.UKDPP_PSE_Pass)
+	field, _ = EncodeTUKDPP_PSE_Pass_Enum(g.UKDPP_PSE_Pass)
 	code060e2b34010101010d0c010101010d00 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 13, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101010d00...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTISO_639_2_Language_Code(G.UKDPP_Secondary_Audio_Language)
+	field, _ = EncodeTISO_639_2_Language_Code(g.UKDPP_Secondary_Audio_Language)
 	code060e2b34010101010d0c010101011100 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 17, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101011100...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTISO_639_2_Language_Code(G.UKDPP_Tertiary_Audio_Language)
+	field, _ = EncodeTISO_639_2_Language_Code(g.UKDPP_Tertiary_Audio_Language)
 	code060e2b34010101010d0c010101011200 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 18, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101011200...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUKDPP_Audio_Loudness_Standard_Enum(G.UKDPP_Audio_Loudness_Standard)
+	field, _ = EncodeTUKDPP_Audio_Loudness_Standard_Enum(g.UKDPP_Audio_Loudness_Standard)
 	code060e2b34010101010d0c010101011300 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 19, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101011300...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPositionType(G.UKDPP_Line_Up_Start)
+	field, _ = EncodeTPositionType(g.UKDPP_Line_Up_Start)
 	code060e2b34010101010d0c010101011500 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 21, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101011500...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTPositionType(G.UKDPP_Ident_Clock_Start)
+	field, _ = EncodeTPositionType(g.UKDPP_Ident_Clock_Start)
 	code060e2b34010101010d0c010101011600 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 22, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101011600...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.UKDPP_Total_Number_Of_Parts)
+	field, _ = EncodeTUInt16(g.UKDPP_Total_Number_Of_Parts)
 	code060e2b34010101010d0c010101011700 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 23, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101011700...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTLengthType(G.UKDPP_Total_Programme_Duration)
+	field, _ = EncodeTLengthType(g.UKDPP_Total_Programme_Duration)
 	code060e2b34010101010d0c010101011800 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 24, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101011800...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTBoolean(G.UKDPP_Audio_Description_Present)
+	field, _ = EncodeTBoolean(g.UKDPP_Audio_Description_Present)
 	code060e2b34010101010d0c010101011900 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 25, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101011900...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTBoolean(G.UKDPP_Open_Captions_Present)
+	field, _ = EncodeTBoolean(g.UKDPP_Open_Captions_Present)
 	code060e2b34010101010d0c010101011b00 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 27, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101011b00...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUKDPP_Signing_Present_Enum(G.UKDPP_Signing_Present)
+	field, _ = EncodeTUKDPP_Signing_Present_Enum(g.UKDPP_Signing_Present)
 	code060e2b34010101010d0c010101011e00 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 30, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101011e00...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTTimeStamp(G.UKDPP_Completion_Date)
+	field, _ = EncodeTTimeStamp(g.UKDPP_Completion_Date)
 	code060e2b34010101010d0c010101012000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 32, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101012000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.UKDPP_Contact_Email)
+	field, _ = EncodeTUTF16String(g.UKDPP_Contact_Email)
 	code060e2b34010101010d0c010101012400 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 36, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101012400...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.UKDPP_Contact_Telephone_Number)
+	field, _ = EncodeTUTF16String(g.UKDPP_Contact_Telephone_Number)
 	code060e2b34010101010d0c010101012500 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 12, 1, 1, 1, 1, 37, 0}, []byte{})
 	result = append(result, code060e2b34010101010d0c010101012500...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -20191,87 +20191,87 @@ type GDMS_AS_12_AdID_SlateStruct struct {
 
 }
 
-func (G *GDMS_AS_12_AdID_SlateStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GDMS_AS_12_AdID_SlateStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.adid_prefix)
+	field, _ = EncodeTUTF16String(g.adid_prefix)
 	code060e2b340101010d0d0d010100000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 13, 13, 1, 1, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0d0d010100000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.adid_code)
+	field, _ = EncodeTUTF16String(g.adid_code)
 	code060e2b340101010d0d0d010200000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 13, 13, 1, 2, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0d0d010200000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.ad_title)
+	field, _ = EncodeTUTF16String(g.ad_title)
 	code060e2b340101010d0d0d010300000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 13, 13, 1, 3, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0d0d010300000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.brand)
+	field, _ = EncodeTUTF16String(g.brand)
 	code060e2b340101010d0d0d010400000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 13, 13, 1, 4, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0d0d010400000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.product)
+	field, _ = EncodeTUTF16String(g.product)
 	code060e2b340101010d0d0d010500000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 13, 13, 1, 5, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0d0d010500000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.advertiser)
+	field, _ = EncodeTUTF16String(g.advertiser)
 	code060e2b340101010d0d0d010600000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 13, 13, 1, 6, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0d0d010600000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.agency_office_location)
+	field, _ = EncodeTUTF16String(g.agency_office_location)
 	code060e2b340101010d0d0d010700000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 13, 13, 1, 7, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0d0d010700000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.length)
+	field, _ = EncodeTUTF16String(g.length)
 	code060e2b340101010d0d0d010800000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 13, 13, 1, 8, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0d0d010800000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.medium)
+	field, _ = EncodeTUTF16String(g.medium)
 	code060e2b340101010d0d0d010900000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 13, 13, 1, 9, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0d0d010900000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.sd_flag)
+	field, _ = EncodeTUTF16String(g.sd_flag)
 	code060e2b340101010d0d0d010a00000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 13, 13, 1, 10, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0d0d010a00000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.parent)
+	field, _ = EncodeTUTF16String(g.parent)
 	code060e2b340101010d0d0d010b00000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 13, 13, 1, 11, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0d0d010b00000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -20322,59 +20322,59 @@ type GAS_07_Core_DMS_FrameworkStruct struct {
 
 }
 
-func (G *GAS_07_Core_DMS_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAS_07_Core_DMS_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_07_Core_DMS_ShimName)
+	field, _ = EncodeTUTF16String(g.AS_07_Core_DMS_ShimName)
 	code060e2b34010101010d0e010107010101 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 1, 1, 1}, []byte{})
 	result = append(result, code060e2b34010101010d0e010107010101...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReferenceSetAS_07_DMS_Identifier(G.AS_07_Core_DMS_Identifiers)
+	field, _ = EncodeTStrongReferenceSetAS_07_DMS_Identifier(g.AS_07_Core_DMS_Identifiers)
 	code060e2b34010101010d0e010107010102 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 1, 1, 2}, []byte{})
 	result = append(result, code060e2b34010101010d0e010107010102...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_07_Core_DMS_ResponsibleOrganizationName)
+	field, _ = EncodeTUTF16String(g.AS_07_Core_DMS_ResponsibleOrganizationName)
 	code060e2b34010101010d0e010107010103 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 1, 1, 3}, []byte{})
 	result = append(result, code060e2b34010101010d0e010107010103...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_07_Core_DMS_PictureFormat)
+	field, _ = EncodeTUTF16String(g.AS_07_Core_DMS_PictureFormat)
 	code060e2b34010101010d0e010107010109 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 1, 1, 9}, []byte{})
 	result = append(result, code060e2b34010101010d0e010107010109...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_07_Core_DMS_IntendedAFD)
+	field, _ = EncodeTUTF16String(g.AS_07_Core_DMS_IntendedAFD)
 	code060e2b34010101010d0e01010701010a := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 1, 1, 10}, []byte{})
 	result = append(result, code060e2b34010101010d0e01010701010a...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_07_Core_DMS_Captions)
+	field, _ = EncodeTUTF16String(g.AS_07_Core_DMS_Captions)
 	code060e2b34010101010d0e01010701010b := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 1, 1, 11}, []byte{})
 	result = append(result, code060e2b34010101010d0e01010701010b...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.AS_07_Core_DMS_AudioTrackLayout)
+	field, _ = EncodeTAUID(g.AS_07_Core_DMS_AudioTrackLayout)
 	code060e2b34010101010d0e01010701010e := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 1, 1, 14}, []byte{})
 	result = append(result, code060e2b34010101010d0e01010701010e...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -20408,10 +20408,10 @@ type GAS_07_DMS_DeviceStruct struct {
 
 }
 
-func (G *GAS_07_DMS_DeviceStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAS_07_DMS_DeviceStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -20447,31 +20447,31 @@ type GAS_07_DMS_IdentifierStruct struct {
 
 }
 
-func (G *GAS_07_DMS_IdentifierStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAS_07_DMS_IdentifierStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_07_DMS_IdentifierValue)
+	field, _ = EncodeTUTF16String(g.AS_07_DMS_IdentifierValue)
 	code060e2b34010101010d0e010107010302 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 1, 3, 2}, []byte{})
 	result = append(result, code060e2b34010101010d0e010107010302...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAS_07_DMS_IdentifierRoleCode(G.AS_07_DMS_IdentifierRole)
+	field, _ = EncodeTAS_07_DMS_IdentifierRoleCode(g.AS_07_DMS_IdentifierRole)
 	code060e2b34010101010d0e010107010303 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 1, 3, 3}, []byte{})
 	result = append(result, code060e2b34010101010d0e010107010303...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAS_07_DMS_IdentifierTypeCode(G.AS_07_DMS_IdentifierType)
+	field, _ = EncodeTAS_07_DMS_IdentifierTypeCode(g.AS_07_DMS_IdentifierType)
 	code060e2b34010101010d0e010107010304 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 1, 3, 4}, []byte{})
 	result = append(result, code060e2b34010101010d0e010107010304...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -20516,59 +20516,59 @@ type GAS_07_GSP_DMS_ObjectStruct struct {
 
 }
 
-func (G *GAS_07_GSP_DMS_ObjectStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAS_07_GSP_DMS_ObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUInt32(G.GenericStreamID)
+	field, _ = EncodeTUInt32(g.GenericStreamID)
 	code060e2b340101010d0103040800000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 1, 3, 4, 8, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0103040800000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAUID(G.TextBasedMetadataPayloadSchemeID)
+	field, _ = EncodeTAUID(g.TextBasedMetadataPayloadSchemeID)
 	code060e2b340101010d0406080600000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 4, 6, 8, 6, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0406080600000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.TextMIMEMediaType)
+	field, _ = EncodeTUTF16String(g.TextMIMEMediaType)
 	code060e2b340101010d0409020200000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 4, 9, 2, 2, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0409020200000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.RFC5646TextLanguageCode)
+	field, _ = EncodeTUTF16String(g.RFC5646TextLanguageCode)
 	code060e2b340101010d0301010202140000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 3, 1, 1, 2, 2, 20, 0, 0}, []byte{})
 	result = append(result, code060e2b340101010d0301010202140000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTStrongReferenceSetAS_07_DMS_Identifier(G.AS_07_GSP_DMS_Identifiers)
+	field, _ = EncodeTStrongReferenceSetAS_07_DMS_Identifier(g.AS_07_GSP_DMS_Identifiers)
 	code060e2b34010101010d0e010107010401 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 1, 4, 1}, []byte{})
 	result = append(result, code060e2b34010101010d0e010107010401...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_07_GSP_DMS_MIMEMediaType)
+	field, _ = EncodeTUTF16String(g.AS_07_GSP_DMS_MIMEMediaType)
 	code060e2b34010101010d0e010107010402 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 1, 4, 2}, []byte{})
 	result = append(result, code060e2b34010101010d0e010107010402...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTAS_07_DMS_DataDescriptionCode(G.AS_07_GSP_DMS_DataDescription)
+	field, _ = EncodeTAS_07_DMS_DataDescriptionCode(g.AS_07_GSP_DMS_DataDescription)
 	code060e2b34010101010d0e010107010403 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 1, 4, 3}, []byte{})
 	result = append(result, code060e2b34010101010d0e010107010403...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -20599,17 +20599,17 @@ type GAS_07_GSP_DMS_FrameworkStruct struct {
 
 }
 
-func (G *GAS_07_GSP_DMS_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAS_07_GSP_DMS_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTStrongReference(G.TextBasedObject)
+	field, _ = EncodeTStrongReference(g.TextBasedObject)
 	code060e2b340101010d0601010405410100 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 6, 1, 1, 4, 5, 65, 1, 0}, []byte{})
 	result = append(result, code060e2b340101010d0601010405410100...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -20640,17 +20640,17 @@ type GAS_07_GSP_BD_DMS_FrameworkStruct struct {
 
 }
 
-func (G *GAS_07_GSP_BD_DMS_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAS_07_GSP_BD_DMS_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTStrongReference(G.TextBasedObject)
+	field, _ = EncodeTStrongReference(g.TextBasedObject)
 	code060e2b340101010d0601010405410100 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 6, 1, 1, 4, 5, 65, 1, 0}, []byte{})
 	result = append(result, code060e2b340101010d0601010405410100...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -20684,24 +20684,24 @@ type GAS_07_GSP_TD_DMS_FrameworkStruct struct {
 
 }
 
-func (G *GAS_07_GSP_TD_DMS_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAS_07_GSP_TD_DMS_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTStrongReference(G.TextBasedObject)
+	field, _ = EncodeTStrongReference(g.TextBasedObject)
 	code060e2b340101010d0601010405410100 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 13, 6, 1, 1, 4, 5, 65, 1, 0}, []byte{})
 	result = append(result, code060e2b340101010d0601010405410100...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_07_GSP_TD_DMS_PrimaryRFC5646LanguageCode)
+	field, _ = EncodeTUTF16String(g.AS_07_GSP_TD_DMS_PrimaryRFC5646LanguageCode)
 	code060e2b34010101010d0e010107020301 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 2, 3, 1}, []byte{})
 	result = append(result, code060e2b34010101010d0e010107020301...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -20734,24 +20734,24 @@ type GAS_07_Segmentation_DMS_FrameworkStruct struct {
 
 }
 
-func (G *GAS_07_Segmentation_DMS_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAS_07_Segmentation_DMS_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.AS_07_Segmentation_DMS_PartNumber)
+	field, _ = EncodeTUInt16(g.AS_07_Segmentation_DMS_PartNumber)
 	code060e2b34010101010d0e010107030101 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 3, 1, 1}, []byte{})
 	result = append(result, code060e2b34010101010d0e010107030101...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUInt16(G.AS_07_Segmentation_DMS_PartTotal)
+	field, _ = EncodeTUInt16(g.AS_07_Segmentation_DMS_PartTotal)
 	code060e2b34010101010d0e010107030102 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 3, 1, 2}, []byte{})
 	result = append(result, code060e2b34010101010d0e010107030102...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -20784,17 +20784,17 @@ type GAS_07_TimecodeLabelSubdescriptorStruct struct {
 
 }
 
-func (G *GAS_07_TimecodeLabelSubdescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GAS_07_TimecodeLabelSubdescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF16String(G.AS_07_DateTimeSymbol)
+	field, _ = EncodeTUTF16String(g.AS_07_DateTimeSymbol)
 	code060e2b34010101010d0e010107040101 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 13, 14, 1, 1, 7, 4, 1, 1}, []byte{})
 	result = append(result, code060e2b34010101010d0e010107040101...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -20830,10 +20830,10 @@ type GIADataEssenceDescriptorStruct struct {
 
 }
 
-func (G *GIADataEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GIADataEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -20867,10 +20867,10 @@ type GIADataEssenceSubDescriptorStruct struct {
 
 }
 
-func (G *GIADataEssenceSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GIADataEssenceSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -20901,31 +20901,31 @@ type GMRXessencedescriptorStruct struct {
 
 }
 
-func (G *GMRXessencedescriptorStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GMRXessencedescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF8String(G.ISO8601Time)
+	field, _ = EncodeTUTF8String(g.ISO8601Time)
 	code060e2b34010101050e09040001000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 14, 9, 4, 0, 1, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101050e09040001000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF8String(G.MetarexID)
+	field, _ = EncodeTUTF8String(g.MetarexID)
 	code060e2b34010101050e09040002000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 14, 9, 4, 0, 2, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101050e09040002000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF8String(G.RegURI)
+	field, _ = EncodeTUTF8String(g.RegURI)
 	code060e2b34010101050e09040003000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 14, 9, 4, 0, 3, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101050e09040003000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
@@ -20966,38 +20966,38 @@ type GISXDStruct struct {
 
 }
 
-func (G *GISXDStruct) Encode(primer *Primer) ([]byte, error) {
+func (g *GISXDStruct) Encode(primer *Primer) ([]byte, error) {
 	var result, field, BERField []byte
 
-	field, _ = EncodeTAUID(G.DataEssenceCoding)
+	field, _ = EncodeTAUID(g.DataEssenceCoding)
 	result = append(result, []byte{62, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 3, 4, 3, 3, 2, 0, 0, 0, 0}, []byte{62, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTRational(G.SampleRate)
+	field, _ = EncodeTRational(g.SampleRate)
 	result = append(result, []byte{48, 1}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 4, 6, 1, 1, 0, 0, 0, 0}, []byte{48, 1})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTWeakReference(G.ContainerFormat)
+	field, _ = EncodeTWeakReference(g.ContainerFormat)
 	result = append(result, []byte{48, 4}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 2, 6, 1, 1, 4, 1, 2, 0, 0}, []byte{48, 4})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUUID(G.InstanceID)
+	field, _ = EncodeTUUID(g.InstanceID)
 	result = append(result, []byte{60, 10}...)
 	primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 1, 1, 1, 21, 2, 0, 0, 0, 0}, []byte{60, 10})
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))
 	result = append(result, BERField...)
 	result = append(result, field...)
 
-	field, _ = EncodeTUTF8String(G.NamespaceURIUTF8)
+	field, _ = EncodeTUTF8String(g.NamespaceURIUTF8)
 	code060e2b34010101050e09040000000000 := primer.AddEntry([]byte{6, 14, 43, 52, 1, 1, 1, 5, 14, 9, 4, 0, 0, 0, 0, 0}, []byte{})
 	result = append(result, code060e2b34010101050e09040000000000...)
 	BERField = binary.BigEndian.AppendUint16([]byte{}, uint16(len(field)))

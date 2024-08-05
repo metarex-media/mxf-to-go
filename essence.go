@@ -2,7 +2,7 @@
 // BSD-3-Clause License  https://opensource.org/license/bsd-3-clause/
 package mxf2go
 
-type essenceInformation struct {
+type EssenceInformation struct {
 	UL               string `xml:"UL,omitempty"`
 	Name             string `xml:"Name,omitempty"`
 	Symbol           string `xml:"Symbol,omitempty"`
@@ -11,7 +11,7 @@ type essenceInformation struct {
 	IsDeprecated     bool   `xml:"IsDeprecated,omitempty"`
 }
 
-var EssenceLookUp = map[string]essenceInformation{
+var EssenceLookUp = map[string]EssenceInformation{
 	"urn:smpte:ul:060e2b34.01020101.0d010301.0501017f": {UL: "urn:smpte:ul:060e2b34.01020101.0d010301.0501017f", Name: "Type D-10 Element", Symbol: "TypeD10Element", Definition: "Identifies a Type D-10 constrained MPEG2 4:2:2 coded element (see SMPTE 331)", DefiningDocument: "SMPTE ST 386", IsDeprecated: false},
 	"urn:smpte:ul:060e2b34.01020101.0d010301.0601107f": {UL: "urn:smpte:ul:060e2b34.01020101.0d010301.0601107f", Name: "8-Ch AES3 Element", Symbol: "_8ChAES3Element", Definition: "Identifies a 8 channel AES3 audio data element", DefiningDocument: "SMPTE ST 386", IsDeprecated: false},
 	"urn:smpte:ul:060e2b34.01020101.0d010301.077f207f": {UL: "urn:smpte:ul:060e2b34.01020101.0d010301.077f207f", Name: "VBI Line Element", Symbol: "VBILineElement", Definition: "Identifies a VBI line data element", DefiningDocument: "SMPTE ST 331", IsDeprecated: false},

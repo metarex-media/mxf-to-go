@@ -3,7 +3,7 @@
 ## Contents
 
 - [Introduction](#introduction)
-- [Register Layout](#register-layout)
+- [Register Layout](#smpte-registers-structure)
   - [Types](#types)
   - [Elements](#elements)
   - [Groups](#groups)
@@ -25,7 +25,7 @@ rather than writing code from scratch for every widget.
 Before embarking on using this repo, please make sure you are familiar with the
 technical concepts of the [Material Exchange Format (MXF)][MXFspec].
 
-## SMPTE Registers Structyre
+## SMPTE Registers Structure
 
 This repository converts the following SMPTE registers:
 
@@ -38,13 +38,13 @@ This repository converts the following SMPTE registers:
 Files labelled with the `-dev` suffix contain experimental data and fields that
 may not be part of the official [MXF] or [MRX] specifications.
 
-### Types Register
+### Types
 
 The types.go file uses the go base types and maps them to the types register.
 Some types wrap other register types before reaching the go type, leading to
 some types wrapping round another type register value several times, before
 reaching the go base. For example `TPackageStrongReference` is of type
-TStrongRef`erence, which is of go type []byte.
+`TStrongReference`, which is of go type []byte.
 
 The register to go types as matched as the following:
 
@@ -73,8 +73,9 @@ Decode{TypeName}(value []byte)(any, error)
 The types are returned as an any to allow the generic handling
 of MXF byte streams.
 
-Any enumerated type also has a generated String nd MarshallTest function,
-to allow the values to be human readable.
+Any enumerated type also has a generated String and MarshallTest function,
+to allow the values to be human readable. This also happens automatically
+when the values are parsed as JSON and YAML outputs.
 
 e.g. a type of AS_11_Captions_Type_Enum has the following generated code.
 
@@ -131,7 +132,7 @@ These encoded bytes encompass the Key Length Value (KLV) of a group and can be
 written straight to an mxf file.
 
 Set length groups are generated as empty encode and decode functions, as they
-have special rules which can not be encompassed in generic SMPTE Register to go
+have special rules which can not be encompassed in the generic SMPTE Register to go
 code. These set length groups are few in number and the rules can be found in
 their relevant SMPTE documentation. e.g. the primer pack
 
@@ -166,7 +167,7 @@ all the values that may be present.
 The following examples are to help you get an idea of how to utilise this
 library, with some of the design patterns that we have used. To see the
 examples in practice check out the [mrx-tool
-repo](https://github.com/metarex-media/mrx-tool/), an mxf/mrx file decoder and
+repo][mrxTool], an mxf/mrx file decoder and
 encoder that utilizes this library.
 
 There are the following examples:
@@ -328,3 +329,4 @@ please create an issue.
 [mxfspec]: https://pub.smpte.org/doc/377/
 [mrx]:     https://metarex.media
 [reg]:     https://registry.smpte-ra.org/apps/pages/
+[mrxTool]:  https://github.com/metarex-media/mrx-tool/
