@@ -39,7 +39,8 @@ may not be part of the official [MXF] or [MRX] specifications.
 
 A label is an mxf item label, the labels register contains the list of labels.
 The labels go code contains an array and map of labels and their properties, as the
-properties would be found in the register. Both contain identical properties.
+properties would be found in the register. Both contain identical properties for
+the same UL.
 
 The array can be accessed with the exported label iota values, these give the
 position in the array of their label name.
