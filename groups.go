@@ -6,6 +6,8 @@ import (
 	"encoding/binary"
 )
 
+// Group contains the register properties of a group,
+// as well as the function to decode the bytes into a go value.
 type Group struct {
 	UL     string
 	IsOpt  bool
@@ -13,6 +15,10 @@ type Group struct {
 	Decode func([]byte) (any, error)
 }
 
+// GroupID contains the name of a group and
+// all the possible fields it contains, which can be found with their
+// UL in the format
+// "urn:smpte:ul:00000000.00000000.00000000.00000000"
 type GroupID struct {
 	Name  string
 	Group map[string]Group
@@ -21013,6 +21019,11 @@ func (g *GISXDStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+// Groups is a map of the groups in the groups register.
+// Values are found with their UL which takes the format 
+// "urn:smpte:ul:00000000.00000000.00000000.00000000".
+//
+// Each group contains the individual fields and decode functions.
 var Groups = map[string]GroupID{
 	"urn:smpte:ul:060e2b34.027f0101.02070101.01000000": {Name: "BadRequestResponse", Group: GBadRequestResponse},
 	"urn:smpte:ul:060e2b34.027f0101.02070102.10000000": {Name: "TimeRequest", Group: GTimeRequest},
@@ -21426,6 +21437,8 @@ var Groups = map[string]GroupID{
 	"urn:smpte:ul:060e2b34.02530105.0e090502.00000000": {Name: "ISXD", Group: GISXD},
 }
 
+// ShortHandLookUp contain a map of the short hand hex bytes as
+// declared  in the register and their corresponding UL.
 var ShortHandLookUp = map[string]string{
 	"3601": "urn:smpte:ul:060e2b34.0101010e.05310101.00000000",
 	"3602": "urn:smpte:ul:060e2b34.0101010e.05310102.00000000",

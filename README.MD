@@ -1,45 +1,115 @@
 # mxf-to-go
 
-## Contents
-
-- [Introduction](#introduction)
-- [Register Layout](#smpte-registers-structure)
-  - [Types](#types)
-  - [Elements](#elements)
-  - [Groups](#groups)
-  - [Essence](#essence)
-  - [Labels](#labels)
-- [Examples](#examples)
-  - [Labels](#labels-example)
-  - [Decoding Groups](#decoding-groups-example)
-  - [Encoding](#encoding-groups-example)
-
-## Introduction
-
 **mxf-to-go** converts a snapshot of the [SMPTE RA registers][reg] to [golang
 structs][golang]. It converts all the MXF [(Material Exchange Format)][MXF] and
 MRX [(Metarex.media)][MRX] types to go types, so that you can easily work on
-the contents of mxf files using variables and structs with consistent names,
+the contents of mxf files using variables and types with consistent names,
 rather than writing code from scratch for every widget.
 
 Before embarking on using this repo, please make sure you are familiar with the
 technical concepts of the [Material Exchange Format (MXF)][MXFspec].
 
+## Contents
+
+- [Register Layout](#smpte-registers-structure)
+  - [Labels](#labels)
+  - [Elements](#elements)
+  - [Essence](#essence)
+  - [Groups](#groups)
+  - [Types](#types)
+- [Examples](#examples)
+  - [Labels](#labels-example)
+  - [Decoding Groups](#decoding-groups-example)
+  - [Encoding](#encoding-groups-example)
+
 ## SMPTE Registers Structure
 
 This repository converts the following SMPTE registers:
 
-- [Types](#types)
-- [Elements](#elements)
-- [Groups](#groups)
-- [Essence](#essence)
 - [Labels](#labels)
+- [Elements](#elements)
+- [Essence](#essence)
+- [Groups](#groups)
+- [Types](#types)
 
 Files labelled with the `-dev` suffix contain experimental data and fields that
 may not be part of the official [MXF] or [MRX] specifications.
 
+### Labels
+
+A label is an mxf item label, the labels register contains the list of labels.
+The labels go code contains an array and map of labels and their properties, as the
+properties would be found in the register. Both contain identical properties.
+
+The array can be accessed with the exported label iota values, these give the
+position in the array of their label name.
+
+The Universal Label (UL) of a label
+`urn:smpte:ul:00000000.00000000.00000000.00000000` is the map key. The UL is
+the default UL given in the register, where any `7f` bytes, which means a byte
+that can have multiple values, is kept as 7f in their UL, rather than including
+all the values that may be present.
+
+### Elements
+
+Elements have a value and a data type, the elements register contains all
+of the elements.
+The elements in the go code
+are wrapped types from the types register, no nesting occurs as each
+element is of a type from the types register and not of another element.
+
+Elements with no declared type are stored as an any type e.g. `type EDOI any`.
+
+### Essence
+
+Essence contains the description for the essence (the data contents) within
+an mxf file, the essence register contains all of the essence entries.
+The essence go code contains a lookup table `EssenceLookUp =
+map[string]essenceInformation`, that contains the register information about
+the essence.
+
+The Universal Label (UL) of a essence
+`urn:smpte:ul:00000000.00000000.00000000.00000000` is the map key. The UL is
+the default UL given in the register, where any `7f` bytes, which means a byte
+that can have multiple values, is kept as 7f in their UL, rather than including
+all the values that may be present.
+
+### Groups
+
+Groups are a group of elements and labels, the group register contains
+all of the grouping of these elements and labels.
+The groups go code contains the decode functions and encode functions for the group
+register.
+
+The `Groups` map of type `map[string]GroupID` is a look up table of all the
+groups and their relative decode functions, for each field within the group.
+
+The Universal Label (UL) of a group
+`urn:smpte:ul:00000000.00000000.00000000.00000000` is the map key. The UL is
+the default UL given in the register, where any `7f` bytes, which means a byte
+that can have multiple values, is kept as 7f in their UL, rather than including
+all the values that may be present.
+
+The decode map functions contain the ULs for all possible records within a
+group and the function to decode those content bytes into a go interface value.
+
+The encode method only allows you to encode non optional contents of a group,
+because some optional fields change the interpretation of the group, even when
+they are the default value for that field. The encode function generates the
+valid SMPTE 377 block of bytes for a group, including the key and BER encoded
+length of the group, as well as any subsequent keys and lengths for contents.
+These encoded bytes encompass the Key Length Value (KLV) of a group and can be
+written straight to an mxf file.
+
+Set length groups are generated as empty encode and decode functions, as they
+have special rules which can not be encompassed in the generic SMPTE Register to go
+code. These set length groups are few in number and the rules can be found in
+their relevant SMPTE documentation. e.g. the primer pack
+
 ### Types
 
+Within the types register every type denotes the data type that is used by
+other registers.
 The types.go file uses the go base types and maps them to the types register.
 Some types wrap other register types before reaching the go type, leading to
 some types wrapping round another type register value several times, before
@@ -99,69 +169,6 @@ func (s TAS_11_Captions_Type_Enum)String() string {
 }
 ```
 
-### Elements
-
-Elements are wrapped types from the types register, no nesting occurs as each
-element is of a type from the types register and not of another element.
-
-Elements with no declared type are stored as an any type e.g. `type EDOI any`.
-
-### Groups
-
-Groups contains the decode functions and encode functions for the group
-register.
-
-The `Groups` map of type `map[string]GroupID` is a look up table of all the
-groups and their relative decode functions, for each field within the group.
-
-The Universal Label (UL) of a group
-`urn:smpte:ul:00000000.00000000.00000000.00000000` is the map key. The UL is
-the default UL given in the register, where any `7f` bytes, which means a byte
-that can have multiple values, is kept as 7f in their UL, rather than including
-all the values that may be present.
-
-The decode map functions contain the ULs for all possible records within a
-group and the function to decode those content bytes into a go interface value.
-
-The encode method only allows you to encode non optional contents of a group,
-because some optional fields change the interpretation of the group, even when
-they are the default value for that field. The encode function generates the
-valid SMPTE 377 block of bytes for a group, including the key and BER encoded
-length of the group, as well as any subsequent keys and lengths for contents.
-These encoded bytes encompass the Key Length Value (KLV) of a group and can be
-written straight to an mxf file.
-
-Set length groups are generated as empty encode and decode functions, as they
-have special rules which can not be encompassed in the generic SMPTE Register to go
-code. These set length groups are few in number and the rules can be found in
-their relevant SMPTE documentation. e.g. the primer pack
-
-### Essence
-
-Essence contains a lookup table `EssenceLookUp =
-map[string]essenceInformation`, that contains the register information about
-the essence.
-
-The Universal Label (UL) of a essence
-`urn:smpte:ul:00000000.00000000.00000000.00000000` is the map key. The UL is
-the default UL given in the register, where any `7f` bytes, which means a byte
-that can have multiple values, is kept as 7f in their UL, rather than including
-all the values that may be present.
-
-### Labels
-
-Labels contains an array and map of labels and their properties, as the
-properties would be found in the register. Both contain identical properties.
-
-The array can be accessed with the exported label iota values, these give the
-position in the array of their label name.
-
-The Universal Label (UL) of a label
-`urn:smpte:ul:00000000.00000000.00000000.00000000` is the map key. The UL is
-the default UL given in the register, where any `7f` bytes, which means a byte
-that can have multiple values, is kept as 7f in their UL, rather than including
-all the values that may be present.
-
 ## Examples
 
 The following examples are to help you get an idea of how to utilise this
@@ -178,7 +185,13 @@ There are the following examples:
 
 ### Labels Example
 
-The `LabelsRegister` array position can be found using the const positional
+The labels values are translated from the register values to go
+and this example will
+take you through extracting known and unknown labels into go values.
+
+The `LabelsRegister` is an array containing the labels in the
+order they were found in the register. A labels
+position can be found using the const positional
 variables such as `mxf2go.TransferCharacteristic_Gamma_2_6`, where the name of
 the positional variable is the name of the symbol in the register. The label
 information can also be extracted using its UL, from the labels look up map.
@@ -196,8 +209,9 @@ sometarget := mxf2go.LabelsLookUp["urn:smpte:ul:060e2b34.04010101.01010101.01010
 
 ### Decoding Groups Example
 
-The following demo gives you an idea of how to utilize this package to decode a
-stream of group bytes from a UL.
+This example takes you through how to decode MXF bytes for
+any group, by first identifying the group, then decoding
+the individual fields within.
 
 The pattern for extracting groups is to first get the group key as a string,
 these are the first 16 bytes in the byte stream. Then using the `Groups` map
@@ -218,6 +232,9 @@ because this can easily be converted into JSON and Yaml, but this is not the
 only way of handling them.
 
 A pseudo code example is shown below.
+As the full code for an MXF decoder is too long and
+complicated for a readme, checkout the [mrx-tool repo][mrxTool]
+for a working example of an mxf decoder that uses this library.
 
 ```go
 
@@ -274,11 +291,11 @@ for _, packet = range Packets {
 
 ### Encoding Groups Example
 
-This gives you brief idea of how to construct a go struct to generate the MXF
-header bytes for a group.
+This example takes you through how to generate MXF header bytes for
+any group.
 
 The recommended practice is to simply create a struct and fill in the values,
-like you would any other struct, then run the Encode method on the object
+like you would any other struct, then run the `Encode` method on the object
 you've created.
 
 In the register any entry with the key `"KLVSyntax"` with a value of 53 or 06
@@ -306,7 +323,7 @@ identifier := mxf2go.GIdentificationStruct{InstanceID: idid, ApplicationSupplier
     ApplicationVersionString: []rune("0.0.1"), ApplicationProductID: productID, GenerationID: newAUID()}
 
 
-// save the bytes however you may please
+// save the bytes however you please
 identifierBytes, err := identifier.Encode(primer)
 
 if err != nil {

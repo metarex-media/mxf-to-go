@@ -259,6 +259,7 @@ func (p *Primer) AddEntry(id, shorthand []byte) []byte {
 	}
 }
 
+// NewPrimer generates a new primer for encoding groups
 func NewPrimer() *Primer {
 	start := uint16(0xffff)
 	return &Primer{

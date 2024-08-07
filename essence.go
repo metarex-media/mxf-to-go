@@ -2,6 +2,7 @@
 // BSD-3-Clause License  https://opensource.org/license/bsd-3-clause/
 package mxf2go
 
+// EssenceInformation is the register layout of the essence information
 type EssenceInformation struct {
 	UL               string `xml:"UL,omitempty"`
 	Name             string `xml:"Name,omitempty"`
@@ -11,6 +12,9 @@ type EssenceInformation struct {
 	IsDeprecated     bool   `xml:"IsDeprecated,omitempty"`
 }
 
+// EssenceLookUp is a map of the essence in the essence register.
+// Values are found with their UL which takes the format 
+// "urn:smpte:ul:00000000.00000000.00000000.00000000"
 var EssenceLookUp = map[string]EssenceInformation{
 	"urn:smpte:ul:060e2b34.01020101.0d010301.0501017f": {UL: "urn:smpte:ul:060e2b34.01020101.0d010301.0501017f", Name: "Type D-10 Element", Symbol: "TypeD10Element", Definition: "Identifies a Type D-10 constrained MPEG2 4:2:2 coded element (see SMPTE 331)", DefiningDocument: "SMPTE ST 386", IsDeprecated: false},
 	"urn:smpte:ul:060e2b34.01020101.0d010301.0601107f": {UL: "urn:smpte:ul:060e2b34.01020101.0d010301.0601107f", Name: "8-Ch AES3 Element", Symbol: "_8ChAES3Element", Definition: "Identifies a 8 channel AES3 audio data element", DefiningDocument: "SMPTE ST 386", IsDeprecated: false},
