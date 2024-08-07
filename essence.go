@@ -13,7 +13,7 @@ type EssenceInformation struct {
 }
 
 // EssenceLookUp is a map of the essence in the essence register.
-// Values are found with their UL which takes the format 
+// Values are found with their UL which takes the format
 // "urn:smpte:ul:00000000.00000000.00000000.00000000"
 var EssenceLookUp = map[string]EssenceInformation{
 	"urn:smpte:ul:060e2b34.01020101.0d010301.0501017f": {UL: "urn:smpte:ul:060e2b34.01020101.0d010301.0501017f", Name: "Type D-10 Element", Symbol: "TypeD10Element", Definition: "Identifies a Type D-10 constrained MPEG2 4:2:2 coded element (see SMPTE 331)", DefiningDocument: "SMPTE ST 386", IsDeprecated: false},

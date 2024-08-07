@@ -21020,7 +21020,7 @@ func (g *GISXDStruct) Encode(primer *Primer) ([]byte, error) {
 }
 
 // Groups is a map of the groups in the groups register.
-// Values are found with their UL which takes the format 
+// Values are found with their UL which takes the format
 // "urn:smpte:ul:00000000.00000000.00000000.00000000".
 //
 // Each group contains the individual fields and decode functions.

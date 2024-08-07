@@ -6429,7 +6429,7 @@ var LabelsRegister = []LabelInformation{
 }
 
 // LabelsLookUp is a map of the labels in the labels register.
-// Values are found with their UL which takes the format 
+// Values are found with their UL which takes the format
 // "urn:smpte:ul:00000000.00000000.00000000.00000000"
 var LabelsLookUp = map[string]LabelInformation{
 	"urn:smpte:ul:060e2b34.04010101.01010101.01010000": {UL: "urn:smpte:ul:060e2b34.04010101.01010101.01010000", Name: "SDTI-CP MPEG-2 Baseline Template", Symbol: "SDTICPMPEG2BaselineTemplate", Definition: "Legacy label used by SDTI-CP for MPEG-2 payloads", DefiningDocument: "SMPTE RP 204", IsDeprecated: false},
