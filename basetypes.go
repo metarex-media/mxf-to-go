@@ -1,10 +1,8 @@
-//	Copyright ©2019-2024  Mr MXF   info@mrmxf.com
-//	BSD-3-Clause License  https://opensource.org/license/bsd-3-clause/
+// Copyright ©2019-2024  Mr MXF   info@mrmxf.com
+// BSD-3-Clause License  https://opensource.org/license/bsd-3-clause/
 //
-// Package mxf2go was made using the smpte registers
-// (https://registry.smpte-ra.org) on 2024-08-01 09:52:17.810423766 +0100 BST
-// m=+0.685069656 if this seems out of date you will want to regenerated from
-// the smpte library, to ensure compatibility
+// Package mxf2go was made using the smpte registers (https://registry.smpte-ra.org) on 2024-08-09 14:47:09.754847092 +0100 BST m=+0.315049359
+// if this seems out of date you will want to regenerated from the smpte library, to ensure compatibility
 package mxf2go
 
 import (
@@ -204,7 +202,7 @@ func (mt TPackageIDType) MarshalText() ([]byte, error) {
 	for _, uid := range mt.SMPTELabel {
 		fullUUID += fmt.Sprintf("%02x", uid)
 	}
-	//generate the name
+	// generate the name
 
 	fullUUID += fmt.Sprintf("%02x", mt.Length)
 	fullUUID += fmt.Sprintf("%02x", mt.InstanceHigh)
@@ -246,8 +244,9 @@ func (p *Primer) AddEntry(id, shorthand []byte) []byte {
 	sId := string(id)
 
 	// if its already added do not decrement
-	if _, ok := p.Tags[sId]; ok {
-		return []byte{}
+	// and return the value already used
+	if tag, ok := p.Tags[sId]; ok {
+		return tag
 	}
 
 	if len(shorthand) != 2 {
@@ -261,6 +260,7 @@ func (p *Primer) AddEntry(id, shorthand []byte) []byte {
 	}
 }
 
+// NewPrimer generates a new primer for encoding groups
 func NewPrimer() *Primer {
 	start := uint16(0xffff)
 	return &Primer{

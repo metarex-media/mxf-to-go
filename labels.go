@@ -2,7 +2,8 @@
 // BSD-3-Clause License  https://opensource.org/license/bsd-3-clause/
 package mxf2go
 
-type labelInformation struct {
+// LabelInformation is the register layout of the label information
+type LabelInformation struct {
 	UL               string `xml:"UL,omitempty"`
 	Name             string `xml:"Name,omitempty"`
 	Symbol           string `xml:"Symbol,omitempty"`
@@ -3218,7 +3219,9 @@ const (
 	MXF_GC_IAData_Frame_Wrapped
 )
 
-var LabelsRegister = []labelInformation{
+// LabelsRegister is an array of the labels in the labels register.
+// Values are found with the positional constants e.g. mxf2go.MXF_GC_IAData_Frame_Wrapped
+var LabelsRegister = []LabelInformation{
 	{UL: "urn:smpte:ul:060e2b34.04010101.01010101.01010000", Name: "SDTI-CP MPEG-2 Baseline Template", Symbol: "SDTICPMPEG2BaselineTemplate", Definition: "Legacy label used by SDTI-CP for MPEG-2 payloads", DefiningDocument: "SMPTE RP 204", IsDeprecated: false},
 	{UL: "urn:smpte:ul:060e2b34.04010101.01010101.01010100", Name: "SDTI-CP MPEG-2 Extended Template", Symbol: "SDTICPMPEG2ExtendedTemplate", Definition: "Legacy label used by SDTI-CP for MPEG-2 payloads with extensions to the baseline specification", DefiningDocument: "SMPTE RP 204", IsDeprecated: false},
 	{UL: "urn:smpte:ul:060e2b34.0401010a.01010201.01000000", Name: "Unknown File Format", Symbol: "UnknownFileFormat", Definition: "Identifies Unknown File Format", DefiningDocument: "", IsDeprecated: false},
@@ -6425,7 +6428,10 @@ var LabelsRegister = []labelInformation{
 	{UL: "urn:smpte:ul:060e2b34.04010105.0e090605.00000000", Name: "MXF-GC IAData Frame Wrapped", Symbol: "MXF_GC_IAData_Frame_Wrapped", Definition: "Identifies Container for Frame Wrapped Immersive Audio Data", DefiningDocument: "SMPTE ST 429-18", IsDeprecated: false},
 }
 
-var LabelsLookUp = map[string]labelInformation{
+// LabelsLookUp is a map of the labels in the labels register.
+// Values are found with their UL which takes the format
+// "urn:smpte:ul:00000000.00000000.00000000.00000000"
+var LabelsLookUp = map[string]LabelInformation{
 	"urn:smpte:ul:060e2b34.04010101.01010101.01010000": {UL: "urn:smpte:ul:060e2b34.04010101.01010101.01010000", Name: "SDTI-CP MPEG-2 Baseline Template", Symbol: "SDTICPMPEG2BaselineTemplate", Definition: "Legacy label used by SDTI-CP for MPEG-2 payloads", DefiningDocument: "SMPTE RP 204", IsDeprecated: false},
 	"urn:smpte:ul:060e2b34.04010101.01010101.01010100": {UL: "urn:smpte:ul:060e2b34.04010101.01010101.01010100", Name: "SDTI-CP MPEG-2 Extended Template", Symbol: "SDTICPMPEG2ExtendedTemplate", Definition: "Legacy label used by SDTI-CP for MPEG-2 payloads with extensions to the baseline specification", DefiningDocument: "SMPTE RP 204", IsDeprecated: false},
 	"urn:smpte:ul:060e2b34.0401010a.01010201.01000000": {UL: "urn:smpte:ul:060e2b34.0401010a.01010201.01000000", Name: "Unknown File Format", Symbol: "UnknownFileFormat", Definition: "Identifies Unknown File Format", DefiningDocument: "", IsDeprecated: false},
