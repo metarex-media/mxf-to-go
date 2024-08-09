@@ -42,11 +42,11 @@ The labels go code contains an array and map of labels and their properties, as 
 properties would be found in the register. Both contain identical properties for
 the same UL.
 
-The array can be accessed with the exported label iota values, these give the
+The `LabelsRegister` array can be accessed with the exported label iota values, these give the
 position in the array of their label name.
 
 The Universal Label (UL) of a label
-`urn:smpte:ul:00000000.00000000.00000000.00000000` is the map key. The UL is
+`urn:smpte:ul:00000000.00000000.00000000.00000000` is the `LabelsLookUp` map key. The UL is
 the default UL given in the register, where any `7f` bytes, which means a byte
 that can have multiple values, is kept as 7f in their UL, rather than including
 all the values that may be present.
@@ -70,7 +70,7 @@ map[string]essenceInformation`, that contains the register information about
 the essence.
 
 The Universal Label (UL) of a essence
-`urn:smpte:ul:00000000.00000000.00000000.00000000` is the map key. The UL is
+`urn:smpte:ul:00000000.00000000.00000000.00000000` is the `EssenceLookUp` map key. The UL is
 the default UL given in the register, where any `7f` bytes, which means a byte
 that can have multiple values, is kept as 7f in their UL, rather than including
 all the values that may be present.
@@ -86,7 +86,7 @@ The `Groups` map of type `map[string]GroupID` is a look up table of all the
 groups and their relative decode functions, for each field within the group.
 
 The Universal Label (UL) of a group
-`urn:smpte:ul:00000000.00000000.00000000.00000000` is the map key. The UL is
+`urn:smpte:ul:00000000.00000000.00000000.00000000` is the `Groups` map key. The UL is
 the default UL given in the register, where any `7f` bytes, which means a byte
 that can have multiple values, is kept as 7f in their UL, rather than including
 all the values that may be present.
@@ -141,7 +141,7 @@ And the decode functions have the following layout.
 Decode{TypeName}(value []byte)(any, error)
 ```
 
-The types are returned as an any to allow the generic handling
+The decoded types are returned as an any to allow the generic handling
 of MXF byte streams.
 
 Any enumerated type also has a generated String and MarshallTest function,
@@ -218,7 +218,7 @@ The pattern for extracting groups is to first get the group key as a string,
 these are the first 16 bytes in the byte stream. Then using the `Groups` map
 get the group decode map.
 
-Then as you go through the KLVs in the group, you first find the UL of the key,
+Then as you go through the [Key Length Values][klv] (KLVs) in the group, you first find the UL of the key,
 and look up the key in the decode map, which gives the decode function from the
 group decode map.
 
@@ -228,7 +228,7 @@ how to handle them. An any value is returned, which is the go struct wrapped as
 an any, to allow generic handling fo the fields.
 
 A recommended way of handling the results is to put them in a
-map[string]map[string]any with `map[groupname][symbol]` result as the layout,
+map[string]map[string]any with `map[groupname][symbol]result` as the layout,
 because this can easily be converted into JSON and Yaml, but this is not the
 only way of handling them.
 
@@ -348,3 +348,4 @@ please create an issue.
 [mrx]:     https://metarex.media
 [reg]:     https://registry.smpte-ra.org/apps/pages/
 [mrxTool]:  https://github.com/metarex-media/mrx-tool/
+[klv]: https://en.wikipedia.org/wiki/KLV
