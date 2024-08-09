@@ -9,6 +9,8 @@ rather than writing code from scratch for every widget.
 Before embarking on using this repo, please make sure you are familiar with the
 technical concepts of the [Material Exchange Format (MXF)][MXFspec].
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/metarex-media/mxf-to-go.svg)](https://pkg.go.dev/github.com/metarex-media/mxf-to-go)
+
 ## Contents
 
 - [Register Layout](#smpte-registers-structure)
