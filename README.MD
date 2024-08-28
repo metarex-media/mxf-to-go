@@ -44,8 +44,8 @@ The labels go code contains an array and map of labels and their properties, as 
 properties would be found in the register. Both contain identical properties for
 the same UL.
 
-The `LabelsRegister` array can be accessed with the exported label iota values, these give the
-position in the array of their label name.
+Each label is also available as a variable, where the variable name
+is the Name of the label symbol.
 
 The Universal Label (UL) of a label
 `urn:smpte:ul:00000000.00000000.00000000.00000000` is the `LabelsLookUp` map key. The UL is
@@ -77,12 +77,24 @@ the default UL given in the register, where any `7f` bytes, which means a byte
 that can have multiple values, is kept as 7f in their UL, rather than including
 all the values that may be present.
 
+It also contains the essence as go variables, these values are identical to the
+lookup table versions.
+
 ### Groups
 
 Groups are a group of elements and labels, the group register contains
 all of the grouping of these elements and labels.
 The groups go code contains the decode functions and encode functions for the group
 register.
+
+The UL of each group is available as a constant, as `GNameUL`.
+e.g.
+
+ ```go
+const (
+	GLinkEncryptionPurgeIDRequestUL = "urn:smpte:ul:060e2b34.027f0101.02070103.26000000"
+)
+```
 
 The `Groups` map of type `map[string]GroupID` is a look up table of all the
 groups and their relative decode functions, for each field within the group.

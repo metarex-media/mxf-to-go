@@ -47,6 +47,10 @@ func BEREncode(number int) []byte {
 
 }
 
+const (
+	GBadRequestResponseUL = "urn:smpte:ul:060e2b34.027f0101.02070101.01000000"
+)
+
 var GBadRequestResponse = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.02070300.00000000": {UL: "ASMBadRequestCopy", Length: 0, Decode: DecodeTDataValue},
 	"urn:smpte:ul:060e2b34.0101010d.02070400.00000000": {UL: "ASMResponse", Length: 1, Decode: DecodeTUInt8},
@@ -82,6 +86,10 @@ func (g *GBadRequestResponseStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTimeRequestUL = "urn:smpte:ul:060e2b34.027f0101.02070102.10000000"
+)
+
 var GTimeRequest = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
 }
@@ -108,6 +116,10 @@ func (g *GTimeRequestStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GTimeResponseUL = "urn:smpte:ul:060e2b34.027f0101.02070102.11000000"
+)
 
 var GTimeResponse = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
@@ -152,6 +164,10 @@ func (g *GTimeResponseStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GEventListRequestUL = "urn:smpte:ul:060e2b34.027f0101.02070102.12000000"
+)
+
 var GEventListRequest = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
 	"urn:smpte:ul:060e2b34.0101010d.07020102.07030000": {UL: "ASMEventListStartTime", Length: 4, Decode: DecodeTUInt32},
@@ -194,6 +210,10 @@ func (g *GEventListRequestStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GEventListResponseUL = "urn:smpte:ul:060e2b34.027f0101.02070102.13000000"
+)
 
 var GEventListResponse = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
@@ -238,6 +258,10 @@ func (g *GEventListResponseStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GEventIDRequestUL = "urn:smpte:ul:060e2b34.027f0101.02070102.14000000"
+)
+
 var GEventIDRequest = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
 	"urn:smpte:ul:060e2b34.0101010d.01030801.02000000": {UL: "ASMEventID", Length: 4, Decode: DecodeTUInt32},
@@ -272,6 +296,10 @@ func (g *GEventIDRequestStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GEventIDResponseUL = "urn:smpte:ul:060e2b34.027f0101.02070102.15000000"
+)
 
 var GEventIDResponse = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
@@ -316,6 +344,10 @@ func (g *GEventIDResponseStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GSecureProcessingBlockQueryRequestUL = "urn:smpte:ul:060e2b34.027f0101.02070102.16000000"
+)
+
 var GSecureProcessingBlockQueryRequest = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
 }
@@ -342,6 +374,10 @@ func (g *GSecureProcessingBlockQueryRequestStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GSecureProcessingBlockQueryResponseUL = "urn:smpte:ul:060e2b34.027f0101.02070102.17000000"
+)
 
 var GSecureProcessingBlockQueryResponse = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
@@ -394,6 +430,10 @@ func (g *GSecureProcessingBlockQueryResponseStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GProjectorCertificateRequestUL = "urn:smpte:ul:060e2b34.027f0101.02070102.18000000"
+)
+
 var GProjectorCertificateRequest = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
 }
@@ -420,6 +460,10 @@ func (g *GProjectorCertificateRequestStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GProjectorCertificateResponseUL = "urn:smpte:ul:060e2b34.027f0101.02070102.19000000"
+)
 
 var GProjectorCertificateResponse = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
@@ -464,6 +508,10 @@ func (g *GProjectorCertificateResponseStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GLinkEncryptionKeyLoadRequestUL = "urn:smpte:ul:060e2b34.027f0101.02070103.20000000"
+)
+
 var GLinkEncryptionKeyLoadRequest = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
 	"urn:smpte:ul:060e2b34.0101010d.06010103.10000000": {UL: "ASMLinkEncryptionKeyBatch", Length: 0, Decode: DecodeTASMLEKeyIDMappingSet},
@@ -498,6 +546,10 @@ func (g *GLinkEncryptionKeyLoadRequestStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GLinkEncryptionKeyLoadResponseUL = "urn:smpte:ul:060e2b34.027f0101.02070103.21000000"
+)
 
 var GLinkEncryptionKeyLoadResponse = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
@@ -542,6 +594,10 @@ func (g *GLinkEncryptionKeyLoadResponseStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GLinkEncryptionKeyQueryIDRequestUL = "urn:smpte:ul:060e2b34.027f0101.02070103.22000000"
+)
+
 var GLinkEncryptionKeyQueryIDRequest = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
 	"urn:smpte:ul:060e2b34.0101010d.01030801.03000000": {UL: "ASMLinkEncryptionKeyID", Length: 4, Decode: DecodeTUInt32},
@@ -576,6 +632,10 @@ func (g *GLinkEncryptionKeyQueryIDRequestStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GLinkEncryptionKeyQueryIDResponseUL = "urn:smpte:ul:060e2b34.027f0101.02070103.23000000"
+)
 
 var GLinkEncryptionKeyQueryIDResponse = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
@@ -620,6 +680,10 @@ func (g *GLinkEncryptionKeyQueryIDResponseStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GLinkEncryptionKeyQueryAllRequestUL = "urn:smpte:ul:060e2b34.027f0101.02070103.24000000"
+)
+
 var GLinkEncryptionKeyQueryAllRequest = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
 }
@@ -646,6 +710,10 @@ func (g *GLinkEncryptionKeyQueryAllRequestStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GLinkEncryptionKeyQueryAllResponseUL = "urn:smpte:ul:060e2b34.027f0101.02070103.25000000"
+)
 
 var GLinkEncryptionKeyQueryAllResponse = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
@@ -690,6 +758,10 @@ func (g *GLinkEncryptionKeyQueryAllResponseStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GLinkEncryptionPurgeIDRequestUL = "urn:smpte:ul:060e2b34.027f0101.02070103.26000000"
+)
+
 var GLinkEncryptionPurgeIDRequest = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
 	"urn:smpte:ul:060e2b34.0101010d.01030801.03000000": {UL: "ASMLinkEncryptionKeyID", Length: 4, Decode: DecodeTUInt32},
@@ -724,6 +796,10 @@ func (g *GLinkEncryptionPurgeIDRequestStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GLinkEncryptionPurgeIDResponseUL = "urn:smpte:ul:060e2b34.027f0101.02070103.27000000"
+)
 
 var GLinkEncryptionPurgeIDResponse = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
@@ -768,6 +844,10 @@ func (g *GLinkEncryptionPurgeIDResponseStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GLinkEncryptionPurgeAllRequestUL = "urn:smpte:ul:060e2b34.027f0101.02070103.28000000"
+)
+
 var GLinkEncryptionPurgeAllRequest = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
 }
@@ -794,6 +874,10 @@ func (g *GLinkEncryptionPurgeAllRequestStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GLinkEncryptionPurgeAllResponseUL = "urn:smpte:ul:060e2b34.027f0101.02070103.29000000"
+)
 
 var GLinkEncryptionPurgeAllResponse = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030801.01000000": {UL: "ASMRequestID", Length: 4, Decode: DecodeTUInt32},
@@ -829,6 +913,10 @@ func (g *GLinkEncryptionPurgeAllResponseStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDMCVTGenericSet1UL = "urn:smpte:ul:060e2b34.027f0101.05310101.00000000"
+)
 
 var GDMCVTGenericSet1 = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010e.05310101.00000000": {UL: "ApplicationIdentifier", Length: 1, Decode: DecodeTUInt8},
@@ -876,6 +964,10 @@ func (g *GDMCVTGenericSet1Struct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDMCVTApp1SetUL = "urn:smpte:ul:060e2b34.027f0101.05310201.00000000"
+)
 
 var GDMCVTApp1Set = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010e.05310101.00000000": {UL: "ApplicationIdentifier", Length: 1, Decode: DecodeTUInt8},
@@ -959,6 +1051,10 @@ func (g *GDMCVTApp1SetStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDMCVTApp2SetUL = "urn:smpte:ul:060e2b34.027f0101.05310202.00000000"
+)
 
 var GDMCVTApp2Set = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010e.05310101.00000000": {UL: "ApplicationIdentifier", Length: 1, Decode: DecodeTUInt8},
@@ -1085,6 +1181,10 @@ func (g *GDMCVTApp2SetStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GDMCVTApp3SetUL = "urn:smpte:ul:060e2b34.027f0101.05310203.00000000"
+)
+
 var GDMCVTApp3Set = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010e.05310101.00000000": {UL: "ApplicationIdentifier", Length: 1, Decode: DecodeTUInt8},
 	"urn:smpte:ul:060e2b34.0101010e.05310102.00000000": {UL: "ApplicationVersionNumber", Length: 1, Decode: DecodeTUInt8},
@@ -1140,6 +1240,10 @@ func (g *GDMCVTApp3SetStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDMCVTApp4SetUL = "urn:smpte:ul:060e2b34.027f0101.05310204.00000000"
+)
 
 var GDMCVTApp4Set = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010e.05310101.00000000": {UL: "ApplicationIdentifier", Length: 1, Decode: DecodeTUInt8},
@@ -1246,6 +1350,10 @@ func (g *GDMCVTApp4SetStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GMDColorVolumeMetadataUL = "urn:smpte:ul:060e2b34.027f0101.05320100.00000000"
+)
+
 var GMDColorVolumeMetadata = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010e.04200401.02010000": {UL: "MDPrimaries", Length: 12, Decode: DecodeTThreeColorPrimaries},
 	"urn:smpte:ul:060e2b34.0101010e.04200401.02020000": {UL: "MDWhitePointChromaticity", Length: 4, Decode: DecodeTColorPrimary},
@@ -1268,6 +1376,10 @@ func (g *GMDColorVolumeMetadataStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GMaximumLightLevelMetadataUL = "urn:smpte:ul:060e2b34.027f0101.05320200.00000000"
+)
+
 var GMaximumLightLevelMetadata = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010e.05310142.00000000": {UL: "MaximumContentLightLevel", Length: 2, Decode: DecodeTUInt16},
 	"urn:smpte:ul:060e2b34.0101010e.05310143.00000000": {UL: "MaximumFrameAverageLightLevel", Length: 2, Decode: DecodeTUInt16},
@@ -1288,50 +1400,90 @@ func (g *GMaximumLightLevelMetadataStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GAdministrativeBaseClassUL = "urn:smpte:ul:060e2b34.027f0101.0c010101.01010100"
+)
+
 var GAdministrativeBaseClass = map[string]Group{}
 
 type GAdministrativeBaseClassStruct struct {
 }
+
+const (
+	GCompoundEntryElementBaseClassUL = "urn:smpte:ul:060e2b34.027f0101.0c010101.01010200"
+)
 
 var GCompoundEntryElementBaseClass = map[string]Group{}
 
 type GCompoundEntryElementBaseClassStruct struct {
 }
 
+const (
+	GEntryUL = "urn:smpte:ul:060e2b34.027f0101.0c010101.01010300"
+)
+
 var GEntry = map[string]Group{}
 
 type GEntryStruct struct {
 }
+
+const (
+	GEntryAdministrationUL = "urn:smpte:ul:060e2b34.027f0101.0c010101.01010400"
+)
 
 var GEntryAdministration = map[string]Group{}
 
 type GEntryAdministrationStruct struct {
 }
 
+const (
+	GLeafUL = "urn:smpte:ul:060e2b34.027f0101.0c010101.01010500"
+)
+
 var GLeaf = map[string]Group{}
 
 type GLeafStruct struct {
 }
+
+const (
+	GNodeUL = "urn:smpte:ul:060e2b34.027f0101.0c010101.01010600"
+)
 
 var GNode = map[string]Group{}
 
 type GNodeStruct struct {
 }
 
+const (
+	GRegisterUL = "urn:smpte:ul:060e2b34.027f0101.0c010101.01010700"
+)
+
 var GRegister = map[string]Group{}
 
 type GRegisterStruct struct {
 }
+
+const (
+	GRegisterAdministrationUL = "urn:smpte:ul:060e2b34.027f0101.0c010101.01010800"
+)
 
 var GRegisterAdministration = map[string]Group{}
 
 type GRegisterAdministrationStruct struct {
 }
 
+const (
+	GRifBaseClassUL = "urn:smpte:ul:060e2b34.027f0101.0c010101.01010900"
+)
+
 var GRifBaseClass = map[string]Group{}
 
 type GRifBaseClassStruct struct {
 }
+
+const (
+	GLensUnitAcquisitionMetadataUL = "urn:smpte:ul:060e2b34.027f0101.0c020101.01010000"
+)
 
 var GLensUnitAcquisitionMetadata = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -1372,6 +1524,10 @@ func (g *GLensUnitAcquisitionMetadataStruct) Encode(primer *Primer) ([]byte, err
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GCameraUnitAcquisitionMetadataUL = "urn:smpte:ul:060e2b34.027f0101.0c020101.02010000"
+)
 
 var GCameraUnitAcquisitionMetadata = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -1427,6 +1583,10 @@ func (g *GCameraUnitAcquisitionMetadataStruct) Encode(primer *Primer) ([]byte, e
 	return result, nil
 }
 
+const (
+	GUserDefinedAcquisitionMetadataUL = "urn:smpte:ul:060e2b34.027f0101.0c020101.7f010000"
+)
+
 var GUserDefinedAcquisitionMetadata = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.0101010d.04060805.00000000": {UL: "UDAMSetIdentifier", Length: 16, Decode: DecodeTAUID},
@@ -1455,6 +1615,10 @@ func (g *GUserDefinedAcquisitionMetadataStruct) Encode(primer *Primer) ([]byte, 
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GAuxDataBlockTransferHeaderUL = "urn:smpte:ul:060e2b34.027f0101.0c030101.00000000"
+)
 
 var GAuxDataBlockTransferHeader = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010e.02400101.00000000": {UL: "AuxDataEditUnitRangeStartIndex", Length: 4, Decode: DecodeTUInt32},
@@ -1490,6 +1654,10 @@ func (g *GAuxDataBlockTransferHeaderStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GAuxDataBlockUL = "urn:smpte:ul:060e2b34.027f0101.0c030102.00000000"
+)
 
 var GAuxDataBlock = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010e.02400103.00000000": {UL: "AuxDataBlockEditUnitIndex", Length: 4, Decode: DecodeTUInt32},
@@ -1566,6 +1734,10 @@ func (g *GAuxDataBlockStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GAudioMetadataPackUL = "urn:smpte:ul:060e2b34.027f0101.0c040100.00000000"
+)
+
 var GAudioMetadataPack = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010e.04020901.00000000": {UL: "ST2109AudioMetadata", Length: 0, Decode: DecodeTST2109PayloadSeries},
 }
@@ -1584,6 +1756,10 @@ func (g *GAudioMetadataPackStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GInterchangeObjectUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01010100"
+)
 
 var GInterchangeObject = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -1615,6 +1791,10 @@ func (g *GInterchangeObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GComponentUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01010200"
+)
 
 var GComponent = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -1660,6 +1840,10 @@ func (g *GComponentStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GSegmentUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01010300"
+)
+
 var GSegment = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04070100.00000000": {UL: "ComponentDataDefinition", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010102.07020201.01030000": {UL: "ComponentLength", Length: 8, Decode: DecodeTLengthType},
@@ -1703,6 +1887,10 @@ func (g *GSegmentStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GEdgeCodeUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01010400"
+)
 
 var GEdgeCode = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04070100.00000000": {UL: "ComponentDataDefinition", Length: 0, Decode: DecodeTWeakReference},
@@ -1776,6 +1964,10 @@ func (g *GEdgeCodeStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GEssenceGroupUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01010500"
+)
+
 var GEssenceGroup = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04070100.00000000": {UL: "ComponentDataDefinition", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010102.07020201.01030000": {UL: "ComponentLength", Length: 8, Decode: DecodeTLengthType},
@@ -1830,6 +2022,10 @@ func (g *GEssenceGroupStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GEventUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01010600"
+)
+
 var GEvent = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04070100.00000000": {UL: "ComponentDataDefinition", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010102.07020201.01030000": {UL: "ComponentLength", Length: 8, Decode: DecodeTLengthType},
@@ -1875,6 +2071,10 @@ func (g *GEventStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GGPITriggerUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01010700"
+)
 
 var GGPITrigger = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.07020103.03030000": {UL: "EventPosition", Length: 8, Decode: DecodeTPositionType},
@@ -1931,6 +2131,10 @@ func (g *GGPITriggerStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GCommentMarkerUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01010800"
+)
+
 var GCommentMarker = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.07020103.03030000": {UL: "EventPosition", Length: 8, Decode: DecodeTPositionType},
 	"urn:smpte:ul:060e2b34.01010102.05300404.01000000": {UL: "EventComment", Length: 0, Decode: DecodeTUTF16String},
@@ -1978,6 +2182,10 @@ func (g *GCommentMarkerStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GFillerUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01010900"
+)
+
 var GFiller = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04070100.00000000": {UL: "ComponentDataDefinition", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010102.07020201.01030000": {UL: "ComponentLength", Length: 8, Decode: DecodeTLengthType},
@@ -2019,6 +2227,10 @@ func (g *GFillerStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GOperationGroupUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01010a00"
+)
 
 var GOperationGroup = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04070100.00000000": {UL: "ComponentDataDefinition", Length: 0, Decode: DecodeTWeakReference},
@@ -2077,6 +2289,10 @@ func (g *GOperationGroupStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GNestedScopeUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01010b00"
+)
+
 var GNestedScope = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04070100.00000000": {UL: "ComponentDataDefinition", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010102.07020201.01030000": {UL: "ComponentLength", Length: 8, Decode: DecodeTLengthType},
@@ -2129,6 +2345,10 @@ func (g *GNestedScopeStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GPulldownUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01010c00"
+)
 
 var GPulldown = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04070100.00000000": {UL: "ComponentDataDefinition", Length: 0, Decode: DecodeTWeakReference},
@@ -2210,6 +2430,10 @@ func (g *GPulldownStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GScopeReferenceUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01010d00"
+)
+
 var GScopeReference = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04070100.00000000": {UL: "ComponentDataDefinition", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010102.07020201.01030000": {UL: "ComponentLength", Length: 8, Decode: DecodeTLengthType},
@@ -2272,6 +2496,10 @@ func (g *GScopeReferenceStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GSelectorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01010e00"
+)
+
 var GSelector = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04070100.00000000": {UL: "ComponentDataDefinition", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010102.07020201.01030000": {UL: "ComponentLength", Length: 8, Decode: DecodeTLengthType},
@@ -2326,6 +2554,10 @@ func (g *GSelectorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GSequenceUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01010f00"
+)
+
 var GSequence = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04070100.00000000": {UL: "ComponentDataDefinition", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010102.07020201.01030000": {UL: "ComponentLength", Length: 8, Decode: DecodeTLengthType},
@@ -2378,6 +2610,10 @@ func (g *GSequenceStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GSourceReferenceUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01011000"
+)
 
 var GSourceReference = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04070100.00000000": {UL: "ComponentDataDefinition", Length: 0, Decode: DecodeTWeakReference},
@@ -2442,6 +2678,10 @@ func (g *GSourceReferenceStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GSourceClipUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01011100"
+)
 
 var GSourceClip = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.06010103.01000000": {UL: "SourcePackageID", Length: 32, Decode: DecodeTPackageIDType},
@@ -2520,6 +2760,10 @@ func (g *GSourceClipStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTextClipUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01011200"
+)
+
 var GTextClip = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.06010103.01000000": {UL: "SourcePackageID", Length: 32, Decode: DecodeTPackageIDType},
 	"urn:smpte:ul:060e2b34.01010102.06010103.02000000": {UL: "SourceTrackID", Length: 4, Decode: DecodeTUInt32},
@@ -2583,6 +2827,10 @@ func (g *GTextClipStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GHTMLClipUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01011300"
+)
 
 var GHTMLClip = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.06010103.01000000": {UL: "SourcePackageID", Length: 32, Decode: DecodeTPackageIDType},
@@ -2649,6 +2897,10 @@ func (g *GHTMLClipStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GTimecodeUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01011400"
+)
 
 var GTimecode = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04070100.00000000": {UL: "ComponentDataDefinition", Length: 0, Decode: DecodeTWeakReference},
@@ -2721,6 +2973,10 @@ func (g *GTimecodeStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTimecodeStreamUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01011500"
+)
+
 var GTimecodeStream = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04070100.00000000": {UL: "ComponentDataDefinition", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010102.07020201.01030000": {UL: "ComponentLength", Length: 8, Decode: DecodeTLengthType},
@@ -2791,6 +3047,10 @@ func (g *GTimecodeStreamStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GTimecodeStream12MUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01011600"
+)
 
 var GTimecodeStream12M = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04040101.02010000": {UL: "TimecodeStreamSampleRate", Length: 8, Decode: DecodeTRational},
@@ -2872,6 +3132,10 @@ func (g *GTimecodeStream12MStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTransitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01011700"
+)
+
 var GTransition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04070100.00000000": {UL: "ComponentDataDefinition", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010102.07020201.01030000": {UL: "ComponentLength", Length: 8, Decode: DecodeTLengthType},
@@ -2934,6 +3198,10 @@ func (g *GTransitionStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GContentStorageUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01011800"
+)
+
 var GContentStorage = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -2974,6 +3242,10 @@ func (g *GContentStorageStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GControlPointUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01011900"
+)
 
 var GControlPoint = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -3025,6 +3297,10 @@ func (g *GControlPointStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GDefinitionObjectUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01011a00"
+)
+
 var GDefinitionObject = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -3075,6 +3351,10 @@ func (g *GDefinitionObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GDataDefinitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01011b00"
+)
+
 var GDataDefinition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.01011503.00000000": {UL: "DefinitionObjectIdentification", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.01010102.01070102.03010000": {UL: "DefinitionObjectName", Length: 0, Decode: DecodeTUTF16String},
@@ -3124,6 +3404,10 @@ func (g *GDataDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GOperationDefinitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01011c00"
+)
 
 var GOperationDefinition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.01011503.00000000": {UL: "DefinitionObjectIdentification", Length: 16, Decode: DecodeTAUID},
@@ -3198,6 +3482,10 @@ func (g *GOperationDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GParameterDefinitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01011d00"
+)
+
 var GParameterDefinition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.01011503.00000000": {UL: "DefinitionObjectIdentification", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.01010102.01070102.03010000": {UL: "DefinitionObjectName", Length: 0, Decode: DecodeTUTF16String},
@@ -3257,6 +3545,10 @@ func (g *GParameterDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GPluginDefinitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01011e00"
+)
 
 var GPluginDefinition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.01011503.00000000": {UL: "DefinitionObjectIdentification", Length: 16, Decode: DecodeTAUID},
@@ -3344,6 +3636,10 @@ func (g *GPluginDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GCodecDefinitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01011f00"
+)
+
 var GCodecDefinition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.01011503.00000000": {UL: "DefinitionObjectIdentification", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.01010102.01070102.03010000": {UL: "DefinitionObjectName", Length: 0, Decode: DecodeTUTF16String},
@@ -3412,6 +3708,10 @@ func (g *GCodecDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GContainerDefinitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01012000"
+)
+
 var GContainerDefinition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.01011503.00000000": {UL: "DefinitionObjectIdentification", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.01010102.01070102.03010000": {UL: "DefinitionObjectName", Length: 0, Decode: DecodeTUTF16String},
@@ -3463,6 +3763,10 @@ func (g *GContainerDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GInterpolationDefinitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01012100"
+)
+
 var GInterpolationDefinition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.01011503.00000000": {UL: "DefinitionObjectIdentification", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.01010102.01070102.03010000": {UL: "DefinitionObjectName", Length: 0, Decode: DecodeTUTF16String},
@@ -3513,6 +3817,10 @@ func (g *GInterpolationDefinitionStruct) Encode(primer *Primer) ([]byte, error) 
 	return result, nil
 }
 
+const (
+	GDictionaryUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01012200"
+)
+
 var GDictionary = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -3552,6 +3860,10 @@ func (g *GDictionaryStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GEssenceDataUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01012300"
+)
 
 var GEssenceData = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -3601,6 +3913,10 @@ func (g *GEssenceDataStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GEssenceDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01012400"
+)
+
 var GEssenceDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -3633,6 +3949,10 @@ func (g *GEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GFileDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01012500"
+)
 
 var GFileDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.06010104.06030000": {UL: "Locators", Length: 0, Decode: DecodeTLocatorStrongReferenceVector},
@@ -3671,6 +3991,10 @@ func (g *GFileDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GAIFCDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01012600"
+)
 
 var GAIFCDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.04060101.00000000": {UL: "SampleRate", Length: 8, Decode: DecodeTRational},
@@ -3718,6 +4042,10 @@ func (g *GAIFCDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GPictureDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01012700"
+)
 
 var GPictureDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.04060101.00000000": {UL: "SampleRate", Length: 8, Decode: DecodeTRational},
@@ -3831,6 +4159,10 @@ func (g *GPictureDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GCDCIDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01012800"
+)
 
 var GCDCIDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04010601.00000000": {UL: "PictureCompression", Length: 16, Decode: DecodeTAUID},
@@ -3971,6 +4303,10 @@ func (g *GCDCIDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GRGBADescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01012900"
+)
+
 var GRGBADescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04010601.00000000": {UL: "PictureCompression", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.01010101.04010502.01000000": {UL: "StoredHeight", Length: 4, Decode: DecodeTUInt32},
@@ -4100,6 +4436,10 @@ func (g *GRGBADescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GHTMLDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01012a00"
+)
+
 var GHTMLDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.04060101.00000000": {UL: "SampleRate", Length: 8, Decode: DecodeTRational},
 	"urn:smpte:ul:060e2b34.01010101.04060102.00000000": {UL: "EssenceLength", Length: 8, Decode: DecodeTLengthType},
@@ -4137,6 +4477,10 @@ func (g *GHTMLDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GTIFFDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01012b00"
+)
 
 var GTIFFDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.04060101.00000000": {UL: "SampleRate", Length: 8, Decode: DecodeTRational},
@@ -4206,6 +4550,10 @@ func (g *GTIFFDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GWAVEDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01012c00"
+)
+
 var GWAVEDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.04060101.00000000": {UL: "SampleRate", Length: 8, Decode: DecodeTRational},
 	"urn:smpte:ul:060e2b34.01010101.04060102.00000000": {UL: "EssenceLength", Length: 8, Decode: DecodeTLengthType},
@@ -4253,6 +4601,10 @@ func (g *GWAVEDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GFilmDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01012d00"
+)
+
 var GFilmDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.06010104.06030000": {UL: "Locators", Length: 0, Decode: DecodeTLocatorStrongReferenceVector},
 	"urn:smpte:ul:060e2b34.01010109.06010104.06100000": {UL: "SubDescriptors", Length: 0, Decode: DecodeTSubDescriptorStrongReferenceVector},
@@ -4294,6 +4646,10 @@ func (g *GFilmDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTapeDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01012e00"
+)
+
 var GTapeDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.06010104.06030000": {UL: "Locators", Length: 0, Decode: DecodeTLocatorStrongReferenceVector},
 	"urn:smpte:ul:060e2b34.01010109.06010104.06100000": {UL: "SubDescriptors", Length: 0, Decode: DecodeTSubDescriptorStrongReferenceVector},
@@ -4334,6 +4690,10 @@ func (g *GTapeDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GPrefaceUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01012f00"
+)
 
 var GPreface = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -4440,6 +4800,10 @@ func (g *GPrefaceStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GIdentificationUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01013000"
+)
+
 var GIdentification = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -4520,6 +4884,10 @@ func (g *GIdentificationStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GLocatorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01013100"
+)
+
 var GLocator = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -4550,6 +4918,10 @@ func (g *GLocatorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GNetworkLocatorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01013200"
+)
 
 var GNetworkLocator = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -4591,6 +4963,10 @@ func (g *GNetworkLocatorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTextLocatorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01013300"
+)
+
 var GTextLocator = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -4630,6 +5006,10 @@ func (g *GTextLocatorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GPackageUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01013400"
+)
 
 var GPackage = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -4702,6 +5082,10 @@ func (g *GPackageStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GCompositionPackageUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01013500"
+)
 
 var GCompositionPackage = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011510.00000000": {UL: "PackageID", Length: 32, Decode: DecodeTPackageIDType},
@@ -4779,6 +5163,10 @@ func (g *GCompositionPackageStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GMaterialPackageUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01013600"
+)
+
 var GMaterialPackage = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011510.00000000": {UL: "PackageID", Length: 32, Decode: DecodeTPackageIDType},
 	"urn:smpte:ul:060e2b34.01010101.01030302.01000000": {UL: "PackageName", Length: 0, Decode: DecodeTUTF16String},
@@ -4850,6 +5238,10 @@ func (g *GMaterialPackageStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GSourcePackageUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01013700"
+)
 
 var GSourcePackage = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011510.00000000": {UL: "PackageID", Length: 32, Decode: DecodeTPackageIDType},
@@ -4932,6 +5324,10 @@ func (g *GSourcePackageStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTrackUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01013800"
+)
+
 var GTrack = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -4990,6 +5386,10 @@ func (g *GTrackStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GEventTrackUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01013900"
+)
 
 var GEventTrack = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.01070101.00000000": {UL: "TrackID", Length: 4, Decode: DecodeTUInt32},
@@ -5060,6 +5460,10 @@ func (g *GEventTrackStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GStaticTrackUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01013a00"
+)
+
 var GStaticTrack = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.01070101.00000000": {UL: "TrackID", Length: 4, Decode: DecodeTUInt32},
 	"urn:smpte:ul:060e2b34.01010102.01070102.01000000": {UL: "TrackName", Length: 0, Decode: DecodeTUTF16String},
@@ -5118,6 +5522,10 @@ func (g *GStaticTrackStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GTimelineTrackUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01013b00"
+)
 
 var GTimelineTrack = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.01070101.00000000": {UL: "TrackID", Length: 4, Decode: DecodeTUInt32},
@@ -5201,6 +5609,10 @@ func (g *GTimelineTrackStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GParameterUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01013c00"
+)
+
 var GParameter = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -5240,6 +5652,10 @@ func (g *GParameterStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GConstantValueUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01013d00"
+)
 
 var GConstantValue = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.06010104.01040000": {UL: "ParameterDefinitionReference", Length: 16, Decode: DecodeTAUID},
@@ -5289,6 +5705,10 @@ func (g *GConstantValueStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GVaryingValueUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01013e00"
+)
 
 var GVaryingValue = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.06010104.01040000": {UL: "ParameterDefinitionReference", Length: 16, Decode: DecodeTAUID},
@@ -5348,6 +5768,10 @@ func (g *GVaryingValueStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTaggedValueUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01013f00"
+)
+
 var GTaggedValue = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -5397,6 +5821,10 @@ func (g *GTaggedValueStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GKLVDataUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01014000"
+)
+
 var GKLVData = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -5436,6 +5864,10 @@ func (g *GKLVDataStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDescriptiveMarkerUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01014100"
+)
 
 var GDescriptiveMarker = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.06010104.020a0000": {UL: "AnnotationSource", Length: 0, Decode: DecodeTStrongReference},
@@ -5496,6 +5928,10 @@ func (g *GDescriptiveMarkerStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GSoundDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01014200"
+)
 
 var GSoundDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.04060101.00000000": {UL: "SampleRate", Length: 8, Decode: DecodeTRational},
@@ -5569,6 +6005,10 @@ func (g *GSoundDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GDataEssenceDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01014300"
+)
+
 var GDataEssenceDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.04060101.00000000": {UL: "SampleRate", Length: 8, Decode: DecodeTRational},
 	"urn:smpte:ul:060e2b34.01010101.04060102.00000000": {UL: "EssenceLength", Length: 8, Decode: DecodeTLengthType},
@@ -5607,6 +6047,10 @@ func (g *GDataEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GMultipleDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01014400"
+)
 
 var GMultipleDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.04060101.00000000": {UL: "SampleRate", Length: 8, Decode: DecodeTRational},
@@ -5654,6 +6098,10 @@ func (g *GMultipleDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDescriptiveClipUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01014500"
+)
 
 var GDescriptiveClip = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.07020103.01040000": {UL: "StartPosition", Length: 8, Decode: DecodeTPositionType},
@@ -5733,6 +6181,10 @@ func (g *GDescriptiveClipStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GDateTimeDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01014600"
+)
+
 var GDateTimeDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.04060101.00000000": {UL: "SampleRate", Length: 8, Decode: DecodeTRational},
 	"urn:smpte:ul:060e2b34.01010101.04060102.00000000": {UL: "EssenceLength", Length: 8, Decode: DecodeTLengthType},
@@ -5782,6 +6234,10 @@ func (g *GDateTimeDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GAES3PCMDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01014700"
+)
 
 var GAES3PCMDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010105.04020302.01000000": {UL: "BlockAlign", Length: 2, Decode: DecodeTUInt16},
@@ -5891,6 +6347,10 @@ func (g *GAES3PCMDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GWAVEPCMDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01014800"
+)
+
 var GWAVEPCMDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010105.04020301.01010000": {UL: "AudioSampleRate", Length: 8, Decode: DecodeTRational},
 	"urn:smpte:ul:060e2b34.01010104.04020301.04000000": {UL: "Locked", Length: 1, Decode: DecodeTBoolean},
@@ -5992,6 +6452,10 @@ func (g *GWAVEPCMDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GPhysicalDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01014900"
+)
+
 var GPhysicalDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.06010104.06030000": {UL: "Locators", Length: 0, Decode: DecodeTLocatorStrongReferenceVector},
 	"urn:smpte:ul:060e2b34.01010109.06010104.06100000": {UL: "SubDescriptors", Length: 0, Decode: DecodeTSubDescriptorStrongReferenceVector},
@@ -6024,6 +6488,10 @@ func (g *GPhysicalDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GImportDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01014a00"
+)
 
 var GImportDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.06010104.06030000": {UL: "Locators", Length: 0, Decode: DecodeTLocatorStrongReferenceVector},
@@ -6058,6 +6526,10 @@ func (g *GImportDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GRecordingDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01014b00"
+)
+
 var GRecordingDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.06010104.06030000": {UL: "Locators", Length: 0, Decode: DecodeTLocatorStrongReferenceVector},
 	"urn:smpte:ul:060e2b34.01010109.06010104.06100000": {UL: "SubDescriptors", Length: 0, Decode: DecodeTSubDescriptorStrongReferenceVector},
@@ -6090,6 +6562,10 @@ func (g *GRecordingDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GTaggedValueDefinitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01014c00"
+)
 
 var GTaggedValueDefinition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.01011503.00000000": {UL: "DefinitionObjectIdentification", Length: 16, Decode: DecodeTAUID},
@@ -6149,6 +6625,10 @@ func (g *GTaggedValueDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GKLVDataDefinitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01014d00"
+)
 
 var GKLVDataDefinition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.01011503.00000000": {UL: "DefinitionObjectIdentification", Length: 16, Decode: DecodeTAUID},
@@ -6210,6 +6690,10 @@ func (g *GKLVDataDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GAuxiliaryDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01014e00"
+)
+
 var GAuxiliaryDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.06010104.06030000": {UL: "Locators", Length: 0, Decode: DecodeTLocatorStrongReferenceVector},
 	"urn:smpte:ul:060e2b34.01010109.06010104.06100000": {UL: "SubDescriptors", Length: 0, Decode: DecodeTSubDescriptorStrongReferenceVector},
@@ -6252,6 +6736,10 @@ func (g *GAuxiliaryDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GRIFFChunkUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01014f00"
+)
 
 var GRIFFChunk = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -6311,6 +6799,10 @@ func (g *GRIFFChunkStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GBWFImportDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01015000"
+)
+
 var GBWFImportDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.06010104.06030000": {UL: "Locators", Length: 0, Decode: DecodeTLocatorStrongReferenceVector},
 	"urn:smpte:ul:060e2b34.01010109.06010104.06100000": {UL: "SubDescriptors", Length: 0, Decode: DecodeTSubDescriptorStrongReferenceVector},
@@ -6354,6 +6846,10 @@ func (g *GBWFImportDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GMPEGVideoDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01015100"
+)
 
 var GMPEGVideoDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04010503.0a000000": {UL: "ComponentDepth", Length: 4, Decode: DecodeTUInt32},
@@ -6504,6 +7000,10 @@ func (g *GMPEGVideoDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GParsedTextDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01015200"
+)
+
 var GParsedTextDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010103.04030302.00000000": {UL: "DataEssenceCoding", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.01010101.04060101.00000000": {UL: "SampleRate", Length: 8, Decode: DecodeTRational},
@@ -6544,6 +7044,10 @@ func (g *GParsedTextDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GSGMLDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01015300"
+)
+
 var GSGMLDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010108.04090401.00000000": {UL: "MIMEEncoding", Length: 0, Decode: DecodeTUTF16String},
 	"urn:smpte:ul:060e2b34.01010103.04030302.00000000": {UL: "DataEssenceCoding", Length: 16, Decode: DecodeTAUID},
@@ -6583,6 +7087,10 @@ func (g *GSGMLDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GXMLDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01015400"
+)
 
 var GXMLDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010108.04090401.00000000": {UL: "MIMEEncoding", Length: 0, Decode: DecodeTUTF16String},
@@ -6635,6 +7143,10 @@ func (g *GXMLDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GHTMLParsedTextDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01015500"
+)
+
 var GHTMLParsedTextDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010108.04090401.00000000": {UL: "MIMEEncoding", Length: 0, Decode: DecodeTUTF16String},
 	"urn:smpte:ul:060e2b34.01010103.04030302.00000000": {UL: "DataEssenceCoding", Length: 16, Decode: DecodeTAUID},
@@ -6683,6 +7195,10 @@ func (g *GHTMLParsedTextDescriptorStruct) Encode(primer *Primer) ([]byte, error)
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GRP217DescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01015600"
+)
 
 var GRP217Descriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010103.04030302.00000000": {UL: "DataEssenceCoding", Length: 16, Decode: DecodeTAUID},
@@ -6740,6 +7256,10 @@ func (g *GRP217DescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDynamicMarkerUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01015700"
+)
 
 var GDynamicMarker = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.01070105.00000000": {UL: "DescribedTrackIDs", Length: 0, Decode: DecodeTUInt32Set},
@@ -6803,6 +7323,10 @@ func (g *GDynamicMarkerStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDynamicClipUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01015800"
+)
 
 var GDynamicClip = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010109.07020501.00000000": {UL: "ToleranceMode", Length: 1, Decode: DecodeTToleranceModeType},
@@ -6879,6 +7403,10 @@ func (g *GDynamicClipStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01015900"
+)
+
 var GSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -6909,6 +7437,10 @@ func (g *GSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GJPEG2000SubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01015a00"
+)
 
 var GJPEG2000SubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -7046,6 +7578,10 @@ func (g *GJPEG2000SubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GVBIDataDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01015b00"
+)
+
 var GVBIDataDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010103.04030302.00000000": {UL: "DataEssenceCoding", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.01010101.04060101.00000000": {UL: "SampleRate", Length: 8, Decode: DecodeTRational},
@@ -7085,6 +7621,10 @@ func (g *GVBIDataDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GANCDataDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01015c00"
+)
+
 var GANCDataDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010103.04030302.00000000": {UL: "DataEssenceCoding", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.01010101.04060101.00000000": {UL: "SampleRate", Length: 8, Decode: DecodeTRational},
@@ -7123,6 +7663,10 @@ func (g *GANCDataDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDCPCMSoundDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01015d00"
+)
 
 var GDCPCMSoundDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010105.04020301.01010000": {UL: "AudioSampleRate", Length: 8, Decode: DecodeTRational},
@@ -7195,6 +7739,10 @@ func (g *GDCPCMSoundDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GMPEGAudioDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01015e00"
+)
 
 var GMPEGAudioDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010105.04020301.01010000": {UL: "AudioSampleRate", Length: 8, Decode: DecodeTRational},
@@ -7269,6 +7817,10 @@ func (g *GMPEGAudioDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GVC1VideoDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01015f00"
+)
 
 var GVC1VideoDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04010503.0a000000": {UL: "ComponentDepth", Length: 4, Decode: DecodeTUInt32},
@@ -7419,6 +7971,10 @@ func (g *GVC1VideoDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GPackageMarkerUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01016000"
+)
+
 var GPackageMarker = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -7448,6 +8004,10 @@ func (g *GPackageMarkerStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GApplicationPlugInObjectUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01016100"
+)
 
 var GApplicationPlugInObject = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.06010104.010b0000": {UL: "BaseClass", Length: 16, Decode: DecodeTAUID},
@@ -7497,6 +8057,10 @@ func (g *GApplicationPlugInObjectStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GApplicationReferencedObjectUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01016200"
+)
+
 var GApplicationReferencedObject = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.06010104.010b0000": {UL: "BaseClass", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -7536,6 +8100,10 @@ func (g *GApplicationReferencedObjectStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GStereoscopicPictureSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01016300"
+)
+
 var GStereoscopicPictureSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -7566,6 +8134,10 @@ func (g *GStereoscopicPictureSubDescriptorStruct) Encode(primer *Primer) ([]byte
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDCTimedTextDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01016400"
+)
 
 var GDCTimedTextDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010103.04030302.00000000": {UL: "DataEssenceCoding", Length: 16, Decode: DecodeTAUID},
@@ -7637,6 +8209,10 @@ func (g *GDCTimedTextDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GDCTimedTextResourceSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01016500"
+)
+
 var GDCTimedTextResourceSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -7695,6 +8271,10 @@ func (g *GDCTimedTextResourceSubDescriptorStruct) Encode(primer *Primer) ([]byte
 	return result, nil
 }
 
+const (
+	GApplicationObjectUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01016600"
+)
+
 var GApplicationObject = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -7727,6 +8307,10 @@ func (g *GApplicationObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GContainerConstraintsSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01016700"
+)
+
 var GContainerConstraintsSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -7758,6 +8342,10 @@ func (g *GContainerConstraintsSubDescriptorStruct) Encode(primer *Primer) ([]byt
 	return result, nil
 }
 
+const (
+	GMPEG4VisualSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01016800"
+)
+
 var GMPEG4VisualSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -7788,6 +8376,10 @@ func (g *GMPEG4VisualSubDescriptorStruct) Encode(primer *Primer) ([]byte, error)
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GTIFFPictureEssenceDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01016900"
+)
 
 var GTIFFPictureEssenceDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.04010601.00000000": {UL: "PictureCompression", Length: 16, Decode: DecodeTAUID},
@@ -7902,6 +8494,10 @@ func (g *GTIFFPictureEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, er
 	return result, nil
 }
 
+const (
+	GMCALabelSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01016a00"
+)
+
 var GMCALabelSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -7970,6 +8566,10 @@ func (g *GMCALabelSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GAudioChannelLabelSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01016b00"
+)
 
 var GAudioChannelLabelSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010e.01030701.01000000": {UL: "MCALabelDictionaryID", Length: 16, Decode: DecodeTAUID},
@@ -8041,6 +8641,10 @@ func (g *GAudioChannelLabelSubDescriptorStruct) Encode(primer *Primer) ([]byte, 
 	return result, nil
 }
 
+const (
+	GSoundfieldGroupLabelSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01016c00"
+)
+
 var GSoundfieldGroupLabelSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010e.01030701.01000000": {UL: "MCALabelDictionaryID", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.0101010e.01030701.05000000": {UL: "MCALinkID", Length: 16, Decode: DecodeTUUID},
@@ -8111,6 +8715,10 @@ func (g *GSoundfieldGroupLabelSubDescriptorStruct) Encode(primer *Primer) ([]byt
 	return result, nil
 }
 
+const (
+	GGroupOfSoundfieldGroupsLabelSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01016d00"
+)
+
 var GGroupOfSoundfieldGroupsLabelSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010e.01030701.01000000": {UL: "MCALabelDictionaryID", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.0101010e.01030701.05000000": {UL: "MCALinkID", Length: 16, Decode: DecodeTUUID},
@@ -8180,6 +8788,10 @@ func (g *GGroupOfSoundfieldGroupsLabelSubDescriptorStruct) Encode(primer *Primer
 	return result, nil
 }
 
+const (
+	GAVCSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01016e00"
+)
+
 var GAVCSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -8233,6 +8845,10 @@ func (g *GAVCSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GEventTextDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01016f00"
+)
 
 var GEventTextDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010103.04030302.00000000": {UL: "DataEssenceCoding", Length: 16, Decode: DecodeTAUID},
@@ -8290,6 +8906,10 @@ func (g *GEventTextDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GSTLDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01017000"
+)
 
 var GSTLDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010e.03020108.01000000": {UL: "EventTextKind", Length: 16, Decode: DecodeTAUID},
@@ -8357,6 +8977,10 @@ func (g *GSTLDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GSTLSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01017100"
+)
+
 var GSTLSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -8406,6 +9030,10 @@ func (g *GSTLSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GOperationsStereoscopicSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01017200"
+)
+
 var GOperationsStereoscopicSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -8447,6 +9075,10 @@ func (g *GOperationsStereoscopicSubDescriptorStruct) Encode(primer *Primer) ([]b
 	return result, nil
 }
 
+const (
+	GAuxDataEssenceDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01017300"
+)
+
 var GAuxDataEssenceDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010103.04030302.00000000": {UL: "DataEssenceCoding", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.01010101.04060101.00000000": {UL: "SampleRate", Length: 8, Decode: DecodeTRational},
@@ -8485,6 +9117,10 @@ func (g *GAuxDataEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error)
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GVC2SubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01017400"
+)
 
 var GVC2SubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -8556,6 +9192,10 @@ func (g *GVC2SubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GDMCVTTargetSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01017500"
+)
+
 var GDMCVTTargetSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -8613,6 +9253,10 @@ func (g *GDMCVTTargetSubDescriptorStruct) Encode(primer *Primer) ([]byte, error)
 	return result, nil
 }
 
+const (
+	GVC5BayerPictureEssenceSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01017600"
+)
+
 var GVC5BayerPictureEssenceSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -8655,6 +9299,10 @@ func (g *GVC5BayerPictureEssenceSubDescriptorStruct) Encode(primer *Primer) ([]b
 	return result, nil
 }
 
+const (
+	GVC5CDCIPictureEssenceSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01017700"
+)
+
 var GVC5CDCIPictureEssenceSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -8695,6 +9343,10 @@ func (g *GVC5CDCIPictureEssenceSubDescriptorStruct) Encode(primer *Primer) ([]by
 	return result, nil
 }
 
+const (
+	GAACSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01017800"
+)
+
 var GAACSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -8727,6 +9379,10 @@ func (g *GAACSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GACESPictureSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01017900"
+)
 
 var GACESPictureSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -8763,6 +9419,10 @@ func (g *GACESPictureSubDescriptorStruct) Encode(primer *Primer) ([]byte, error)
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GTargetFrameSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01017a00"
+)
 
 var GTargetFrameSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -8869,6 +9529,10 @@ func (g *GTargetFrameSubDescriptorStruct) Encode(primer *Primer) ([]byte, error)
 	return result, nil
 }
 
+const (
+	GIABEssenceDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01017b00"
+)
+
 var GIABEssenceDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010105.04020301.01010000": {UL: "AudioSampleRate", Length: 8, Decode: DecodeTRational},
 	"urn:smpte:ul:060e2b34.01010104.04020301.04000000": {UL: "Locked", Length: 1, Decode: DecodeTBoolean},
@@ -8941,6 +9605,10 @@ func (g *GIABEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GIABSoundfieldLabelSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01017c00"
+)
+
 var GIABSoundfieldLabelSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010e.01030701.01000000": {UL: "MCALabelDictionaryID", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.0101010e.01030701.05000000": {UL: "MCALinkID", Length: 16, Decode: DecodeTUUID},
@@ -9010,6 +9678,10 @@ func (g *GIABSoundfieldLabelSubDescriptorStruct) Encode(primer *Primer) ([]byte,
 	return result, nil
 }
 
+const (
+	GOPDefinitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01017d00"
+)
+
 var GOPDefinition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.01011503.00000000": {UL: "DefinitionObjectIdentification", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.01010102.01070102.03010000": {UL: "DefinitionObjectName", Length: 0, Decode: DecodeTUTF16String},
@@ -9059,6 +9731,10 @@ func (g *GOPDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GCompressionDefinitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01017e00"
+)
 
 var GCompressionDefinition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.01011503.00000000": {UL: "DefinitionObjectIdentification", Length: 16, Decode: DecodeTAUID},
@@ -9110,6 +9786,10 @@ func (g *GCompressionDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GAbstractObjectUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01017f00"
+)
+
 var GAbstractObject = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 }
@@ -9137,6 +9817,10 @@ func (g *GAbstractObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GHEVCSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.01018101"
+)
 
 var GHEVCSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -9200,6 +9884,10 @@ func (g *GHEVCSubDescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GClassDefinitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02010000"
+)
 
 var GClassDefinition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -9266,6 +9954,10 @@ func (g *GClassDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GPropertyDefinitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02020000"
+)
 
 var GPropertyDefinition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -9335,6 +10027,10 @@ func (g *GPropertyDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTypeDefinitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02030000"
+)
+
 var GTypeDefinition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010107.13000000": {UL: "MetaDefinitionIdentification", Length: 16, Decode: DecodeTAUID},
@@ -9381,6 +10077,10 @@ func (g *GTypeDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GTypeDefinitionIntegerUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02040000"
+)
 
 var GTypeDefinitionInteger = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -9447,6 +10147,10 @@ func (g *GTypeDefinitionIntegerStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTypeDefinitionStrongObjectReferenceUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02050000"
+)
+
 var GTypeDefinitionStrongObjectReference = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010107.13000000": {UL: "MetaDefinitionIdentification", Length: 16, Decode: DecodeTAUID},
@@ -9502,6 +10206,10 @@ func (g *GTypeDefinitionStrongObjectReferenceStruct) Encode(primer *Primer) ([]b
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GTypeDefinitionWeakObjectReferenceUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02060000"
+)
 
 var GTypeDefinitionWeakObjectReference = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -9567,6 +10275,10 @@ func (g *GTypeDefinitionWeakObjectReferenceStruct) Encode(primer *Primer) ([]byt
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GTypeDefinitionEnumerationUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02070000"
+)
 
 var GTypeDefinitionEnumeration = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -9642,6 +10354,10 @@ func (g *GTypeDefinitionEnumerationStruct) Encode(primer *Primer) ([]byte, error
 	return result, nil
 }
 
+const (
+	GTypeDefinitionFixedArrayUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02080000"
+)
+
 var GTypeDefinitionFixedArray = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010107.13000000": {UL: "MetaDefinitionIdentification", Length: 16, Decode: DecodeTAUID},
@@ -9707,6 +10423,10 @@ func (g *GTypeDefinitionFixedArrayStruct) Encode(primer *Primer) ([]byte, error)
 	return result, nil
 }
 
+const (
+	GTypeDefinitionVariableArrayUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02090000"
+)
+
 var GTypeDefinitionVariableArray = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010107.13000000": {UL: "MetaDefinitionIdentification", Length: 16, Decode: DecodeTAUID},
@@ -9762,6 +10482,10 @@ func (g *GTypeDefinitionVariableArrayStruct) Encode(primer *Primer) ([]byte, err
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GTypeDefinitionSetUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.020a0000"
+)
 
 var GTypeDefinitionSet = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -9819,6 +10543,10 @@ func (g *GTypeDefinitionSetStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTypeDefinitionStringUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.020b0000"
+)
+
 var GTypeDefinitionString = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010107.13000000": {UL: "MetaDefinitionIdentification", Length: 16, Decode: DecodeTAUID},
@@ -9875,6 +10603,10 @@ func (g *GTypeDefinitionStringStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTypeDefinitionStreamUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.020c0000"
+)
+
 var GTypeDefinitionStream = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010107.13000000": {UL: "MetaDefinitionIdentification", Length: 16, Decode: DecodeTAUID},
@@ -9921,6 +10653,10 @@ func (g *GTypeDefinitionStreamStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GTypeDefinitionRecordUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.020d0000"
+)
 
 var GTypeDefinitionRecord = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -9987,6 +10723,10 @@ func (g *GTypeDefinitionRecordStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTypeDefinitionRenameUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.020e0000"
+)
+
 var GTypeDefinitionRename = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010107.13000000": {UL: "MetaDefinitionIdentification", Length: 16, Decode: DecodeTAUID},
@@ -10043,6 +10783,10 @@ func (g *GTypeDefinitionRenameStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTypeDefinitionExtendibleEnumerationUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02200000"
+)
+
 var GTypeDefinitionExtendibleEnumeration = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010107.13000000": {UL: "MetaDefinitionIdentification", Length: 16, Decode: DecodeTAUID},
@@ -10092,6 +10836,10 @@ func (g *GTypeDefinitionExtendibleEnumerationStruct) Encode(primer *Primer) ([]b
 	return result, nil
 }
 
+const (
+	GTypeDefinitionIndirectUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02210000"
+)
+
 var GTypeDefinitionIndirect = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010107.13000000": {UL: "MetaDefinitionIdentification", Length: 16, Decode: DecodeTAUID},
@@ -10138,6 +10886,10 @@ func (g *GTypeDefinitionIndirectStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GTypeDefinitionOpaqueUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02220000"
+)
 
 var GTypeDefinitionOpaque = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -10186,6 +10938,10 @@ func (g *GTypeDefinitionOpaqueStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTypeDefinitionCharacterUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02230000"
+)
+
 var GTypeDefinitionCharacter = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010107.13000000": {UL: "MetaDefinitionIdentification", Length: 16, Decode: DecodeTAUID},
@@ -10232,6 +10988,10 @@ func (g *GTypeDefinitionCharacterStruct) Encode(primer *Primer) ([]byte, error) 
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GMetaDefinitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02240000"
+)
 
 var GMetaDefinition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -10280,6 +11040,10 @@ func (g *GMetaDefinitionStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GMetaDictionaryUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02250000"
+)
+
 var GMetaDictionary = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.06010107.07000000": {UL: "ClassDefinitions", Length: 0, Decode: DecodeTClassDefinitionStrongReferenceSet},
 	"urn:smpte:ul:060e2b34.01010102.06010107.08000000": {UL: "TypeDefinitions", Length: 0, Decode: DecodeTTypeDefinitionStrongReferenceSet},
@@ -10299,6 +11063,10 @@ func (g *GMetaDictionaryStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GExtensionSchemeUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02260000"
+)
 
 var GExtensionScheme = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -10348,6 +11116,10 @@ func (g *GExtensionSchemeStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GPropertyAliasDefinitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02270000"
+)
 
 var GPropertyAliasDefinition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.06010107.04000000": {UL: "PropertyType", Length: 16, Decode: DecodeTAUID},
@@ -10426,6 +11198,10 @@ func (g *GPropertyAliasDefinitionStruct) Encode(primer *Primer) ([]byte, error) 
 	return result, nil
 }
 
+const (
+	GExtendibleEnumerationElementUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.02280000"
+)
+
 var GExtendibleEnumerationElement = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010102.01011503.00000000": {UL: "DefinitionObjectIdentification", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.01010102.01070102.03010000": {UL: "DefinitionObjectName", Length: 0, Decode: DecodeTUTF16String},
@@ -10477,6 +11253,10 @@ func (g *GExtendibleEnumerationElementStruct) Encode(primer *Primer) ([]byte, er
 	return result, nil
 }
 
+const (
+	GRootUL = "urn:smpte:ul:060e2b34.027f0101.0d010101.03000000"
+)
+
 var GRoot = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.0101010a.06010107.16000000": {UL: "RootMetaDictionary", Length: 0, Decode: DecodeTStrongReference},
@@ -10517,6 +11297,10 @@ func (g *GRootStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GPartitionPackUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01010000"
+)
 
 var GPartitionPack = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03010201.06000000": {UL: "MajorVersion", Length: 2, Decode: DecodeTUInt16},
@@ -10641,6 +11425,10 @@ func (g *GPartitionPackStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GHeaderPartitionPackUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01020000"
+)
+
 var GHeaderPartitionPack = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03010201.06000000": {UL: "MajorVersion", Length: 2, Decode: DecodeTUInt16},
 	"urn:smpte:ul:060e2b34.01010104.03010201.07000000": {UL: "MinorVersion", Length: 2, Decode: DecodeTUInt16},
@@ -10763,6 +11551,10 @@ func (g *GHeaderPartitionPackStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GHeaderPartitionOpenIncompleteUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01020100"
+)
 
 var GHeaderPartitionOpenIncomplete = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03010201.06000000": {UL: "MajorVersion", Length: 2, Decode: DecodeTUInt16},
@@ -10887,6 +11679,10 @@ func (g *GHeaderPartitionOpenIncompleteStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GHeaderPartitionClosedIncompleteUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01020200"
+)
+
 var GHeaderPartitionClosedIncomplete = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03010201.06000000": {UL: "MajorVersion", Length: 2, Decode: DecodeTUInt16},
 	"urn:smpte:ul:060e2b34.01010104.03010201.07000000": {UL: "MinorVersion", Length: 2, Decode: DecodeTUInt16},
@@ -11009,6 +11805,10 @@ func (g *GHeaderPartitionClosedIncompleteStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GHeaderPartitionOpenCompleteUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01020300"
+)
 
 var GHeaderPartitionOpenComplete = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03010201.06000000": {UL: "MajorVersion", Length: 2, Decode: DecodeTUInt16},
@@ -11133,6 +11933,10 @@ func (g *GHeaderPartitionOpenCompleteStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GHeaderPartitionClosedCompleteUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01020400"
+)
+
 var GHeaderPartitionClosedComplete = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03010201.06000000": {UL: "MajorVersion", Length: 2, Decode: DecodeTUInt16},
 	"urn:smpte:ul:060e2b34.01010104.03010201.07000000": {UL: "MinorVersion", Length: 2, Decode: DecodeTUInt16},
@@ -11255,6 +12059,10 @@ func (g *GHeaderPartitionClosedCompleteStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GBodyPartitionPackUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01030000"
+)
 
 var GBodyPartitionPack = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03010201.06000000": {UL: "MajorVersion", Length: 2, Decode: DecodeTUInt16},
@@ -11379,6 +12187,10 @@ func (g *GBodyPartitionPackStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GBodyPartitionOpenIncompleteUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01030100"
+)
+
 var GBodyPartitionOpenIncomplete = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03010201.06000000": {UL: "MajorVersion", Length: 2, Decode: DecodeTUInt16},
 	"urn:smpte:ul:060e2b34.01010104.03010201.07000000": {UL: "MinorVersion", Length: 2, Decode: DecodeTUInt16},
@@ -11501,6 +12313,10 @@ func (g *GBodyPartitionOpenIncompleteStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GBodyPartitionClosedIncompleteUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01030200"
+)
 
 var GBodyPartitionClosedIncomplete = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03010201.06000000": {UL: "MajorVersion", Length: 2, Decode: DecodeTUInt16},
@@ -11625,6 +12441,10 @@ func (g *GBodyPartitionClosedIncompleteStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GBodyPartitionOpenCompleteUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01030300"
+)
+
 var GBodyPartitionOpenComplete = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03010201.06000000": {UL: "MajorVersion", Length: 2, Decode: DecodeTUInt16},
 	"urn:smpte:ul:060e2b34.01010104.03010201.07000000": {UL: "MinorVersion", Length: 2, Decode: DecodeTUInt16},
@@ -11747,6 +12567,10 @@ func (g *GBodyPartitionOpenCompleteStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GBodyPartitionClosedCompleteUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01030400"
+)
 
 var GBodyPartitionClosedComplete = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03010201.06000000": {UL: "MajorVersion", Length: 2, Decode: DecodeTUInt16},
@@ -11871,6 +12695,10 @@ func (g *GBodyPartitionClosedCompleteStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GGenericStreamPartitionUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01031100"
+)
+
 var GGenericStreamPartition = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03010201.06000000": {UL: "MajorVersion", Length: 2, Decode: DecodeTUInt16},
 	"urn:smpte:ul:060e2b34.01010104.03010201.07000000": {UL: "MinorVersion", Length: 2, Decode: DecodeTUInt16},
@@ -11993,6 +12821,10 @@ func (g *GGenericStreamPartitionStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GFooterPartitionPackUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01040000"
+)
 
 var GFooterPartitionPack = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03010201.06000000": {UL: "MajorVersion", Length: 2, Decode: DecodeTUInt16},
@@ -12117,6 +12949,10 @@ func (g *GFooterPartitionPackStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GFooterPartitionClosedIncompleteUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01040200"
+)
+
 var GFooterPartitionClosedIncomplete = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03010201.06000000": {UL: "MajorVersion", Length: 2, Decode: DecodeTUInt16},
 	"urn:smpte:ul:060e2b34.01010104.03010201.07000000": {UL: "MinorVersion", Length: 2, Decode: DecodeTUInt16},
@@ -12239,6 +13075,10 @@ func (g *GFooterPartitionClosedIncompleteStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GFooterPartitionClosedCompleteUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01040400"
+)
 
 var GFooterPartitionClosedComplete = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03010201.06000000": {UL: "MajorVersion", Length: 2, Decode: DecodeTUInt16},
@@ -12363,6 +13203,10 @@ func (g *GFooterPartitionClosedCompleteStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GPrimerPackUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01050100"
+)
+
 var GPrimerPack = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010105.06010107.15000000": {UL: "LocalTagEntries", Length: 0, Decode: DecodeTLocalTagEntryBatch},
 }
@@ -12389,6 +13233,10 @@ func (g *GPrimerPackStruct) Encode() ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GIndexTableSegmentUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01100100"
+)
 
 var GIndexTableSegment = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -12465,10 +13313,18 @@ func (g *GIndexTableSegmentStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GRandomIndexPackUL = "urn:smpte:ul:060e2b34.027f0101.0d010201.01110100"
+)
+
 var GRandomIndexPack = map[string]Group{}
 
 type GRandomIndexPackStruct struct {
 }
+
+const (
+	GEncryptedTripletUL = "urn:smpte:ul:060e2b34.027f0101.0d010301.027e0100"
+)
 
 var GEncryptedTriplet = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010109.06010106.03000000": {UL: "CryptographicContextLink", Length: 16, Decode: DecodeTUUID},
@@ -12532,6 +13388,10 @@ func (g *GEncryptedTripletStruct) Encode() ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GDescriptiveObjectUL = "urn:smpte:ul:060e2b34.027f0101.0d010400.00000000"
+)
+
 var GDescriptiveObject = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -12564,6 +13424,10 @@ func (g *GDescriptiveObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GDescriptiveFrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.00000000"
+)
+
 var GDescriptiveFramework = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -12595,6 +13459,10 @@ func (g *GDescriptiveFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GProductionFrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01010100"
+)
 
 var GProductionFramework = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010105.06010104.05400c00": {UL: "CaptionsDescriptionObjects", Length: 0, Decode: DecodeTDescriptiveObjectStrongReferenceSet},
@@ -12650,6 +13518,10 @@ func (g *GProductionFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GClipFrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01010200"
+)
 
 var GClipFramework = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010105.06010104.05400c00": {UL: "CaptionsDescriptionObjects", Length: 0, Decode: DecodeTDescriptiveObjectStrongReferenceSet},
@@ -12709,6 +13581,10 @@ func (g *GClipFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GSceneFrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01010300"
+)
+
 var GSceneFramework = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010107.03010102.02130000": {UL: "FrameworkExtendedTextLanguageCode", Length: 0, Decode: DecodeTISO639_Ext},
 	"urn:smpte:ul:060e2b34.01010105.03020102.15010000": {UL: "FrameworkThesaurusName", Length: 0, Decode: DecodeTUTF16String},
@@ -12756,6 +13632,10 @@ func (g *GSceneFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTitlesUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01100100"
+)
+
 var GTitles = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -12793,6 +13673,10 @@ func (g *GTitlesStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GDMS1IdentificationUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01110100"
+)
+
 var GDMS1Identification = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03020102.02010000": {UL: "ThesaurusName", Length: 0, Decode: DecodeTUTF16String},
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -12829,6 +13713,10 @@ func (g *GDMS1IdentificationStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GGroupRelationshipUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01120100"
+)
 
 var GGroupRelationship = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03020102.02010000": {UL: "ThesaurusName", Length: 0, Decode: DecodeTUTF16String},
@@ -12870,6 +13758,10 @@ func (g *GGroupRelationshipStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GBrandingUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01130100"
+)
+
 var GBranding = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -12903,6 +13795,10 @@ func (g *GBrandingStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDMS1EventUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01140100"
+)
 
 var GDMS1Event = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03020102.02010000": {UL: "ThesaurusName", Length: 0, Decode: DecodeTUTF16String},
@@ -12942,6 +13838,10 @@ func (g *GDMS1EventStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GPublicationUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01140200"
+)
+
 var GPublication = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -12977,6 +13877,10 @@ func (g *GPublicationStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GAwardUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01150100"
+)
 
 var GAward = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03020102.02010000": {UL: "ThesaurusName", Length: 0, Decode: DecodeTUTF16String},
@@ -13017,6 +13921,10 @@ func (g *GAwardStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GCaptionsDescriptionUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01160100"
+)
+
 var GCaptionsDescription = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03020102.02010000": {UL: "ThesaurusName", Length: 0, Decode: DecodeTUTF16String},
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -13051,6 +13959,10 @@ func (g *GCaptionsDescriptionStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDMS1AnnotationUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01170100"
+)
 
 var GDMS1Annotation = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03020102.02010000": {UL: "ThesaurusName", Length: 0, Decode: DecodeTUTF16String},
@@ -13093,6 +14005,10 @@ func (g *GDMS1AnnotationStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GSettingPeriodUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01170200"
+)
+
 var GSettingPeriod = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03020102.02010000": {UL: "ThesaurusName", Length: 0, Decode: DecodeTUTF16String},
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -13128,6 +14044,10 @@ func (g *GSettingPeriodStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GScriptingUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01170300"
+)
 
 var GScripting = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03020102.02010000": {UL: "ThesaurusName", Length: 0, Decode: DecodeTUTF16String},
@@ -13165,6 +14085,10 @@ func (g *GScriptingStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GClassificationUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01170400"
+)
+
 var GClassification = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03020102.02010000": {UL: "ThesaurusName", Length: 0, Decode: DecodeTUTF16String},
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -13199,6 +14123,10 @@ func (g *GClassificationStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GShotUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01170500"
+)
 
 var GShot = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -13240,6 +14168,10 @@ func (g *GShotStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GKeypointUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01170600"
+)
+
 var GKeypoint = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03020102.02010000": {UL: "ThesaurusName", Length: 0, Decode: DecodeTUTF16String},
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -13276,6 +14208,10 @@ func (g *GKeypointStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GCueWordsUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01170800"
+)
+
 var GCueWords = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -13309,6 +14245,10 @@ func (g *GCueWordsStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GParticipantUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01180100"
+)
 
 var GParticipant = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03020102.02010000": {UL: "ThesaurusName", Length: 0, Decode: DecodeTUTF16String},
@@ -13358,6 +14298,10 @@ func (g *GParticipantStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GContactsListUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01190100"
+)
+
 var GContactsList = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -13392,6 +14336,10 @@ func (g *GContactsListStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GPersonUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.011a0200"
+)
 
 var GPerson = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010108.01011540.01020000": {UL: "ContactID", Length: 16, Decode: DecodeTUUID},
@@ -13450,6 +14398,10 @@ func (g *GPersonStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GOrganizationUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.011a0300"
+)
+
 var GOrganization = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010108.01011540.01020000": {UL: "ContactID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010105.06010104.05401f02": {UL: "ContactNameValueObjects", Length: 0, Decode: DecodeTNameValueStrongReferenceSet},
@@ -13498,6 +14450,10 @@ func (g *GOrganizationStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GLocationUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.011a0400"
+)
+
 var GLocation = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010108.01011540.01020000": {UL: "ContactID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010105.06010104.05401f02": {UL: "ContactNameValueObjects", Length: 0, Decode: DecodeTNameValueStrongReferenceSet},
@@ -13543,6 +14499,10 @@ func (g *GLocationStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GAddressUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.011b0100"
+)
 
 var GAddress = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -13591,6 +14551,10 @@ func (g *GAddressStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GCommunicationsUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.011b0200"
+)
+
 var GCommunications = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -13629,6 +14593,10 @@ func (g *GCommunicationsStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GContractUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.011c0100"
+)
+
 var GContract = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03020102.02010000": {UL: "ThesaurusName", Length: 0, Decode: DecodeTUTF16String},
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -13664,6 +14632,10 @@ func (g *GContractStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GRightsUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.011c0200"
+)
 
 var GRights = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03020102.02010000": {UL: "ThesaurusName", Length: 0, Decode: DecodeTUTF16String},
@@ -13709,6 +14681,10 @@ func (g *GRightsStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GPictureFormatUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.011d0100"
+)
+
 var GPictureFormat = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -13743,6 +14719,10 @@ func (g *GPictureFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDeviceParametersUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.011e0100"
+)
 
 var GDeviceParameters = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03020102.02010000": {UL: "ThesaurusName", Length: 0, Decode: DecodeTUTF16String},
@@ -13786,6 +14766,10 @@ func (g *GDeviceParametersStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GNameValueUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.011f0100"
+)
+
 var GNameValue = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -13820,6 +14804,10 @@ func (g *GNameValueStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GProcessingUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01200100"
+)
 
 var GProcessing = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -13860,6 +14848,10 @@ func (g *GProcessingStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GProjectUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.01200200"
+)
+
 var GProject = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -13893,6 +14885,10 @@ func (g *GProjectStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDMS1FrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.017f0100"
+)
 
 var GDMS1Framework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -13937,6 +14933,10 @@ func (g *GDMS1FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GProductionClipFrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.017f0200"
+)
 
 var GProductionClipFramework = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010107.03010102.02130000": {UL: "FrameworkExtendedTextLanguageCode", Length: 0, Decode: DecodeTISO639_Ext},
@@ -13986,6 +14986,10 @@ func (g *GProductionClipFrameworkStruct) Encode(primer *Primer) ([]byte, error) 
 	return result, nil
 }
 
+const (
+	GDMS1ObjectUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.017f1000"
+)
+
 var GDMS1Object = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -14017,6 +15021,10 @@ func (g *GDMS1ObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GTextLanguageUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.017f1100"
+)
 
 var GTextLanguage = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -14050,6 +15058,10 @@ func (g *GTextLanguageStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GThesaurusUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.017f1200"
+)
+
 var GThesaurus = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -14082,6 +15094,10 @@ func (g *GThesaurusStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GContactUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.017f1a00"
+)
 
 var GContact = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010104.03020102.02010000": {UL: "ThesaurusName", Length: 0, Decode: DecodeTUTF16String},
@@ -14127,6 +15143,10 @@ func (g *GContactStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GCryptographicFrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.02010000"
+)
+
 var GCryptographicFramework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -14167,6 +15187,10 @@ func (g *GCryptographicFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GCryptographicContextUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.02020000"
+)
 
 var GCryptographicContext = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -14245,6 +15269,10 @@ func (g *GCryptographicContextStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDMS_AS_03_FrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.03010000"
+)
 
 var GDMS_AS_03_Framework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -14327,6 +15355,10 @@ func (g *GDMS_AS_03_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTextBasedFrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.04010100"
+)
+
 var GTextBasedFramework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -14367,6 +15399,10 @@ func (g *GTextBasedFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GGenericStreamTextBasedSetUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.04020100"
+)
 
 var GGenericStreamTextBasedSet = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.04060806.00000000": {UL: "TextBasedMetadataPayloadSchemeID", Length: 16, Decode: DecodeTAUID},
@@ -14437,6 +15473,10 @@ func (g *GGenericStreamTextBasedSetStruct) Encode(primer *Primer) ([]byte, error
 	return result, nil
 }
 
+const (
+	GUTF8TextBasedSetUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.04020200"
+)
+
 var GUTF8TextBasedSet = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.04060806.00000000": {UL: "TextBasedMetadataPayloadSchemeID", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.0101010d.04090202.00000000": {UL: "TextMIMEMediaType", Length: 0, Decode: DecodeTUTF16String},
@@ -14505,6 +15545,10 @@ func (g *GUTF8TextBasedSetStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GUTF16TextBasedSetUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.04020300"
+)
 
 var GUTF16TextBasedSet = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.04060806.00000000": {UL: "TextBasedMetadataPayloadSchemeID", Length: 16, Decode: DecodeTAUID},
@@ -14575,6 +15619,10 @@ func (g *GUTF16TextBasedSetStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GTextBasedObjectUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.04030100"
+)
+
 var GTextBasedObject = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -14635,6 +15683,10 @@ func (g *GTextBasedObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GEIDRFrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d010401.05010000"
+)
+
 var GEIDRFramework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -14676,6 +15728,10 @@ func (g *GEIDRFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GDM_Segmentation_FrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d010701.01010100"
+)
+
 var GDM_Segmentation_Framework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -14707,6 +15763,10 @@ func (g *GDM_Segmentation_FrameworkStruct) Encode(primer *Primer) ([]byte, error
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDMS_AS_10_Core_FrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d010701.0a010100"
+)
 
 var GDMS_AS_10_Core_Framework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -14758,6 +15818,10 @@ func (g *GDMS_AS_10_Core_FrameworkStruct) Encode(primer *Primer) ([]byte, error)
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDM_AS_11_Core_FrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d010701.0b010100"
+)
 
 var GDM_AS_11_Core_Framework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -14865,6 +15929,10 @@ func (g *GDM_AS_11_Core_FrameworkStruct) Encode(primer *Primer) ([]byte, error) 
 	return result, nil
 }
 
+const (
+	GDM_AS_11_Segmentation_FrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d010701.0b020100"
+)
+
 var GDM_AS_11_Segmentation_Framework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -14914,6 +15982,10 @@ func (g *GDM_AS_11_Segmentation_FrameworkStruct) Encode(primer *Primer) ([]byte,
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDMS_AS_12_FrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d010701.0c010100"
+)
 
 var GDMS_AS_12_Framework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -14965,6 +16037,10 @@ func (g *GDMS_AS_12_FrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GAS_12_DescriptiveObjectUL = "urn:smpte:ul:060e2b34.027f0101.0d010701.0c010200"
+)
+
 var GAS_12_DescriptiveObject = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -14996,6 +16072,10 @@ func (g *GAS_12_DescriptiveObjectStruct) Encode(primer *Primer) ([]byte, error) 
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GEBUCoreMainFrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d020101.00000000"
+)
 
 var GEBUCoreMainFramework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -15040,6 +16120,10 @@ func (g *GEBUCoreMainFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GcoreMetadataUL = "urn:smpte:ul:060e2b34.027f0101.0d020102.00000000"
+)
 
 var GcoreMetadata = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -15096,6 +16180,10 @@ func (g *GcoreMetadataStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GmetadataSchemaInformationUL = "urn:smpte:ul:060e2b34.027f0101.0d020103.00000000"
+)
+
 var GmetadataSchemaInformation = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -15136,6 +16224,10 @@ func (g *GmetadataSchemaInformationStruct) Encode(primer *Primer) ([]byte, error
 	return result, nil
 }
 
+const (
+	GidentifierUL = "urn:smpte:ul:060e2b34.027f0101.0d020104.00000000"
+)
+
 var Gidentifier = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -15172,6 +16264,10 @@ func (g *GidentifierStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GtitleUL = "urn:smpte:ul:060e2b34.027f0101.0d020105.00000000"
+)
 
 var Gtitle = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -15211,6 +16307,10 @@ func (g *GtitleStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GalternativeTitleUL = "urn:smpte:ul:060e2b34.027f0101.0d020106.00000000"
+)
 
 var GalternativeTitle = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -15252,6 +16352,10 @@ func (g *GalternativeTitleStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GsubjectUL = "urn:smpte:ul:060e2b34.027f0101.0d020108.00000000"
+)
+
 var Gsubject = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -15289,6 +16393,10 @@ func (g *GsubjectStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GdescriptionUL = "urn:smpte:ul:060e2b34.027f0101.0d020109.00000000"
+)
 
 var Gdescription = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -15330,6 +16438,10 @@ func (g *GdescriptionStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GdateUL = "urn:smpte:ul:060e2b34.027f0101.0d02010c.00000000"
+)
 
 var Gdate = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -15378,6 +16490,10 @@ func (g *GdateStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GdateTypeUL = "urn:smpte:ul:060e2b34.027f0101.0d02010d.00000000"
+)
+
 var GdateType = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -15413,6 +16529,10 @@ func (g *GdateTypeStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GtypeUL = "urn:smpte:ul:060e2b34.027f0101.0d02010e.00000000"
+)
 
 var Gtype = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -15453,6 +16573,10 @@ func (g *GtypeStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GobjectTypeUL = "urn:smpte:ul:060e2b34.027f0101.0d02010f.00000000"
+)
+
 var GobjectType = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -15485,6 +16609,10 @@ func (g *GobjectTypeStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GgenreUL = "urn:smpte:ul:060e2b34.027f0101.0d020110.00000000"
+)
 
 var Ggenre = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -15519,6 +16647,10 @@ func (g *GgenreStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GtargetAudienceUL = "urn:smpte:ul:060e2b34.027f0101.0d020111.00000000"
+)
 
 var GtargetAudience = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -15560,6 +16692,10 @@ func (g *GtargetAudienceStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GlanguageUL = "urn:smpte:ul:060e2b34.027f0101.0d020112.00000000"
+)
+
 var Glanguage = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -15595,6 +16731,10 @@ func (g *GlanguageStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GcoverageUL = "urn:smpte:ul:060e2b34.027f0101.0d020113.00000000"
+)
 
 var Gcoverage = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -15632,6 +16772,10 @@ func (g *GcoverageStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GspatialUL = "urn:smpte:ul:060e2b34.027f0101.0d020114.00000000"
+)
+
 var Gspatial = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -15664,6 +16808,10 @@ func (g *GspatialStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GlocationUL = "urn:smpte:ul:060e2b34.027f0101.0d020115.00000000"
+)
 
 var Glocation = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -15704,6 +16852,10 @@ func (g *GlocationStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GcoordinatesUL = "urn:smpte:ul:060e2b34.027f0101.0d020116.00000000"
+)
+
 var Gcoordinates = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -15739,6 +16891,10 @@ func (g *GcoordinatesStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GtemporalUL = "urn:smpte:ul:060e2b34.027f0101.0d020117.00000000"
+)
+
 var Gtemporal = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -15773,6 +16929,10 @@ func (g *GtemporalStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GperiodOfTimeUL = "urn:smpte:ul:060e2b34.027f0101.0d020118.00000000"
+)
 
 var GperiodOfTime = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -15813,6 +16973,10 @@ func (g *GperiodOfTimeStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GrightsUL = "urn:smpte:ul:060e2b34.027f0101.0d020119.00000000"
+)
 
 var Grights = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -15861,6 +17025,10 @@ func (g *GrightsStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GversionUL = "urn:smpte:ul:060e2b34.027f0101.0d02011a.00000000"
+)
+
 var Gversion = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -15894,6 +17062,10 @@ func (g *GversionStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GratingUL = "urn:smpte:ul:060e2b34.027f0101.0d02011b.00000000"
+)
 
 var Grating = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -15941,6 +17113,10 @@ func (g *GratingStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GpublicationEventUL = "urn:smpte:ul:060e2b34.027f0101.0d02011c.00000000"
+)
 
 var GpublicationEvent = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -15991,6 +17167,10 @@ func (g *GpublicationEventStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GpublicationHistoryUL = "urn:smpte:ul:060e2b34.027f0101.0d02011d.00000000"
+)
+
 var GpublicationHistory = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -16024,6 +17204,10 @@ func (g *GpublicationHistoryStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GpublicationChannelUL = "urn:smpte:ul:060e2b34.027f0101.0d02011e.00000000"
+)
 
 var GpublicationChannel = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -16061,6 +17245,10 @@ func (g *GpublicationChannelStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GpublicationMediumUL = "urn:smpte:ul:060e2b34.027f0101.0d02011f.00000000"
+)
+
 var GpublicationMedium = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -16095,6 +17283,10 @@ func (g *GpublicationMediumStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GpublicationServiceUL = "urn:smpte:ul:060e2b34.027f0101.0d020120.00000000"
+)
 
 var GpublicationService = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -16133,6 +17325,10 @@ func (g *GpublicationServiceStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GentityUL = "urn:smpte:ul:060e2b34.027f0101.0d020121.00000000"
+)
+
 var Gentity = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -16170,6 +17366,10 @@ func (g *GentityStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GcontactUL = "urn:smpte:ul:060e2b34.027f0101.0d020122.00000000"
+)
 
 var Gcontact = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -16228,6 +17428,10 @@ func (g *GcontactStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GorganizationUL = "urn:smpte:ul:060e2b34.027f0101.0d020123.00000000"
+)
+
 var Gorganization = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -16272,6 +17476,10 @@ func (g *GorganizationStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GdepartmentUL = "urn:smpte:ul:060e2b34.027f0101.0d020124.00000000"
+)
+
 var Gdepartment = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -16305,6 +17513,10 @@ func (g *GdepartmentStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GdetailsUL = "urn:smpte:ul:060e2b34.027f0101.0d020125.00000000"
+)
 
 var Gdetails = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -16344,6 +17556,10 @@ func (g *GdetailsStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GaddressUL = "urn:smpte:ul:060e2b34.027f0101.0d020126.00000000"
+)
+
 var Gaddress = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -16381,6 +17597,10 @@ func (g *GaddressStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GregionUL = "urn:smpte:ul:060e2b34.027f0101.0d020127.00000000"
+)
+
 var Gregion = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -16414,6 +17634,10 @@ func (g *GregionStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GcompoundNameUL = "urn:smpte:ul:060e2b34.027f0101.0d020128.00000000"
+)
 
 var GcompoundName = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -16450,6 +17674,10 @@ func (g *GcompoundNameStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GroleUL = "urn:smpte:ul:060e2b34.027f0101.0d020129.00000000"
+)
+
 var Grole = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -16484,6 +17712,10 @@ func (g *GroleStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GcountryTypeUL = "urn:smpte:ul:060e2b34.027f0101.0d02012a.00000000"
+)
+
 var GcountryType = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -16516,6 +17748,10 @@ func (g *GcountryTypeStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GcustomRelationUL = "urn:smpte:ul:060e2b34.027f0101.0d02012b.01000000"
+)
 
 var GcustomRelation = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -16556,6 +17792,10 @@ func (g *GcustomRelationStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GbasicRelationUL = "urn:smpte:ul:060e2b34.027f0101.0d02012b.02000000"
+)
 
 var GbasicRelation = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -16613,6 +17853,10 @@ func (g *GbasicRelationStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GplanningUL = "urn:smpte:ul:060e2b34.027f0101.0d02012c.00000000"
+)
+
 var Gplanning = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -16646,6 +17890,10 @@ func (g *GplanningStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GtypeGroupUL = "urn:smpte:ul:060e2b34.027f0101.0d02012d.01000000"
+)
 
 var GtypeGroup = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -16687,6 +17935,10 @@ func (g *GtypeGroupStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GformatGroupUL = "urn:smpte:ul:060e2b34.027f0101.0d02012d.02000000"
+)
+
 var GformatGroup = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -16726,6 +17978,10 @@ func (g *GformatGroupStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GstatusGroupUL = "urn:smpte:ul:060e2b34.027f0101.0d02012d.03000000"
+)
 
 var GstatusGroup = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -16767,6 +18023,10 @@ func (g *GstatusGroupStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GtextualAnnotationUL = "urn:smpte:ul:060e2b34.027f0101.0d02012e.00000000"
+)
+
 var GtextualAnnotation = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -16801,6 +18061,10 @@ func (g *GtextualAnnotationStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GbasicLinkUL = "urn:smpte:ul:060e2b34.027f0101.0d02012f.00000000"
+)
+
 var GbasicLink = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -16833,6 +18097,10 @@ func (g *GbasicLinkStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GformatUL = "urn:smpte:ul:060e2b34.027f0101.0d020130.00000000"
+)
 
 var Gformat = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -16903,6 +18171,10 @@ func (g *GformatStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GvideoFormatUL = "urn:smpte:ul:060e2b34.027f0101.0d020131.00000000"
+)
 
 var GvideoFormat = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -16976,6 +18248,10 @@ func (g *GvideoFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GimageFormatUL = "urn:smpte:ul:060e2b34.027f0101.0d020132.00000000"
+)
+
 var GimageFormat = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -17036,6 +18312,10 @@ func (g *GimageFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GaudioFormatUL = "urn:smpte:ul:060e2b34.027f0101.0d020133.00000000"
+)
 
 var GaudioFormat = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -17103,6 +18383,10 @@ func (g *GaudioFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GtrackUL = "urn:smpte:ul:060e2b34.027f0101.0d020134.00000000"
+)
+
 var Gtrack = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -17138,6 +18422,10 @@ func (g *GtrackStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GdataFormatUL = "urn:smpte:ul:060e2b34.027f0101.0d020135.00000000"
+)
 
 var GdataFormat = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -17199,6 +18487,10 @@ func (g *GdataFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GcaptioningUL = "urn:smpte:ul:060e2b34.027f0101.0d020136.00000000"
+)
+
 var Gcaptioning = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -17241,6 +18533,10 @@ func (g *GcaptioningStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GsubtitlingUL = "urn:smpte:ul:060e2b34.027f0101.0d020137.00000000"
+)
 
 var Gsubtitling = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -17285,6 +18581,10 @@ func (g *GsubtitlingStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GancillaryDataUL = "urn:smpte:ul:060e2b34.027f0101.0d020138.00000000"
+)
+
 var GancillaryData = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -17323,6 +18623,10 @@ func (g *GancillaryDataStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GsigningFormatUL = "urn:smpte:ul:060e2b34.027f0101.0d020139.00000000"
+)
 
 var GsigningFormat = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -17366,6 +18670,10 @@ func (g *GsigningFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GtechnicalAttributeStringUL = "urn:smpte:ul:060e2b34.027f0101.0d02013a.01000000"
+)
+
 var GtechnicalAttributeString = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -17400,6 +18708,10 @@ func (g *GtechnicalAttributeStringStruct) Encode(primer *Primer) ([]byte, error)
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GtechnicalAttributeInt8UL = "urn:smpte:ul:060e2b34.027f0101.0d02013a.02000000"
+)
 
 var GtechnicalAttributeInt8 = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -17436,6 +18748,10 @@ func (g *GtechnicalAttributeInt8Struct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GtechnicalAttributeInt16UL = "urn:smpte:ul:060e2b34.027f0101.0d02013a.03000000"
+)
+
 var GtechnicalAttributeInt16 = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -17470,6 +18786,10 @@ func (g *GtechnicalAttributeInt16Struct) Encode(primer *Primer) ([]byte, error) 
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GtechnicalAttributeInt32UL = "urn:smpte:ul:060e2b34.027f0101.0d02013a.04000000"
+)
 
 var GtechnicalAttributeInt32 = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -17506,6 +18826,10 @@ func (g *GtechnicalAttributeInt32Struct) Encode(primer *Primer) ([]byte, error) 
 	return result, nil
 }
 
+const (
+	GtechnicalAttributeInt64UL = "urn:smpte:ul:060e2b34.027f0101.0d02013a.05000000"
+)
+
 var GtechnicalAttributeInt64 = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -17540,6 +18864,10 @@ func (g *GtechnicalAttributeInt64Struct) Encode(primer *Primer) ([]byte, error) 
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GtechnicalAttributeUInt8UL = "urn:smpte:ul:060e2b34.027f0101.0d02013a.06000000"
+)
 
 var GtechnicalAttributeUInt8 = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -17576,6 +18904,10 @@ func (g *GtechnicalAttributeUInt8Struct) Encode(primer *Primer) ([]byte, error) 
 	return result, nil
 }
 
+const (
+	GtechnicalAttributeUInt16UL = "urn:smpte:ul:060e2b34.027f0101.0d02013a.07000000"
+)
+
 var GtechnicalAttributeUInt16 = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -17610,6 +18942,10 @@ func (g *GtechnicalAttributeUInt16Struct) Encode(primer *Primer) ([]byte, error)
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GtechnicalAttributeUInt32UL = "urn:smpte:ul:060e2b34.027f0101.0d02013a.08000000"
+)
 
 var GtechnicalAttributeUInt32 = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -17646,6 +18982,10 @@ func (g *GtechnicalAttributeUInt32Struct) Encode(primer *Primer) ([]byte, error)
 	return result, nil
 }
 
+const (
+	GtechnicalAttributeUInt64UL = "urn:smpte:ul:060e2b34.027f0101.0d02013a.09000000"
+)
+
 var GtechnicalAttributeUInt64 = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -17680,6 +19020,10 @@ func (g *GtechnicalAttributeUInt64Struct) Encode(primer *Primer) ([]byte, error)
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GtechnicalAttributeFloatUL = "urn:smpte:ul:060e2b34.027f0101.0d02013a.0a000000"
+)
 
 var GtechnicalAttributeFloat = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -17716,6 +19060,10 @@ func (g *GtechnicalAttributeFloatStruct) Encode(primer *Primer) ([]byte, error) 
 	return result, nil
 }
 
+const (
+	GtechnicalAttributeRationalUL = "urn:smpte:ul:060e2b34.027f0101.0d02013a.0b000000"
+)
+
 var GtechnicalAttributeRational = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -17749,6 +19097,10 @@ func (g *GtechnicalAttributeRationalStruct) Encode(primer *Primer) ([]byte, erro
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GtechnicalAttributeAnyURIUL = "urn:smpte:ul:060e2b34.027f0101.0d02013a.0c000000"
+)
 
 var GtechnicalAttributeAnyURI = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -17784,6 +19136,10 @@ func (g *GtechnicalAttributeAnyURIStruct) Encode(primer *Primer) ([]byte, error)
 	return result, nil
 }
 
+const (
+	GtechnicalAttributeBooleanUL = "urn:smpte:ul:060e2b34.027f0101.0d02013a.0d000000"
+)
+
 var GtechnicalAttributeBoolean = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -17818,6 +19174,10 @@ func (g *GtechnicalAttributeBooleanStruct) Encode(primer *Primer) ([]byte, error
 	return result, nil
 }
 
+const (
+	GdimensionUL = "urn:smpte:ul:060e2b34.027f0101.0d02013b.00000000"
+)
+
 var Gdimension = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -17851,6 +19211,10 @@ func (g *GdimensionStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GpackageInfoUL = "urn:smpte:ul:060e2b34.027f0101.0d02013c.00000000"
+)
 
 var GpackageInfo = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -17890,6 +19254,10 @@ func (g *GpackageInfoStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GmediumUL = "urn:smpte:ul:060e2b34.027f0101.0d02013d.00000000"
+)
+
 var Gmedium = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -17923,6 +19291,10 @@ func (g *GmediumStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GcodecUL = "urn:smpte:ul:060e2b34.027f0101.0d02013e.00000000"
+)
 
 var Gcodec = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -17963,6 +19335,10 @@ func (g *GcodecStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GrationalUL = "urn:smpte:ul:060e2b34.027f0101.0d02013f.00000000"
+)
+
 var Grational = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -17997,6 +19373,10 @@ func (g *GrationalStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GaspectRatioUL = "urn:smpte:ul:060e2b34.027f0101.0d020140.00000000"
+)
 
 var GaspectRatio = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -18033,6 +19413,10 @@ func (g *GaspectRatioStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GheightUL = "urn:smpte:ul:060e2b34.027f0101.0d020141.00000000"
+)
+
 var Gheight = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -18066,6 +19450,10 @@ func (g *GheightStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GwidthUL = "urn:smpte:ul:060e2b34.027f0101.0d020142.00000000"
+)
 
 var Gwidth = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -18101,6 +19489,10 @@ func (g *GwidthStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GpartUL = "urn:smpte:ul:060e2b34.027f0101.0d020143.00000000"
+)
+
 var Gpart = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -18133,6 +19525,10 @@ func (g *GpartStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GpartMetadataUL = "urn:smpte:ul:060e2b34.027f0101.0d020144.00000000"
+)
 
 var GpartMetadata = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -18175,6 +19571,10 @@ func (g *GpartMetadataStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GhashUL = "urn:smpte:ul:060e2b34.027f0101.0d020146.00000000"
+)
+
 var Ghash = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -18209,6 +19609,10 @@ func (g *GhashStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GlocatorUL = "urn:smpte:ul:060e2b34.027f0101.0d020147.00000000"
+)
+
 var Glocator = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -18242,6 +19646,10 @@ func (g *GlocatorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GcontainerFormatUL = "urn:smpte:ul:060e2b34.027f0101.0d020148.00000000"
+)
 
 var GcontainerFormat = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -18296,6 +19704,10 @@ func (g *GcontainerFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GaudioFormatExtendedUL = "urn:smpte:ul:060e2b34.027f0101.0d020149.00000000"
+)
+
 var GaudioFormatExtended = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -18342,6 +19754,10 @@ func (g *GaudioFormatExtendedStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GaudioProgrammeUL = "urn:smpte:ul:060e2b34.027f0101.0d02014a.00000000"
+)
+
 var GaudioProgramme = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -18385,6 +19801,10 @@ func (g *GaudioProgrammeStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GIDRefUL = "urn:smpte:ul:060e2b34.027f0101.0d02014b.00000000"
+)
+
 var GIDRef = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -18417,6 +19837,10 @@ func (g *GIDRefStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GloudnessMetadataUL = "urn:smpte:ul:060e2b34.027f0101.0d02014c.00000000"
+)
 
 var GloudnessMetadata = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -18459,6 +19883,10 @@ func (g *GloudnessMetadataStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GaudioContentUL = "urn:smpte:ul:060e2b34.027f0101.0d02014d.00000000"
+)
+
 var GaudioContent = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -18497,6 +19925,10 @@ func (g *GaudioContentStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GaudioObjectUL = "urn:smpte:ul:060e2b34.027f0101.0d02014e.00000000"
+)
 
 var GaudioObject = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -18543,6 +19975,10 @@ func (g *GaudioObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GaudioPackFormatUL = "urn:smpte:ul:060e2b34.027f0101.0d02014f.00000000"
+)
+
 var GaudioPackFormat = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -18582,6 +20018,10 @@ func (g *GaudioPackFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GaudioChannelFormatUL = "urn:smpte:ul:060e2b34.027f0101.0d020150.00000000"
+)
+
 var GaudioChannelFormat = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -18618,6 +20058,10 @@ func (g *GaudioChannelFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GaudioBlockFormatUL = "urn:smpte:ul:060e2b34.027f0101.0d020151.00000000"
+)
 
 var GaudioBlockFormat = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -18672,6 +20116,10 @@ func (g *GaudioBlockFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GaudioBlockMatrixCoefficientUL = "urn:smpte:ul:060e2b34.027f0101.0d020152.00000000"
+)
+
 var GaudioBlockMatrixCoefficient = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -18709,6 +20157,10 @@ func (g *GaudioBlockMatrixCoefficientStruct) Encode(primer *Primer) ([]byte, err
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GaudioStreamFormatUL = "urn:smpte:ul:060e2b34.027f0101.0d020153.00000000"
+)
 
 var GaudioStreamFormat = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -18748,6 +20200,10 @@ func (g *GaudioStreamFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GaudioTrackFormatUL = "urn:smpte:ul:060e2b34.027f0101.0d020154.00000000"
+)
+
 var GaudioTrackFormat = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -18783,6 +20239,10 @@ func (g *GaudioTrackFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GaudioTrackUIDUL = "urn:smpte:ul:060e2b34.027f0101.0d020155.00000000"
+)
 
 var GaudioTrackUID = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -18822,6 +20282,10 @@ func (g *GaudioTrackUIDStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GaudioMXFLookupUL = "urn:smpte:ul:060e2b34.027f0101.0d020156.00000000"
+)
+
 var GaudioMXFLookup = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -18857,6 +20321,10 @@ func (g *GaudioMXFLookupStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GaudioBlockMatrixUL = "urn:smpte:ul:060e2b34.027f0101.0d020157.00000000"
+)
+
 var GaudioBlockMatrix = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -18889,6 +20357,10 @@ func (g *GaudioBlockMatrixStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GtimeUL = "urn:smpte:ul:060e2b34.027f0101.0d020158.00000000"
+)
 
 var Gtime = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -18926,6 +20398,10 @@ func (g *GtimeStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GmetadataFormatUL = "urn:smpte:ul:060e2b34.027f0101.0d020159.00000000"
+)
 
 var GmetadataFormat = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -18976,6 +20452,10 @@ func (g *GmetadataFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GtimecodeFormatUL = "urn:smpte:ul:060e2b34.027f0101.0d02015a.00000000"
+)
 
 var GtimecodeFormat = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -19028,6 +20508,10 @@ func (g *GtimecodeFormatStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GvideoNoiseFilterUL = "urn:smpte:ul:060e2b34.027f0101.0d02015b.00000000"
+)
+
 var GvideoNoiseFilter = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -19062,6 +20546,10 @@ func (g *GvideoNoiseFilterStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GEBUCoreObjectUL = "urn:smpte:ul:060e2b34.027f0101.0d02015c.00000000"
+)
+
 var GEBUCoreObject = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -19093,6 +20581,10 @@ func (g *GEBUCoreObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GaudienceUL = "urn:smpte:ul:060e2b34.027f0101.0d02015d.00000000"
+)
 
 var Gaudience = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -19134,6 +20626,10 @@ func (g *GaudienceStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GfilterUL = "urn:smpte:ul:060e2b34.027f0101.0d02015e.00000000"
+)
+
 var Gfilter = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -19170,6 +20666,10 @@ func (g *GfilterStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GfilterSettingUL = "urn:smpte:ul:060e2b34.027f0101.0d02015f.00000000"
+)
 
 var GfilterSetting = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -19218,6 +20718,10 @@ func (g *GfilterSettingStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GreferenceScreenUL = "urn:smpte:ul:060e2b34.027f0101.0d020160.00000000"
+)
+
 var GreferenceScreen = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -19252,6 +20756,10 @@ func (g *GreferenceScreenStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GreferenceScreenCentrePositionUL = "urn:smpte:ul:060e2b34.027f0101.0d020161.00000000"
+)
 
 var GreferenceScreenCentrePosition = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -19292,6 +20800,10 @@ func (g *GreferenceScreenCentrePositionStruct) Encode(primer *Primer) ([]byte, e
 	return result, nil
 }
 
+const (
+	GreferenceScreenWidthUL = "urn:smpte:ul:060e2b34.027f0101.0d020162.00000000"
+)
+
 var GreferenceScreenWidth = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -19326,6 +20838,10 @@ func (g *GreferenceScreenWidthStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GaudioContentDialogueUL = "urn:smpte:ul:060e2b34.027f0101.0d020163.00000000"
+)
 
 var GaudioContentDialogue = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -19362,6 +20878,10 @@ func (g *GaudioContentDialogueStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GaudioObjectInteractionUL = "urn:smpte:ul:060e2b34.027f0101.0d020164.00000000"
+)
 
 var GaudioObjectInteraction = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -19400,6 +20920,10 @@ func (g *GaudioObjectInteractionStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GgainInteractionRangeUL = "urn:smpte:ul:060e2b34.027f0101.0d020165.00000000"
+)
+
 var GgainInteractionRange = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -19433,6 +20957,10 @@ func (g *GgainInteractionRangeStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GpositionInteractionRangeUL = "urn:smpte:ul:060e2b34.027f0101.0d020166.00000000"
+)
 
 var GpositionInteractionRange = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -19468,6 +20996,10 @@ func (g *GpositionInteractionRangeStruct) Encode(primer *Primer) ([]byte, error)
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GaudioBlockPositionUL = "urn:smpte:ul:060e2b34.027f0101.0d020167.00000000"
+)
 
 var GaudioBlockPosition = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -19505,6 +21037,10 @@ func (g *GaudioBlockPositionStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GaudioBlockDivergenceUL = "urn:smpte:ul:060e2b34.027f0101.0d020168.00000000"
+)
+
 var GaudioBlockDivergence = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -19539,6 +21075,10 @@ func (g *GaudioBlockDivergenceStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GaudioBlockZoneExclusionUL = "urn:smpte:ul:060e2b34.027f0101.0d020169.00000000"
+)
+
 var GaudioBlockZoneExclusion = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -19571,6 +21111,10 @@ func (g *GaudioBlockZoneExclusionStruct) Encode(primer *Primer) ([]byte, error) 
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GaudioBlockZoneUL = "urn:smpte:ul:060e2b34.027f0101.0d02016a.00000000"
+)
 
 var GaudioBlockZone = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -19611,6 +21155,10 @@ func (g *GaudioBlockZoneStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GaudioBlockJumpPositionUL = "urn:smpte:ul:060e2b34.027f0101.0d02016b.00000000"
+)
+
 var GaudioBlockJumpPosition = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -19644,6 +21192,10 @@ func (g *GaudioBlockJumpPositionStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GeventUL = "urn:smpte:ul:060e2b34.027f0101.0d02016c.00000000"
+)
 
 var Gevent = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -19685,6 +21237,10 @@ func (g *GeventStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GawardUL = "urn:smpte:ul:060e2b34.027f0101.0d02016d.00000000"
+)
+
 var Gaward = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -19724,6 +21280,10 @@ func (g *GawardStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GaffiliationUL = "urn:smpte:ul:060e2b34.027f0101.0d02016e.00000000"
+)
+
 var Gaffiliation = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -19757,6 +21317,10 @@ func (g *GaffiliationStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GAPP_InfaxFrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d040101.01010000"
+)
 
 var GAPP_InfaxFramework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -19806,6 +21370,10 @@ func (g *GAPP_InfaxFrameworkStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GAPP_PSEAnalysisFrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d040101.01020000"
+)
+
 var GAPP_PSEAnalysisFramework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -19842,6 +21410,10 @@ func (g *GAPP_PSEAnalysisFrameworkStruct) Encode(primer *Primer) ([]byte, error)
 	return result, nil
 }
 
+const (
+	GAPP_VTRReplayErrorFrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d040101.01030000"
+)
+
 var GAPP_VTRReplayErrorFramework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -19874,6 +21446,10 @@ func (g *GAPP_VTRReplayErrorFrameworkStruct) Encode(primer *Primer) ([]byte, err
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GAPP_DigiBetaDropoutFrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d040101.01040000"
+)
 
 var GAPP_DigiBetaDropoutFramework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -19908,6 +21484,10 @@ func (g *GAPP_DigiBetaDropoutFrameworkStruct) Encode(primer *Primer) ([]byte, er
 	return result, nil
 }
 
+const (
+	GAPP_TimecodeBreakFrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d040101.01050000"
+)
+
 var GAPP_TimecodeBreakFramework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -19940,6 +21520,10 @@ func (g *GAPP_TimecodeBreakFrameworkStruct) Encode(primer *Primer) ([]byte, erro
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GDM_AS_11_UKDPP_FrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d0c0101.01010000"
+)
 
 var GDM_AS_11_UKDPP_Framework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -20162,6 +21746,10 @@ func (g *GDM_AS_11_UKDPP_FrameworkStruct) Encode(primer *Primer) ([]byte, error)
 	return result, nil
 }
 
+const (
+	GDMS_AS_12_AdID_SlateUL = "urn:smpte:ul:060e2b34.027f010d.0d0d0100.00000000"
+)
+
 var GDMS_AS_12_AdID_Slate = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -20293,6 +21881,10 @@ func (g *GDMS_AS_12_AdID_SlateStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GAS_07_Core_DMS_FrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d0e0101.07010100"
+)
+
 var GAS_07_Core_DMS_Framework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -20396,6 +21988,10 @@ func (g *GAS_07_Core_DMS_FrameworkStruct) Encode(primer *Primer) ([]byte, error)
 	return result, nil
 }
 
+const (
+	GAS_07_DMS_DeviceUL = "urn:smpte:ul:060e2b34.027f0101.0d0e0101.07010200"
+)
+
 var GAS_07_DMS_Device = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -20432,6 +22028,10 @@ func (g *GAS_07_DMS_DeviceStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GAS_07_DMS_IdentifierUL = "urn:smpte:ul:060e2b34.027f0101.0d0e0101.07010300"
+)
 
 var GAS_07_DMS_Identifier = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.11000000": {UL: "LinkedDescriptiveObjectPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -20492,6 +22092,10 @@ func (g *GAS_07_DMS_IdentifierStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GAS_07_GSP_DMS_ObjectUL = "urn:smpte:ul:060e2b34.027f0101.0d0e0101.07010400"
+)
 
 var GAS_07_GSP_DMS_Object = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.01030408.00000000": {UL: "GenericStreamID", Length: 4, Decode: DecodeTUInt32},
@@ -20590,6 +22194,10 @@ func (g *GAS_07_GSP_DMS_ObjectStruct) Encode(primer *Primer) ([]byte, error) {
 	return result, nil
 }
 
+const (
+	GAS_07_GSP_DMS_FrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d0e0101.07020100"
+)
+
 var GAS_07_GSP_DMS_Framework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.06010104.05410100": {UL: "TextBasedObject", Length: 0, Decode: DecodeTStrongReference},
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -20631,6 +22239,10 @@ func (g *GAS_07_GSP_DMS_FrameworkStruct) Encode(primer *Primer) ([]byte, error) 
 	return result, nil
 }
 
+const (
+	GAS_07_GSP_BD_DMS_FrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d0e0101.07020200"
+)
+
 var GAS_07_GSP_BD_DMS_Framework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.06010104.05410100": {UL: "TextBasedObject", Length: 0, Decode: DecodeTStrongReference},
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
@@ -20671,6 +22283,10 @@ func (g *GAS_07_GSP_BD_DMS_FrameworkStruct) Encode(primer *Primer) ([]byte, erro
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GAS_07_GSP_TD_DMS_FrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d0e0101.07020300"
+)
 
 var GAS_07_GSP_TD_DMS_Framework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010d.06010104.05410100": {UL: "TextBasedObject", Length: 0, Decode: DecodeTStrongReference},
@@ -20723,6 +22339,10 @@ func (g *GAS_07_GSP_TD_DMS_FrameworkStruct) Encode(primer *Primer) ([]byte, erro
 	return result, nil
 }
 
+const (
+	GAS_07_Segmentation_DMS_FrameworkUL = "urn:smpte:ul:060e2b34.027f0101.0d0e0101.07030100"
+)
+
 var GAS_07_Segmentation_DMS_Framework = map[string]Group{
 	"urn:smpte:ul:060e2b34.0101010c.05200701.0c000000": {UL: "LinkedDescriptiveFrameworkPluginID", Length: 0, Decode: DecodeTWeakReference},
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -20773,6 +22393,10 @@ func (g *GAS_07_Segmentation_DMS_FrameworkStruct) Encode(primer *Primer) ([]byte
 	return result, nil
 }
 
+const (
+	GAS_07_TimecodeLabelSubdescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0d0e0101.07040100"
+)
+
 var GAS_07_TimecodeLabelSubdescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -20816,6 +22440,10 @@ func (g *GAS_07_TimecodeLabelSubdescriptorStruct) Encode(primer *Primer) ([]byte
 	return result, nil
 }
 
+const (
+	GIADataEssenceDescriptorUL = "urn:smpte:ul:060e2b34.027f0105.0e090603.00000000"
+)
+
 var GIADataEssenceDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010103.04030302.00000000": {UL: "DataEssenceCoding", Length: 16, Decode: DecodeTAUID},
 	"urn:smpte:ul:060e2b34.01010101.04060101.00000000": {UL: "SampleRate", Length: 8, Decode: DecodeTRational},
@@ -20855,6 +22483,10 @@ func (g *GIADataEssenceDescriptorStruct) Encode(primer *Primer) ([]byte, error) 
 	return result, nil
 }
 
+const (
+	GIADataEssenceSubDescriptorUL = "urn:smpte:ul:060e2b34.027f0105.0e090606.00000000"
+)
+
 var GIADataEssenceSubDescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
 	"urn:smpte:ul:060e2b34.01010102.06010104.01010000": {UL: "ObjectClass", Length: 0, Decode: DecodeTWeakReference},
@@ -20891,6 +22523,10 @@ func (g *GIADataEssenceSubDescriptorStruct) Encode(primer *Primer) ([]byte, erro
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GMRXessencedescriptorUL = "urn:smpte:ul:060e2b34.027f0101.0f111111.00000000"
+)
 
 var GMRXessencedescriptor = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010101.01011502.00000000": {UL: "InstanceID", Length: 16, Decode: DecodeTUUID},
@@ -20946,6 +22582,10 @@ func (g *GMRXessencedescriptorStruct) Encode(primer *Primer) ([]byte, error) {
 	result = append(header, result...)
 	return result, nil
 }
+
+const (
+	GISXDUL = "urn:smpte:ul:060e2b34.02530105.0e090502.00000000"
+)
 
 var GISXD = map[string]Group{
 	"urn:smpte:ul:060e2b34.01010103.04030302.00000000": {UL: "DataEssenceCoding", Length: 16, Decode: DecodeTAUID},
