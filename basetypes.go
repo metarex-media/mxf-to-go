@@ -1,7 +1,7 @@
 // Copyright ©2019-2024  Mr MXF   info@mrmxf.com
 // BSD-3-Clause License  https://opensource.org/license/bsd-3-clause/
 //
-// Package mxf2go was made using the smpte registers (https://registry.smpte-ra.org) on 2024-08-09 14:47:09.754847092 +0100 BST m=+0.315049359
+// Package mxf2go was made using the smpte registers (https://registry.smpte-ra.org) on 2024-08-16 10:44:52.152445388 +0100 BST m=+1.061173749
 // if this seems out of date you will want to regenerated from the smpte library, to ensure compatibility
 package mxf2go
 
